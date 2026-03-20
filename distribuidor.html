@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="RocketCake">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="distribuidor_html.css?h=65bc9270">
+</head>
+<body>
+<div class="textstyle1">
+<div id="html_1994e0d2"><style>
+  /* ===== DISTRIBUIDOR | LOGIN + PANEL INTERNO PREMIUM ===== */
+
+  header,
+  footer,
+  .rp-top-ticker,
+  #html_rpm_header_global{
+    display:none !important;
+  }
+
+  html, body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    background:#020826;
+  }
+
+  #rpDistribuidorPortal{
+    min-height:100vh;
+    width:100%;
+    color:#ffffff;
+    box-sizing:border-box;
+    font-family:inherit;
+  }
+
+  #rpDistribuidorPortal *{
+    box-sizing:border-box;
+  }
+
+  /* ===== LOGIN ===== */
+  #rpDistribuidorLogin{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:
+      linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
+      url("rc_images/rp-distribuidor-login-bg.png") center center / cover no-repeat;
+  }
+
+  #rpDistribuidorLogin .rp-login-shell{
+    width:100%;
+    max-width:460px;
+    padding:30px 28px 28px;
+    border-radius:22px;
+    background:rgba(7,12,33,.74);
+    border:1px solid rgba(212,175,55,.22);
+    box-shadow:0 28px 80px rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+    text-align:center;
+  }
+
+  #rpDistribuidorLogin .rp-login-badge{
+    display:inline-block;
+    margin:0 0 14px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.14);
+    border:1px solid rgba(212,175,55,.28);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+  }
+
+  #rpDistribuidorLogin h1{
+    margin:0 0 10px;
+    font-size:34px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpDistribuidorLogin p{
+    margin:0 0 18px;
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.88);
+  }
+
+  #rpDistribuidorLogin .rp-field{
+    width:100%;
+    margin:0 0 12px;
+  }
+
+  #rpDistribuidorLogin .rp-password{
+    width:100%;
+    padding:15px 16px;
+    border-radius:14px;
+    border:1px solid rgba(212,175,55,.30);
+    background:rgba(255,255,255,.07);
+    color:#ffffff;
+    outline:none;
+    font-size:15px;
+  }
+
+  #rpDistribuidorLogin .rp-password::placeholder{
+    color:rgba(255,255,255,.58);
+  }
+
+  #rpDistribuidorLogin .rp-password:focus{
+    border-color:rgba(212,175,55,.62);
+    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+  }
+
+  #rpDistribuidorLogin .rp-btn{
+    display:block;
+    width:100%;
+    text-decoration:none;
+    padding:15px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, opacity .25s ease;
+    cursor:pointer;
+    border:none;
+  }
+
+  #rpDistribuidorLogin .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpDistribuidorLogin .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+  }
+
+  #rpDistribuidorLogin .rp-btn-primary:hover{
+    box-shadow:0 14px 28px rgba(212,175,55,.20);
+  }
+
+  #rpDistribuidorLogin .rp-login-error{
+    display:none;
+    margin:12px 0 0;
+    color:#ffb3b3;
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  /* ===== PANEL ===== */
+  #rpDistribuidorPanel{
+    display:none;
+    min-height:100vh;
+    padding:34px 18px 44px;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  #rpDistribuidorPanel .rp-breadcrumbs{
+    margin:0 0 18px;
+    font-size:14px;
+    line-height:1.5;
+    color:#d4af37;
+    font-weight:500;
+  }
+
+  #rpDistribuidorPanel .rp-breadcrumbs a{
+    color:#d4af37;
+    text-decoration:none;
+  }
+
+  #rpDistribuidorPanel .rp-breadcrumb-sep{
+    margin:0 10px;
+    color:rgba(212,175,55,.72);
+  }
+
+  #rpDistribuidorPanel .rp-breadcrumb-current{
+    color:#ffffff;
+    font-weight:700;
+  }
+
+  #rpDistribuidorPanel .rp-hero{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  #rpDistribuidorPanel .rp-box,
+  #rpDistribuidorPanel .rp-section{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpDistribuidorPanel .rp-media{
+    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+    padding:18px;
+  }
+
+  #rpDistribuidorPanel .rp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    border-radius:12px;
+  }
+
+  #rpDistribuidorPanel .rp-copy{
+    padding:26px 24px;
+  }
+
+  #rpDistribuidorPanel .rp-badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.32);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  #rpDistribuidorPanel h1{
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpDistribuidorPanel .rp-subtitle{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpDistribuidorPanel .rp-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 18px;
+  }
+
+  #rpDistribuidorPanel .rp-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    color:#fff;
+    font-size:14px;
+  }
+
+  #rpDistribuidorPanel .rp-price-note{
+    margin:0 0 22px;
+    color:rgba(255,255,255,.82);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  #rpDistribuidorPanel .rp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+
+  #rpDistribuidorPanel .rp-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    border:none;
+    cursor:pointer;
+    text-align:center;
+  }
+
+  #rpDistribuidorPanel .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpDistribuidorPanel .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+    box-shadow:0 10px 22px rgba(212,175,55,.10);
+  }
+
+  #rpDistribuidorPanel .rp-btn-primary:hover{
+    box-shadow:0 14px 28px rgba(212,175,55,.22);
+  }
+
+  #rpDistribuidorPanel .rp-btn-outline{
+    border:1px solid rgba(212,175,55,.42);
+    color:#ffffff;
+    background:linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.04) 100%);
+    box-shadow:0 10px 22px rgba(0,0,0,.18);
+  }
+
+  #rpDistribuidorPanel .rp-btn-outline:hover{
+    background:linear-gradient(180deg, rgba(212,175,55,.20) 0%, rgba(212,175,55,.10) 100%);
+    box-shadow:0 14px 28px rgba(212,175,55,.16);
+  }
+
+  #rpDistribuidorPanel .rp-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:30px;
+    align-items:start;
+  }
+
+  #rpDistribuidorPanel .rp-section{
+    padding:22px 22px 20px;
+  }
+
+  #rpDistribuidorPanel .rp-grid-2 > .rp-section{
+    margin-top:0 !important;
+  }
+
+  #rpDistribuidorPanel .rp-grid-2 + .rp-section{
+    margin-top:34px;
+  }
+
+  #rpDistribuidorPanel .rp-section h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpDistribuidorPanel .rp-section p{
+    margin:0 0 10px;
+    color:rgba(255,255,255,.9);
+    line-height:1.7;
+  }
+
+  #rpDistribuidorPanel .rp-list{
+    margin:0;
+    padding-left:18px;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpDistribuidorPanel .rp-list li{
+    margin:0 0 10px;
+    line-height:1.6;
+  }
+
+  #rpDistribuidorPanel .rp-features-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:12px;
+  }
+
+  #rpDistribuidorPanel .rp-feature{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:100%;
+  }
+
+  #rpDistribuidorPanel .rp-feature h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:#fff;
+  }
+
+  #rpDistribuidorPanel .rp-feature p{
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:1.6;
+  }
+
+  #rpDistribuidorPanel .rp-feature .rp-actions{
+    margin-top:16px;
+  }
+
+  #rpDistribuidorPanel .rp-feature .rp-btn{
+    min-width:190px;
+  }
+
+  #rpDistribuidorPanel .rp-final-cta{
+    margin-top:30px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+    border:1px solid rgba(212,175,55,.18);
+    text-align:center;
+  }
+
+  #rpDistribuidorPanel .rp-final-cta h3{
+    margin:0 0 8px;
+    font-size:28px;
+    color:#fff;
+  }
+
+  #rpDistribuidorPanel .rp-final-cta p{
+    margin:0 0 16px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+  }
+
+  @media (max-width:980px){
+    #rpDistribuidorPanel .rp-hero,
+    #rpDistribuidorPanel .rp-grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:800px){
+    #rpDistribuidorPanel .rp-features-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    #rpDistribuidorLogin .rp-login-shell{
+      padding:22px 18px 20px;
+    }
+
+    #rpDistribuidorLogin h1{
+      font-size:27px;
+    }
+
+    #rpDistribuidorPanel{
+      padding:24px 14px 34px;
+    }
+
+    #rpDistribuidorPanel h1{
+      font-size:30px;
+    }
+
+    #rpDistribuidorPanel .rp-breadcrumbs{
+      font-size:13px;
+      margin-bottom:16px;
+    }
+
+    #rpDistribuidorPanel .rp-copy,
+    #rpDistribuidorPanel .rp-section{
+      padding:18px;
+    }
+
+    #rpDistribuidorPanel .rp-feature .rp-btn{
+      min-width:100%;
+    }
+  }
+</style>
+
+<section id="rpDistribuidorPortal">
+
+  <!-- ===== LOGIN ===== -->
+  <div id="rpDistribuidorLogin">
+    <div class="rp-login-shell">
+      <span class="rp-login-badge">Acceso privado</span>
+      <h1>Portal Distribuidor</h1>
+      <p>Acceso privado a herramientas y recursos internos de trabajo.</p>
+
+      <div class="rp-field">
+        <input
+          id="rpDistribuidorPassword"
+          class="rp-password"
+          type="password"
+          placeholder="Ingresa tu contraseña"
+          autocomplete="current-password">
+      </div>
+
+      <button id="rpDistribuidorEnter" class="rp-btn rp-btn-primary" type="button">
+        Entrar
+      </button>
+
+      <div id="rpDistribuidorError" class="rp-login-error">
+        Contraseña incorrecta. Inténtalo nuevamente.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PANEL INTERNO ===== -->
+  <div id="rpDistribuidorPanel">
+
+    <div class="rp-breadcrumbs">
+      <a href="index.html">Inicio</a>
+      <span class="rp-breadcrumb-sep">/</span>
+      <span class="rp-breadcrumb-current">Distribuidor</span>
+    </div>
+
+    <div class="rp-hero">
+      <div class="rp-box rp-media">
+        <img src="rc_images/rp-distribuidor-login-bg.png" alt="Portal distribuidor RP Miracle">
+      </div>
+
+      <div class="rp-box rp-copy">
+        <span class="rp-badge">Centro interno de trabajo</span>
+        <h1>Distribuidor RP Miracle</h1>
+        <p class="rp-subtitle">
+          Desde este panel interno puedes abrir tus documentos clave, consultar recursos operativos y acceder rápidamente a la herramienta de lista de precios.
+        </p>
+
+        <div class="rp-meta">
+          <span class="rp-chip">Acceso: <strong>Privado</strong></span>
+          <span class="rp-chip">Uso: <strong>Operación diaria</strong></span>
+          <span class="rp-chip">Estructura: <strong>Panel interno</strong></span>
+        </div>
+
+        <p class="rp-price-note">
+          Este espacio está diseñado para tu trabajo diario como distribuidor, manteniendo separado el sitio público de tus herramientas internas.
+        </p>
+
+        <div class="rp-actions">
+          <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Abrir lista de precios</a>
+          <button id="rpDistribuidorLogoutTop" class="rp-btn rp-btn-outline" type="button">Cerrar portal</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rp-grid-2">
+      <div class="rp-section">
+        <h2>Recursos comerciales</h2>
+        <ul class="rp-list">
+          <li>Biblioteca RP Miracle</li>
+          <li>Productos</li>
+          <li>Literatura</li>
+          <li>Material de la oportunidad</li>
+          <li>Plan de negocios</li>
+        </ul>
+        <p>
+          Aquí concentras material de apoyo comercial, consulta general, literatura y herramientas útiles para el trabajo diario.
+        </p>
+      </div>
+
+      <div class="rp-section">
+        <h2>Recursos de entrenamiento</h2>
+        <ul class="rp-list">
+          <li>Entrenamiento financiero</li>
+          <li>Material entrenamiento financiero</li>
+          <li>Área competitiva 2026</li>
+          <li>Manual comunicación digital</li>
+          <li>Lista de precios</li>
+        </ul>
+        <p>
+          Esta sección te permite abrir rápido materiales de formación, consulta estratégica y apoyo operativo desde un solo lugar.
+        </p>
+      </div>
+    </div>
+
+    <div class="rp-section">
+      <h2>Accesos rápidos</h2>
+
+      <div class="rp-features-grid">
+        <div class="rp-feature">
+          <div>
+            <h3>Lista de precios</h3>
+            <p>Abre la aplicación principal de precios con la estructura JSON de trabajo.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Abrir lista de precios</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Biblioteca RP Miracle</h3>
+            <p>Acceso al portal principal de biblioteca y recursos de consulta general.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/portals/2vmva5q2/BibliotecaRP#b6f78a91-0382-415d-95ff-e30faa07fe95" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Productos</h3>
+            <p>Consulta rápida del portal de productos dentro de la biblioteca disponible.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/portals/2vmva5q2/BibliotecaRP#b6f78a91-0382-415d-95ff-e30faa07fe95" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Literatura</h3>
+            <p>Acceso al portal de literatura y materiales de apoyo disponibles digitalmente.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/portals/owg0ugoe/L_v2#dfc3c8a6-361c-49ba-9880-fb727a52fa3f" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Material de la oportunidad</h3>
+            <p>Consulta materiales orientados a oportunidad, reclutamiento y crecimiento comercial.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/portals/owg0ugoe/L_v2#dfc3c8a6-361c-49ba-9880-fb727a52fa3f" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Entrenamiento financiero</h3>
+            <p>Abre el material general de entrenamiento financiero disponible para consulta.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/c/dqvqfjbc" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Material entrenamiento financiero</h3>
+            <p>Acceso al portal específico de apoyo para entrenamiento en servicios financieros.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://hycite.widencollective.com/portals/6mb1mayq/EntrenamientoServiciosFinancieros#86cdd525-de05-49e3-a66e-779106b2e327" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Plan de negocios</h3>
+            <p>Acceso directo al material digital del plan de negocios.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://online.flippingbook.com/view/825005411/" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Área competitiva 2026</h3>
+            <p>Consulta el recurso estratégico correspondiente al área competitiva 2026.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://online.flippingbook.com/view/893295032/" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Manual comunicación digital</h3>
+            <p>Acceso al manual digital de comunicación y lineamientos de apoyo.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="https://online.flippingbook.com/view/879003443/" target="_blank" rel="noopener">Abrir recurso</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Manual de ventas</h3>
+            <p>Documento PDF complementario de apoyo comercial y seguimiento interno.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="docs/manual-ventas-rp-miracle.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+
+        <div class="rp-feature">
+          <div>
+            <h3>Manual de servicios financieros</h3>
+            <p>Acceso al archivo PDF de apoyo financiero y operativo.</p>
+          </div>
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-outline" href="docs/manual-servicios-financieros-rp-miracle.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rp-final-cta">
+      <h3>Portal interno activo</h3>
+      <p>
+        Ya estás dentro del área privada. Desde aquí puedes abrir tus recursos, consultar tu app de precios y mantener ordenado tu flujo diario de trabajo.
+      </p>
+      <div class="rp-actions" style="justify-content:center;">
+        <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Ir a lista de precios</a>
+        <button id="rpDistribuidorLogoutBottom" class="rp-btn rp-btn-outline" type="button">Cerrar portal</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  (function(){
+    const RP_DISTRIBUIDOR_PASSWORD = "ACCESO123";
+
+    const loginWrap = document.getElementById("rpDistribuidorLogin");
+    const panelWrap = document.getElementById("rpDistribuidorPanel");
+    const passwordInput = document.getElementById("rpDistribuidorPassword");
+    const enterBtn = document.getElementById("rpDistribuidorEnter");
+    const errorBox = document.getElementById("rpDistribuidorError");
+    const logoutTop = document.getElementById("rpDistribuidorLogoutTop");
+    const logoutBottom = document.getElementById("rpDistribuidorLogoutBottom");
+
+    function showPanel(){
+      loginWrap.style.display = "none";
+      panelWrap.style.display = "block";
+      errorBox.style.display = "none";
+      window.scrollTo(0, 0);
+    }
+
+    function showLogin(){
+      panelWrap.style.display = "none";
+      loginWrap.style.display = "flex";
+      passwordInput.value = "";
+      errorBox.style.display = "none";
+      window.scrollTo(0, 0);
+      passwordInput.focus();
+    }
+
+    function validateAccess(){
+      const typed = passwordInput.value.trim();
+      if(typed === RP_DISTRIBUIDOR_PASSWORD){
+        showPanel();
+      } else {
+        errorBox.style.display = "block";
+        passwordInput.focus();
+        passwordInput.select();
+      }
+    }
+
+    enterBtn.addEventListener("click", validateAccess);
+
+    passwordInput.addEventListener("keydown", function(e){
+      if(e.key === "Enter"){
+        validateAccess();
+      }
+    });
+
+    if(logoutTop){
+      logoutTop.addEventListener("click", showLogin);
+    }
+
+    if(logoutBottom){
+      logoutBottom.addEventListener("click", showLogin);
+    }
+
+    showLogin();
+  })();
+</script></div>
+  </div>
+</body>
+</html>

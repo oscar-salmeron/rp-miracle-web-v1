@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="RocketCake">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="producto-base_html.css?h=5eda8e5f">
+</head>
+<body>
+<div class="textstyle1">
+<div id="html_366cb74c"><div id="siteHeader"></div></div>
+<div id="html_7901585d"><!-- ===== RP MIRACLE | INICIO | HEADER GLOBAL (PROTOCOLO 01) ===== -->
+<div id="html_rpm_header_global">
+
+  <!-- ===== INICIO HEADER MARKUP ===== -->
+  <header id="rpm-header">
+    <div class="rpm-header-inner">
+      <div class="rpm-brand">RP MIRACLE</div>
+
+      <button class="rpm-burger" type="button"
+              aria-label="Abrir menú"
+              aria-controls="rpmNav"
+              aria-expanded="false">☰</button>
+
+      <nav id="rpmNav" class="rpm-nav" aria-label="Navegación principal">
+        <a class="rpm-link" href="index.html">Inicio</a>
+
+        <div class="rpm-dropdown">
+          <a class="rpm-link rpm-link--drop" href="productos.html">Productos</a>
+
+          <div class="rpm-dropdown-menu">
+            <a href="products.html">Ver todos los productos</a>
+            <a href="linea-novel.html">Línea Novel</a>
+            <a href="linea-innove.html">Línea Innove</a>
+            <a href="linea-5capas.html">Línea 5 Capas</a>
+            <a href="linea-easy_release.html">Línea Easy Release</a>
+            <a href="electrodomesticos.html">Electrodomésticos</a>
+            <a href="cuchilleria.html">Cuchillería</a>
+            <a href="filtracion-agua.html">Filtración de Agua</a>
+            <a href="accesorios.html">Accesorios</a>
+          </div>
+        </div>
+
+        <a class="rpm-link" href="servicios.html">Servicios</a>
+        <a class="rpm-link" href="distribuidor.html">Distribuidor</a>
+        <a class="rpm-btn rpm-btn-gold" href="unete.html">ÚNETE</a>
+        <a class="rpm-btn" href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== FIN HEADER MARKUP ===== -->
+
+
+  <!-- ===== INICIO HEADER CSS ===== -->
+  <style>
+    /* ===== DIVISOR PREMIUM ENTRE SECCIONES ===== */
+    .rp-divider{
+      height: 1px;
+      width: 100%;
+      background: rgba(212,175,55,.35);
+      box-shadow: 0 0 10px rgba(212,175,55,.18);
+      margin: 0;
+    }
+
+    html, body{
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    *{ box-sizing: border-box; }
+
+    img, video{
+      max-width: 100%;
+      height: auto;
+    }
+
+    html, body{
+      margin:0;
+      padding:0;
+      background:#0b1020;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{ padding-top:92px; }
+
+    /* ===== HEADER ===== */
+    #rpm-header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 92px;
+      display: flex;
+      align-items: center;
+      z-index: 9999;
+      border-bottom: 2px solid #D4AF37;
+      box-sizing: border-box;
+      background: rgba(6, 9, 34, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    #rpm-header .rpm-header-inner{
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    #rpm-header .rpm-brand{
+      font-family: "Georgia", serif;
+      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: clamp(22px, 2.2vw, 34px);
+      color: #ffffff;
+    }
+
+    #rpm-header .rpm-nav{
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      justify-content: flex-end;
+    }
+
+    #rpm-header .rpm-link{
+      color:#ffffff;
+      text-decoration:none;
+      font-size:14px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      opacity:0.92;
+    }
+
+    #rpm-header .rpm-link:hover{ opacity:1; }
+
+    /* ===== DROPDOWN (DESKTOP) ===== */
+    #rpm-header .rpm-dropdown{
+      position: relative;
+      height: 92px;
+      display: flex;
+      align-items: center;
+    }
+
+    #rpm-header .rpm-dropdown-menu{
+      position: absolute;
+      top: calc(100% - 12px);
+      left: 0;
+      margin-top: 0;
+      min-width: 260px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(8,10,30,0.96);
+      border: 1px solid rgba(212,175,55,0.35);
+      box-shadow: 0 18px 45px rgba(0,0,0,.55);
+      display: none;
+    }
+
+    #rpm-header .rpm-dropdown:hover .rpm-dropdown-menu{ display: block; }
+
+    #rpm-header .rpm-dropdown-menu a{
+      display:block;
+      padding:10px 12px;
+      border-radius:10px;
+      color: rgba(255,255,255,0.92);
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    #rpm-header .rpm-dropdown-menu a:hover{
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ===== BOTONES ===== */
+    #rpm-header .rpm-btn{
+      padding:10px 18px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius:10px;
+      color:#ffffff;
+      text-decoration:none;
+      font-size:14px;
+      text-transform:uppercase;
+      background: rgba(8,10,30,0.35);
+    }
+
+    #rpm-header .rpm-btn-gold{
+      background: linear-gradient(135deg,#D4AF37,#E6C358);
+      color:#0b1020;
+      border:none;
+    }
+
+    /* ===== HAMBURGER (MÓVIL) ===== */
+    #rpm-header .rpm-burger{
+      display:none;
+      border:1px solid rgba(255,255,255,.65);
+      background: rgba(8,10,30,0.35);
+      color:#fff;
+      border-radius:10px;
+      padding:10px 14px;
+      font-size:18px;
+      line-height:1;
+    }
+
+    /* ===== RESPONSIVE NAV ===== */
+    @media (max-width: 980px){
+      #rpm-header .rpm-header-inner{
+        width: min(1200px, 96vw);
+        gap: 12px;
+      }
+
+      #rpm-header .rpm-burger{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+      }
+
+      #rpm-header .rpm-nav{
+        position: fixed;
+        top: 92px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 14px;
+        background: rgba(6, 9, 34, 0.98);
+        border-bottom: 2px solid rgba(212,175,55,.55);
+        z-index: 9998;
+      }
+
+      #rpm-header.rpm-open .rpm-nav{ display:flex; }
+
+      #rpm-header .rpm-link,
+      #rpm-header .rpm-btn{
+        width: 100%;
+        text-align: left;
+        padding: 12px 12px;
+        border-radius: 10px;
+      }
+
+      #rpm-header .rpm-dropdown{
+        height: auto;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      #rpm-header .rpm-dropdown-menu{
+        position: static;
+        display: none;
+        min-width: auto;
+        margin-top: 8px;
+      }
+
+      #rpm-header .rpm-dropdown.rpm-dd-open .rpm-dropdown-menu{ display: block; }
+    }
+  </style>
+  <!-- ===== FIN HEADER CSS ===== -->
+
+
+  <!-- ===== INICIO HEADER JS ===== -->
+  <script>
+    (function(){
+      const header = document.getElementById('rpm-header');
+      const burger = header ? header.querySelector('.rpm-burger') : null;
+      const nav = document.getElementById('rpmNav');
+      const dropdown = header ? header.querySelector('.rpm-dropdown') : null;
+      const dropLink = header ? header.querySelector('.rpm-link--drop') : null;
+
+      if(burger && nav){
+        burger.addEventListener('click', function(){
+          const open = header.classList.toggle('rpm-open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      if(dropdown && dropLink){
+        dropLink.addEventListener('click', function(e){
+          if(window.matchMedia('(max-width: 980px)').matches){
+            if(!dropdown.classList.contains('rpm-dd-open')){
+              e.preventDefault();
+              dropdown.classList.add('rpm-dd-open');
+            }
+          }
+        });
+      }
+    })();
+  </script>
+  <!-- ===== FIN HEADER JS ===== -->
+
+</div>
+<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== --></div>
+<div id="html_2a63c6c8"><style>
+  /* ===== PRODUCTO BASE RP MIRACLE ===== */
+  #rpProductBase{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:34px 18px 44px;
+    color:#ffffff;
+    box-sizing:border-box;
+  }
+
+  #rpProductBase *{ box-sizing:border-box; }
+
+  #rpProductBase .rp-pdp-hero{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  #rpProductBase .rp-pdp-media,
+  #rpProductBase .rp-pdp-panel,
+  #rpProductBase .rp-pdp-section,
+  #rpProductBase .rp-pdp-video{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpProductBase .rp-pdp-media{
+    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+    padding:18px;
+  }
+
+  #rpProductBase .rp-pdp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  #rpProductBase .rp-pdp-panel{
+    padding:26px 24px;
+  }
+
+  #rpProductBase .rp-badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.32);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  #rpProductBase h1{
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpProductBase .rp-subtitle{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductBase .rp-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 18px;
+  }
+
+  #rpProductBase .rp-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    color:#fff;
+    font-size:14px;
+  }
+
+  #rpProductBase .rp-price-note{
+    margin:0 0 22px;
+    color:rgba(255,255,255,.82);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  #rpProductBase .rp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+
+  #rpProductBase .rp-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+
+  #rpProductBase .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpProductBase .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+  }
+
+  #rpProductBase .rp-btn-primary:hover{
+    box-shadow:0 12px 24px rgba(212,175,55,.18);
+  }
+
+  #rpProductBase .rp-btn-outline{
+    border:1px solid rgba(212,175,55,.55);
+    color:#ffffff;
+    background:transparent;
+  }
+
+  #rpProductBase .rp-btn-outline:hover{
+    background:rgba(212,175,55,.08);
+  }
+
+  #rpProductBase .rp-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:26px;
+    align-items:start;
+  }
+
+  #rpProductBase .rp-grid-2 > .rp-pdp-section{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  #rpProductBase .rp-pdp-section{
+    padding:22px 22px 20px;
+  }
+
+  #rpProductBase .rp-pdp-section h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductBase .rp-pdp-section p{
+    margin:0 0 10px;
+    color:rgba(255,255,255,.9);
+    line-height:1.7;
+  }
+
+  #rpProductBase .rp-list{
+    margin:0;
+    padding-left:18px;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductBase .rp-list li{
+    margin:0 0 10px;
+    line-height:1.6;
+  }
+
+  #rpProductBase .rp-pdp-video{
+    margin-top:26px;
+    padding:22px;
+  }
+
+  #rpProductBase .rp-pdp-video h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductBase .rp-video-wrap{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    border-radius:16px;
+    overflow:hidden;
+    background:#000;
+  }
+
+  #rpProductBase .rp-video-wrap iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  #rpProductBase .rp-final-cta{
+    margin-top:26px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+    border:1px solid rgba(212,175,55,.18);
+    text-align:center;
+  }
+
+  #rpProductBase .rp-final-cta h3{
+    margin:0 0 8px;
+    font-size:28px;
+    color:#fff;
+  }
+
+  #rpProductBase .rp-final-cta p{
+    margin:0 0 16px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+  }
+
+  #rpProductBase .rp-features-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:12px;
+  }
+
+  #rpProductBase .rp-feature{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:14px;
+    padding:18px;
+  }
+
+  #rpProductBase .rp-feature h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:#fff;
+  }
+
+  #rpProductBase .rp-feature p{
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:1.6;
+  }
+
+  #rpProductBase .rp-specs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:12px;
+  }
+
+  #rpProductBase .rp-spec{
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:10px;
+    padding:12px 14px;
+  }
+
+  #rpProductBase .rp-spec-title{
+    color:rgba(255,255,255,.7);
+    font-weight:600;
+  }
+
+  #rpProductBase .rp-spec-value{
+    color:#fff;
+  }
+
+  #rpProductBase .rp-pdp-section{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  #rpProductBase .rp-pdp-section h2{
+    margin-top:0;
+  }
+
+  #rpProductBase .rp-grid-2 + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  #rpProductBase .rp-pdp-section + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  @media (max-width:980px){
+    #rpProductBase .rp-pdp-hero{
+      grid-template-columns:1fr;
+    }
+    #rpProductBase .rp-grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:800px){
+    #rpProductBase .rp-features-grid{
+      grid-template-columns:1fr;
+    }
+    #rpProductBase .rp-specs{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    #rpProductBase{
+      padding:24px 14px 34px;
+    }
+    #rpProductBase h1{
+      font-size:30px;
+    }
+    #rpProductBase .rp-pdp-panel,
+    #rpProductBase .rp-pdp-section,
+    #rpProductBase .rp-pdp-video{
+      padding:18px;
+    }
+  }
+</style>
+
+<section id="rpProductBase">
+
+  <div class="rp-pdp-hero">
+    <div class="rp-pdp-media">
+      <img src="rc_images/imagen_producto_base.png" alt="[NOMBRE DEL PRODUCTO]">
+    </div>
+
+    <div class="rp-pdp-panel">
+      <span class="rp-badge">[LÍNEA DEL PRODUCTO]</span>
+      <h1>[NOMBRE DEL PRODUCTO]</h1>
+      <p class="rp-subtitle">
+        [SUBTÍTULO BREVE DEL PRODUCTO]
+      </p>
+
+      <div class="rp-meta">
+        <span class="rp-chip">SKU: <strong>[SKU]</strong></span>
+        <span class="rp-chip">Disponibilidad: <strong>[DISPONIBILIDAD]</strong></span>
+        <span class="rp-chip">Categoría: <strong>[CATEGORÍA]</strong></span>
+      </div>
+
+      <p class="rp-price-note">
+        [DESCRIPCIÓN COMERCIAL CORTA DEL PRODUCTO]
+      </p>
+
+      <div class="rp-actions">
+        <a class="rp-btn rp-btn-primary" href="contacto.html">Solicitar información</a>
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Descripción general</h2>
+      <p>[PÁRRAFO 1 DE DESCRIPCIÓN GENERAL]</p>
+      <p>[PÁRRAFO 2 DE DESCRIPCIÓN GENERAL]</p>
+      <p>[PÁRRAFO 3 DE DESCRIPCIÓN GENERAL]</p>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Piezas incluidas</h2>
+      <ul class="rp-list">
+        <li>[PIEZA 1]</li>
+        <li>[PIEZA 2]</li>
+        <li>[PIEZA 3]</li>
+        <li>[PIEZA 4]</li>
+        <li>[PIEZA 5]</li>
+        <li>[PIEZA 6]</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Beneficios</h2>
+      <ul class="rp-list">
+        <li>[BENEFICIO 1]</li>
+        <li>[BENEFICIO 2]</li>
+        <li>[BENEFICIO 3]</li>
+        <li>[BENEFICIO 4]</li>
+        <li>[BENEFICIO 5]</li>
+      </ul>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Ideal para</h2>
+      <ul class="rp-list">
+        <li>[IDEAL PARA 1]</li>
+        <li>[IDEAL PARA 2]</li>
+        <li>[IDEAL PARA 3]</li>
+        <li>[IDEAL PARA 4]</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Características del sistema</h2>
+
+    <div class="rp-features-grid">
+      <div class="rp-feature">
+        <h3>[CARACTERÍSTICA 1]</h3>
+        <p>[DESCRIPCIÓN DE LA CARACTERÍSTICA 1]</p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>[CARACTERÍSTICA 2]</h3>
+        <p>[DESCRIPCIÓN DE LA CARACTERÍSTICA 2]</p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>[CARACTERÍSTICA 3]</h3>
+        <p>[DESCRIPCIÓN DE LA CARACTERÍSTICA 3]</p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>[CARACTERÍSTICA 4]</h3>
+        <p>[DESCRIPCIÓN DE LA CARACTERÍSTICA 4]</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Especificaciones del sistema</h2>
+
+    <div class="rp-specs">
+      <div class="rp-spec">
+        <span class="rp-spec-title">Línea</span>
+        <span class="rp-spec-value">[LÍNEA]</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Cantidad de piezas</span>
+        <span class="rp-spec-value">[CANTIDAD DE PIEZAS]</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Material</span>
+        <span class="rp-spec-value">[MATERIAL]</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Tipo de sistema</span>
+        <span class="rp-spec-value">[TIPO DE SISTEMA]</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Compatibilidad</span>
+        <span class="rp-spec-value">[COMPATIBILIDAD]</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Uso recomendado</span>
+        <span class="rp-spec-value">[USO RECOMENDADO]</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video de presentación</h2>
+    <div class="rp-video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="[VIDEO DEL PRODUCTO]"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <div class="rp-final-cta">
+    <h3>¿Quieres conocer este producto más a fondo?</h3>
+    <p>
+      [TEXTO FINAL DE LLAMADO A LA ACCIÓN]
+    </p>
+    <div class="rp-actions" style="justify-content:center;">
+      <a class="rp-btn rp-btn-primary" href="contacto.html">Ir a contacto</a>
+      <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+    </div>
+  </div>
+
+</section></div>
+<div id="html_7bfc192b"><div id="siteFooter"></div></div>
+<div id="jscript_4466483b"><script type="text/javascript">fetch("header.html")
+  .then(r => r.text())
+  .then(t => document.getElementById("siteHeader").innerHTML = t);
+
+fetch("footer.html")
+  .then(r => r.text())
+  .then(t => document.getElementById("siteFooter").innerHTML = t);</script></div>
+<div id="html_5263dfac"><!-- ===== RP MIRACLE | INICIO | FOOTER PLACEHOLDER (PROTOCOLO 01) ===== -->
+<div id="siteFooter"></div>
+<script src="load-layout.js"></script>
+<!-- ===== RP MIRACLE | FIN | FOOTER PLACEHOLDER (PROTOCOLO 01) ===== -->
+</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!-- ===== RP MIRACLE | INICIO | FOOTER GLOBAL (PROTOCOLO 01) ===== -->
+
+<!-- ===== INICIO FOOTER CSS ===== -->
+<style>
+/* ===== RP MIRACLE FOOTER — AJUSTE VISUAL EQUILIBRADO ===== */
+
+.rp-footer{
+  width:100%;
+  margin:0;
+  margin-bottom:0;
+  padding:70px 20px 30px 20px;
+
+  background:#0b1020;
+  box-shadow: 0 -18px 40px rgba(0,0,0,.60);
+  border-top:1px solid rgba(212,175,55,.60);
+  background-image: linear-gradient(to bottom, rgba(212,175,55,.14), rgba(0,0,0,0));
+  background-repeat: no-repeat;
+  background-size: 100% 22px;
+  background-position: top;
+
+  color:#f1f5f9;
+  font-family:Arial, sans-serif;
+
+  /* FIX: evita scroll horizontal en móvil */
+  overflow-x: hidden;
+}
+
+/* ===== CONTENEDOR 3 COLUMNAS ===== */
+.rp-footer-container{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 55px 90px 35px 90px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* columnas proporcionales */
+.rp-footer-container > div{
+  flex: 0 0 auto;
+}
+
+/* COLUMNA 1 — sello */
+.rp-footer-container > div:first-child{
+  width: 420px;
+  margin-left: 20px;
+}
+
+/* COLUMNA 2 — enlaces */
+.rp-footer-container > div:nth-child(2){
+  width: 260px;
+  margin-left: 40px;
+}
+
+/* COLUMNA 3 — contacto */
+.rp-footer-container > div:nth-child(3){
+  width: 300px;
+}
+
+/* Logo */
+.rp-footer-logo{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.rp-footer-logo img{
+  width: 58px;
+  height: 58px;
+}
+
+/* Títulos */
+.rp-footer h4{
+  margin: 0 0 14px 0;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.rp-footer a{
+  text-decoration: none;
+}
+
+.rp-footer a:hover{
+  text-decoration: underline;
+}
+
+/* Línea dorada superior */
+.rp-footer-divider{
+  height: 1px;
+  width: 100%;
+  margin: 18px 0 10px 0;
+  background: rgba(212,175,55,0.40);
+}
+
+/* Parte baja */
+.rp-footer-bottom-wrapper{
+  text-align: center;
+}
+
+.rp-footer-bottom{
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 12px 0 10px 0;
+}
+
+/* Línea legal (FIX: sin 100vw ni translate que causan overflow) */
+.rp-legal-divider{
+  height: 1px;
+  width: 100%;
+  background: rgba(212,175,55,0.45);
+  margin: 18px 0 16px 0;
+}
+
+/* Texto legal (FIX: que rompa palabras y no se salga) */
+.rpm-legal{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 12px;              /* FIX: margen interno en móvil */
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.7;
+
+  overflow-wrap: anywhere;      /* FIX */
+  word-break: break-word;       /* FIX */
+}
+
+/* También protege links/párrafos del footer */
+.rp-footer p,
+.rp-footer a{
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .rp-footer-container{
+    flex-direction: column;
+    gap: 30px;
+    padding: 45px 25px 25px 25px;
+  }
+
+  .rp-footer-container > div{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* ===== COLORES FORZADOS FOOTER ===== */
+
+.rp-footer h4{
+  color:#c8a44d !important;
+}
+
+.rp-footer p{
+  color:#cbd5e1 !important;
+}
+
+.rp-footer a{
+  color:#cbd5e1 !important;
+  text-decoration:none;
+}
+
+.rp-footer a:hover{
+  color:#ffffff !important;
+}
+
+/* ===== EFECTO HOVER SELLO ===== */
+
+.rp-footer-logo img{
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.rp-footer-logo img:hover{
+  transform: translateY(-6px) scale(1.05);
+  filter: drop-shadow(0 10px 18px rgba(212,175,55,.35));
+}
+
+/* FIX DEFINITIVO: evita overflow horizontal en móvil */
+html, body{
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Asegura que el footer nunca pueda "salirse" */
+.rp-footer, .rp-footer *{
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fuerza corte de texto y evita líneas largas */
+.rp-footer p,
+.rp-footer a,
+.rp-footer div{
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+/* FIX común: si algún elemento usa 100vw, lo neutraliza dentro del footer */
+.rp-footer .rp-legal-divider{
+  width: 100% !important;
+  left: auto !important;
+  transform: none !important;
+}
+</style>
+<!-- ===== FIN FOOTER CSS ===== -->
+
+
+<!-- ===== INICIO FOOTER MARKUP ===== -->
+<footer class="rp-footer">
+
+  <div class="rp-footer-container">
+
+    <!-- ===== COLUMNA 1 | SELLO + DESCRIPCIÓN ===== -->
+    <div>
+      <div class="rp-footer-logo">
+        <img src="rc_images/rp_sello.png" alt="RP Miracle Sello">
+        <h3>RP MIRACLE</h3>
+      </div>
+      <p>
+        Distribuidores autorizados de Royal Prestige.<br>
+        Comprometidos con calidad, asesoría personalizada y relaciones a largo plazo.
+      </p>
+    </div>
+
+    <!-- ===== COLUMNA 2 | ENLACES ===== -->
+    <div>
+      <h4>ENLACES</h4>
+      <p><a href="index.html">Inicio</a></p>
+      <a href="productos.html">Productos</a></p>
+      <p><a href="servicios.html">Servicios</a></p>
+      <p><a href="distribuidor.html">Distribuidor</a></p>
+      <p><a href="contacto.html">Contacto</a></p>
+      <p><a href="aviso-legal.html">Aviso Legal</a></p>
+    </div>
+
+    <!-- ===== COLUMNA 3 | CONTACTO ===== -->
+    <div>
+      <h4>CONTACTO</h4>
+      <p>Email: <a href="mailto:info@rpmiracle.com">info@rpmiracle.com</a></p>
+      <p>Teléfono: <a href="tel:+18188140397">(818) 814-0397</a></p>
+      <p>Atención personalizada con cita previa</p>
+    </div>
+
+  </div>
+
+  <!-- ===== BLOQUE INFERIOR | COPYRIGHT + LEGAL ===== -->
+  <div class="rp-footer-bottom-wrapper">
+    <div class="rp-footer-bottom">
+      © 2026 RP Miracle. Todos los derechos reservados.<br>
+      Diseño &amp; Desarrollo por <strong>Olgwal Studio Vision</strong><br>
+      Web Development • Digital Strategy
+    </div>
+
+    <div class="rp-legal-divider"></div>
+
+    <div class="rpm-legal">
+      Distribuidor Autorizado Independiente de Royal Prestige®.
+      Este no es un sitio oficial de Royal Prestige® ni de Hy Cite Enterprises, LLC.
+      Royal Prestige® es una marca registrada utilizada bajo autorización.
+    </div>
+  </div>
+
+</footer>
+<!-- ===== FIN FOOTER MARKUP ===== -->
+
+<!-- ===== RP MIRACLE | FIN | FOOTER GLOBAL (PROTOCOLO 01) ===== -->

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="RocketCake">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="productos_html.css?h=263f3033">
+</head>
+<body>
+<div class="textstyle1">
+<div id="html_696dd514"><div id="siteHeader"></div></div>
+<div id="html_3dae042d"><div id="html_67c5a5c8"><section id="rpm-hero" aria-label="Hero Productos RP Miracle">
+  <style>
+    /* ===== HERO (auto-contenido y estable) ===== */
+    #rpm-hero{
+      position:relative;
+      min-height: 80vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      padding: 40px 18px 0px 18px; /* <-- ESTA es la "altura" que ajustas (72, 60, 40, 20...) */
+      background:
+        radial-gradient(circle at 85% 20%, rgba(140,90,255,.15), transparent 40%),
+        linear-gradient(100deg,#0a0f1f 0%, #0f1730 55%, #141b2e 100%);
+    }
+
+    #rpm-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("rc_images/hero_fondo.png") center/cover no-repeat;
+      opacity:.22;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    #rpm-hero .hero-inner{
+      max-width:1200px;
+      margin:0 auto;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 40px;
+      position:relative;
+      z-index:1;
+    }
+
+    #rpm-hero .rpm-hero-left{ max-width: 640px; }
+    #rpm-hero h1{
+      margin:0 0 16px 0;
+      color:#f2f2f2;
+      font-size:72px;
+      line-height:1.02;
+      letter-spacing:.5px;
+      text-shadow:0 10px 30px rgba(0,0,0,.55);
+    }
+    #rpm-hero p{
+      margin:0 0 22px 0;
+      color:#cfcfcf;
+      font-size:18px;
+      line-height:1.5;
+      max-width: 560px;
+    }
+
+    #rpm-hero .rpm-hero-btn{
+      display:inline-block;
+      padding:16px 34px;
+      border-radius:40px;
+      background:linear-gradient(135deg,#6f7f3a,#8fa24a);
+      color:#ffffff;
+      font-weight:700;
+      text-decoration:none;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    #rpm-hero .rpm-hero-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,.45);
+    }
+
+    #rpm-hero .rpm-hero-right{
+      flex:0 0 420px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:flex-end;
+      filter: drop-shadow(0 28px 55px rgba(0,0,0,.65)); 
+    }
+    #rpm-hero .rpm-hero-right img{
+      width: 420px;
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
+    }
+
+    @media (max-width:1100px){
+      #rpm-hero{ min-height:auto; padding: 56px 18px 34px 18px; }
+      #rpm-hero .hero-inner{ flex-direction:column; text-align:left; align-items:flex-start; }
+      #rpm-hero .rpm-hero-right{ width:100%; justify-content:center; }
+      #rpm-hero .rpm-hero-right img{ width: 360px; }
+      #rpm-hero h1{ font-size:56px; }
+    }
+    @media (max-width:640px){
+      #rpm-hero h1{ font-size:42px; }
+      #rpm-hero p{ font-size:16px; }
+      #rpm-hero .rpm-hero-right img{ width: 300px; }
+    }
+  </style>
+
+  <div class="hero-inner">
+    <div class="rpm-hero-left">
+      <h1>Productos RP MIRACLE</h1>
+      <p>Explora nuestras líneas y categorías. Te guiamos para elegir la mejor opción según tu necesidad y presupuesto.</p>
+      <a class="rpm-hero-btn" href="products.html#categorias">Ver categorías</a>
+    </div>
+
+    <div class="rpm-hero-right">
+      <img src="rc_images/hero_productos.png" alt="Productos RP Miracle">
+    </div>
+  </div>
+</section></div></div>
+<div id="html_325f9d76"><div class="rpm-divider-gold" aria-hidden="true"></div>
+
+<style>
+  .rpm-divider-gold{
+    width: 100vw;
+    height: 2px;
+    margin: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* línea dorada visible, con degradado suave como las otras */
+    background: rgba(212,175,55,0.85);
+
+    box-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  }
+</style></div>
+<div id="html_30ba40bc"><div id="html_products_filters">
+<section id="categorias" aria-label="Categorías de productos RP Miracle">
+ <style>
+    /* ===== PRODUCTS: Categorías (RESET limpio + imágenes consistentes) ===== */
+    #categorias{
+      --rp-placeholder:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0%25' stop-color='%23f7f7f7'/><stop offset='100%25' stop-color='%23e7e7e7'/></linearGradient></defs><rect width='1600' height='900' fill='url(%23g)'/></svg>");
+      position:relative;
+      padding:55px 18px 65px 18px;
+      background:linear-gradient(
+        180deg,
+        rgba(10,22,51,.18) 0%,
+        rgba(10,22,51,.28) 100%
+      );
+    }
+
+    #categorias .wrap{
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    #categorias .head{
+      text-align:center;
+      margin:0 0 22px 0;
+    }
+
+    #categorias .head h2{
+      margin:0 0 8px 0;
+      color:#f2f2f2;
+      font-size:46px;
+      line-height:1.1;
+      letter-spacing:.4px;
+      text-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+
+    #categorias .head p{
+      margin:0;
+      color:#cfcfcf;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    #categorias .filters{
+      margin:22px auto 0 auto;
+      max-width:980px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    #categorias .search{
+      width:min(520px, 100%);
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#f2f2f2;
+      outline:none;
+    }
+
+    #categorias .search::placeholder{
+      color:rgba(255,255,255,.65);
+    }
+
+    #categorias .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      color:#f2f2f2;
+      cursor:pointer;
+      user-select:none;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    #categorias .chip:hover{
+      transform:translateY(-1px);
+    }
+
+    #categorias .chip.active{
+      border-color:rgba(255,255,255,.45);
+      background:rgba(255,255,255,.10);
+    }
+
+    #categorias .grid{
+      margin-top:28px;
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      align-items:stretch;
+    }
+
+    #categorias .card{
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      overflow:hidden;
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.06) 0%,
+        rgba(255,255,255,.03) 100%
+      );
+      box-shadow:0 10px 28px rgba(0,0,0,.25);
+      transition:
+        opacity .6s ease,
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+      position:relative;
+      opacity:0;
+      transform:translateY(24px);
+      display:flex;
+      flex-direction:column;
+      will-change:transform, opacity;
+      height:100%;
+    }
+
+    #categorias .card.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    #categorias .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        120deg,
+        rgba(212,175,55,0) 30%,
+        rgba(212,175,55,.18) 50%,
+        rgba(212,175,55,0) 70%
+      );
+      opacity:0;
+      transition:opacity .35s ease;
+      pointer-events:none;
+    }
+
+    #categorias .card.visible:hover::after{
+      opacity:1;
+    }
+
+    #categorias .card.visible:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 36px rgba(0,0,0,.30);
+      border-color:rgba(212,175,55,.35);
+    }
+
+    #categorias .card .img{
+      aspect-ratio:16 / 9;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.045);
+    }
+
+    #categorias .card .img img{
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 14px 22px rgba(0,0,0,.35));
+      transition:
+        transform .45s ease,
+        filter .45s ease;
+    }
+
+    #categorias .card.visible:hover .img img{
+      transform:scale(1.05);
+      filter:
+        drop-shadow(0 20px 30px rgba(0,0,0,.45))
+        brightness(1.04)
+        saturate(1.05);
+    }
+
+    #categorias .card .body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    #categorias .card h3{
+      margin:0 0 10px 0;
+      color:#f2f2f2;
+      font-size:20px;
+    }
+
+    #categorias .card ul{
+      margin:0;
+      padding-left:18px;
+      color:#cfcfcf;
+      line-height:1.55;
+      font-size:14px;
+      flex:1;
+    }
+
+    #categorias .actions{
+      margin-top:auto;
+      padding-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    #categorias .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.4px;
+      border:1px solid rgba(255,255,255,.18);
+      color:#ffffff;
+      background:rgba(255,255,255,.06);
+    }
+
+    #categorias .btn.primary{
+      background:linear-gradient(135deg,#6f7f3a,#8fa24a);
+      border-color:rgba(255,255,255,.15);
+    }
+
+    @media (max-width:980px){
+      #categorias .grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+      #categorias .head h2{
+        font-size:38px;
+      }
+    }
+
+    @media (max-width:640px){
+      #categorias .grid{
+        grid-template-columns:1fr;
+      }
+      #categorias .head h2{
+        font-size:32px;
+      }
+    }
+
+    @media (min-width:981px){
+      #categorias .grid{
+        grid-template-columns:repeat(6, minmax(0, 1fr));
+      }
+      #categorias .grid .card{
+        grid-column:span 2;
+      }
+    }
+</style>
+
+  <div class="wrap">
+    <div class="head">
+      <h2>Categorías</h2>
+      <p>Explora nuestras líneas y categorías principales.</p>
+    </div>
+
+    <div class="filters">
+      <input id="rpSearch" class="search" type="search" placeholder="Buscar (ej. novel, innove, cuchillería, agua, aire, accesorios, café)..." />
+      <button class="chip active" type="button" data-cat="all">Todos</button>
+      <button class="chip" type="button" data-cat="cocina">Cocina</button>
+      <button class="chip" type="button" data-cat="agua">Agua</button>
+      <button class="chip" type="button" data-cat="aire">Aire</button>
+      <button class="chip" type="button" data-cat="electricos">Eléctricos</button>
+      <button class="chip" type="button" data-cat="accesorios">Accesorios</button>
+    </div>
+
+    <div class="grid" id="rpGrid">
+
+      <!-- ================================= -->
+      <!-- TARJETA 1 INICIO -->
+      <!-- Línea Novel -->
+      <!-- ================================= -->
+      <article class="card" data-cat="cocina" data-name="Línea Novel">
+
+        <div class="img">
+          <img src="rc_images/cat_linea_novel.png" alt="Línea Novel Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Línea Novel</h3>
+
+          <ul>
+            <li>Sistema avanzado de cocina premium</li>
+            <li>Sets completos, ollas y piezas individuales</li>
+            <li>Versatilidad y rendimiento profesional</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="linea-novel.html">Ver línea</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 1 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 2 INICIO -->
+      <!-- Línea Innove -->
+      <!-- ================================= -->
+      <article class="card" data-cat="cocina" data-name="Línea Innove">
+
+        <div class="img">
+          <img src="rc_images/cat_linea_innove.png" alt="Línea Innove Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Línea Innove</h3>
+
+          <ul>
+            <li>Sistema de cocina moderno y elegante</li>
+            <li>Tecnología avanzada para cocina saludable</li>
+            <li>Diseño sofisticado y alto desempeño</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="linea-innove.html">Ver línea</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 2 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 3 INICIO -->
+      <!-- Línea 5 Capas -->
+      <!-- ================================= -->
+      <article class="card" data-cat="cocina" data-name="Línea 5 Capas">
+
+        <div class="img">
+          <img src="rc_images/cat_linea_5_capas.png" alt="Línea 5 Capas Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Línea 5 Capas</h3>
+
+          <ul>
+            <li>Tecnología multicapa para calor uniforme</li>
+            <li>Construcción robusta y duradera</li>
+            <li>Ideal para cocina de alto rendimiento</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="linea-5capas.html">Ver línea</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 3 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 4 INICIO -->
+      <!-- Easy Release -->
+      <!-- ================================= -->
+      <article class="card" data-cat="cocina" data-name="Easy Release">
+
+        <div class="img">
+          <img src="rc_images/cat_easy_release.png" alt="Línea Easy Release Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Línea Easy Release</h3>
+
+          <ul>
+            <li>Superficie diseñada para fácil liberación</li>
+            <li>Ideal para cocinar con menos grasa</li>
+            <li>Perfecta para uso diario en la cocina</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="linea_easy_release.html">Ver línea</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 4 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 5 INICIO -->
+      <!-- Electrodomésticos -->
+      <!-- ================================= -->
+      <article class="card" data-cat="electricos" data-name="Electrodomésticos">
+
+        <div class="img">
+          <img src="rc_images/cat_electrodomesticos.png" alt="Electrodomésticos Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Electrodomésticos</h3>
+
+          <ul>
+            <li>Equipos diseñados para cocina moderna</li>
+            <li>Soluciones prácticas y eficientes</li>
+            <li>Complemento ideal para tu sistema de cocina</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="electrodomesticos.html">Ver productos</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 5 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 6 INICIO -->
+      <!-- Cuchillería -->
+      <!-- ================================= -->
+      <article class="card" data-cat="accesorios" data-name="Cuchillería">
+
+        <div class="img">
+          <img src="rc_images/cat_cuchilleria.png" alt="Cuchillería Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Cuchillería</h3>
+
+          <ul>
+            <li>Cuchillos de alto rendimiento</li>
+            <li>Diseño ergonómico y precisión profesional</li>
+            <li>Herramientas esenciales para tu cocina</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="cuchillos-serie-precision-3.html">Ver productos</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 6 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 7 INICIO -->
+      <!-- Sistemas de Filtración -->
+      <!-- ================================= -->
+      <article class="card" data-cat="agua aire" data-name="Filtración de agua y aire">
+
+        <div class="img">
+          <img src="rc_images/cat_filtracion.png" alt="Sistemas de filtración de agua y aire">
+        </div>
+
+        <div class="body">
+
+          <h3>Sistemas de filtración de agua y aire</h3>
+
+          <ul>
+            <li>Soluciones avanzadas para el hogar</li>
+            <li>Mejora la calidad del agua y del aire</li>
+            <li>Bienestar y salud para toda la familia</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="sistemas-filtracion.html">Ver productos</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 7 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 8 INICIO -->
+      <!-- Café, té y chocolate -->
+      <!-- ================================= -->
+      <article class="card" data-cat="accesorios" data-name="Café, té y chocolate">
+
+        <div class="img">
+          <img src="rc_images/cat_cafe_te_chocolate.png" alt="Café, té y chocolate Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Café, té y chocolate</h3>
+
+          <ul>
+            <li>Bebidas especiales para disfrutar en casa</li>
+            <li>Opciones para acompañar tu experiencia premium</li>
+            <li>Ideal para compartir y consentir a tu familia</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="cafe-te-chocolate.html">Ver productos</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 8 FIN -->
+      <!-- ================================= -->
+
+      <!-- ================================= -->
+      <!-- TARJETA 9 INICIO -->
+      <!-- Accesorios -->
+      <!-- ================================= -->
+      <article class="card" data-cat="accesorios" data-name="Accesorios">
+
+        <div class="img">
+          <img src="rc_images/cat_accesorios.png" alt="Accesorios Royal Prestige">
+        </div>
+
+        <div class="body">
+
+          <h3>Accesorios</h3>
+
+          <ul>
+            <li>Complementos funcionales para tu sistema de cocina</li>
+            <li>Utensilios diseñados para mayor comodidad y eficiencia</li>
+            <li>Amplía las posibilidades de tu cocina Royal Prestige</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="accesorios.html">Ver productos</a>
+          </div>
+
+        </div>
+      </article>
+      <!-- ================================= -->
+      <!-- TARJETA 9 FIN -->
+      <!-- ================================= -->
+
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const search = document.getElementById('rpSearch');
+    const chips  = Array.from(document.querySelectorAll('#categorias .chip'));
+    const cards  = Array.from(document.querySelectorAll('#categorias .card'));
+    let active = 'all';
+
+    function apply(){
+      const q = (search.value || '').trim().toLowerCase();
+      cards.forEach(card => {
+        const catRaw = (card.getAttribute('data-cat') || '').toLowerCase().trim();
+        const catList = catRaw.split(/\s+/).filter(Boolean);
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const text = (card.innerText || '').toLowerCase();
+        const okCat = (active === 'all') || catList.includes(active);
+        const okTxt = !q || name.includes(q) || text.includes(q);
+        card.style.display = (okCat && okTxt) ? '' : 'none';
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chips.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        active = (btn.getAttribute('data-cat') || 'all').toLowerCase();
+        apply();
+      });
+    });
+
+    search.addEventListener('input', apply);
+    apply();
+  })();
+  </script>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+},{threshold:0.15});
+
+document.querySelectorAll("#categorias .card").forEach(card=>{
+observer.observe(card);
+});
+</script>
+
+</section>
+</div></div>
+<div id="html_597592f2"><!-- ===== RP MIRACLE | INICIO | FOOTER PLACEHOLDER (PROTOCOLO 01) ===== -->
+<div id="siteFooter"></div>
+<script src="load-layout.js"></script>
+<!-- ===== RP MIRACLE | FIN | FOOTER PLACEHOLDER (PROTOCOLO 01) ===== -->
+</div>
+  </div>
+</body>
+</html>
