@@ -19,7 +19,7 @@
       display:flex;
       align-items:center;
       overflow:hidden;
-      padding: 20px 18px 0px 18px; /* <-- ESTA es la "altura" que ajustas (72, 60, 40, 20...) */
+      padding: 20px 18px 0px 18px;
       background:
         radial-gradient(circle at 85% 20%, rgba(140,90,255,.15), transparent 40%),
         linear-gradient(100deg,#0a0f1f 0%, #0f1730 55%, #141b2e 100%);
@@ -48,6 +48,7 @@
     }
 
     #rpm-hero .rpm-hero-left{ max-width: 620px; }
+
     #rpm-hero h1{
       margin:0 0 16px 0;
       color:#f2f2f2;
@@ -56,6 +57,7 @@
       letter-spacing:.5px;
       text-shadow:0 10px 30px rgba(0,0,0,.55);
     }
+
     #rpm-hero p{
       margin:0 0 22px 0;
       color:#cfcfcf;
@@ -76,11 +78,28 @@
       text-transform:uppercase;
       border:1px solid rgba(255,255,255,.15);
       box-shadow:0 10px 25px rgba(0,0,0,.35);
-      transition:transform .2s ease, box-shadow .2s ease;
+      transition:background-color .2s ease, box-shadow .2s ease, opacity .2s ease, border-color .2s ease;
+      transform:none !important;
+      outline:none;
+      -webkit-tap-highlight-color:transparent;
+      tap-highlight-color:transparent;
+      appearance:none;
+      -webkit-appearance:none;
+      backface-visibility:hidden;
+      -webkit-backface-visibility:hidden;
     }
+
     #rpm-hero .rpm-hero-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 34px rgba(0,0,0,.45);
+      transform:none !important;
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      opacity:.96;
+    }
+
+    #rpm-hero .rpm-hero-btn:focus,
+    #rpm-hero .rpm-hero-btn:active{
+      transform:none !important;
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      outline:none;
     }
 
     #rpm-hero .rpm-hero-right{
@@ -89,6 +108,7 @@
       justify-content:flex-end;
       align-items:flex-end;
     }
+
     #rpm-hero .rpm-hero-right img{
       width: 420px;
       height:auto;
@@ -103,6 +123,7 @@
       #rpm-hero .rpm-hero-right img{ width: 360px; }
       #rpm-hero h1{ font-size:56px; }
     }
+
     @media (max-width:640px){
       #rpm-hero h1{ font-size:42px; }
       #rpm-hero p{ font-size:16px; }
