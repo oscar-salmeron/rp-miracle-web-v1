@@ -1,4 +1,4 @@
-/* ===== RESERVA INMEDIATA DE ESPACIO PARA EVITAR BRINCO ===== */
+/* ===== ESTABILIDAD INICIAL SIN FRANJA BLANCA ===== */
 (function () {
   const criticalLayoutStyle = document.createElement("style");
   criticalLayoutStyle.id = "rpm-critical-layout";
@@ -17,7 +17,8 @@
     }
 
     #siteHeader{
-      min-height:128px;
+      min-height:0;
+      height:0;
     }
 
     #siteFooter{
@@ -29,7 +30,8 @@
         padding-top:124px;
       }
       #siteHeader{
-        min-height:124px;
+        min-height:0;
+        height:0;
       }
     }
   `;
@@ -87,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         stabilizeInteractiveElements(headerContainer);
 
-        /* ===== ACTIVAR MENU MOVIL ===== */
         if (burger && nav && header) {
           burger.addEventListener("click", function (e) {
             e.preventDefault();
@@ -97,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
-        /* ===== DROPDOWN MOVIL ===== */
         if (dropdown && dropLink) {
           dropLink.addEventListener("click", function (e) {
             if (window.matchMedia("(max-width: 980px)").matches) {
@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
-        /* ===== CERRAR MENU MOVIL AL TOCAR ENLACES NORMALES ===== */
         if (header && nav) {
           const navLinks = nav.querySelectorAll("a:not(.rpm-link--drop)");
 
