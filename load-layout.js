@@ -1,19 +1,20 @@
-/* ===== ESTABILIDAD INICIAL SIN FRANJA BLANCA ===== */
+/* ===== CARGA ESTABLE DEL LAYOUT GLOBAL SIN BRINCO ===== */
 (function () {
   const criticalLayoutStyle = document.createElement("style");
   criticalLayoutStyle.id = "rpm-critical-layout";
   criticalLayoutStyle.textContent = `
-    html, body{
-      width:100%;
-      overflow-x:hidden;
-      margin:0;
-      padding:0;
+    html{
       background:#0b1020;
-      font-family:Arial, Helvetica, sans-serif;
     }
 
     body{
-      padding-top:128px;
+      width:100%;
+      overflow-x:hidden;
+      margin:0;
+      padding:128px 0 0 0;
+      background:#0b1020;
+      font-family:Arial, Helvetica, sans-serif;
+      visibility:hidden;
     }
 
     #siteHeader{
@@ -28,10 +29,6 @@
     @media (max-width:980px){
       body{
         padding-top:124px;
-      }
-      #siteHeader{
-        min-height:0;
-        height:0;
       }
     }
   `;
@@ -72,82 +69,83 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ===== CARGAR HEADER ===== */
   const headerContainer = document.getElementById("siteHeader");
-
-  if (headerContainer) {
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        headerContainer.innerHTML = data;
-
-        const header = document.getElementById("rpm-header");
-        const burger = header ? header.querySelector(".rpm-burger") : null;
-        const nav = document.getElementById("rpmNav");
-        const dropdown = header ? header.querySelector(".rpm-dropdown") : null;
-        const dropLink = header ? header.querySelector(".rpm-link--drop") : null;
-
-        stabilizeInteractiveElements(headerContainer);
-
-        if (burger && nav && header) {
-          burger.addEventListener("click", function (e) {
-            e.preventDefault();
-            const open = header.classList.toggle("rpm-open");
-            burger.setAttribute("aria-expanded", open ? "true" : "false");
-            burger.blur();
-          });
-        }
-
-        if (dropdown && dropLink) {
-          dropLink.addEventListener("click", function (e) {
-            if (window.matchMedia("(max-width: 980px)").matches) {
-              if (!dropdown.classList.contains("rpm-dd-open")) {
-                e.preventDefault();
-                dropdown.classList.add("rpm-dd-open");
-              } else {
-                dropdown.classList.remove("rpm-dd-open");
-                e.preventDefault();
-              }
-              dropLink.blur();
-            }
-          });
-        }
-
-        if (header && nav) {
-          const navLinks = nav.querySelectorAll("a:not(.rpm-link--drop)");
-
-          navLinks.forEach(function (link) {
-            link.addEventListener("click", function () {
-              if (window.matchMedia("(max-width: 980px)").matches) {
-                header.classList.remove("rpm-open");
-                if (burger) {
-                  burger.setAttribute("aria-expanded", "false");
-                  burger.blur();
-                }
-              }
-              this.blur();
-            });
-          });
-        }
-      })
-      .catch(error => {
-        console.error("ERROR cargando header:", error);
-      });
-  }
-
-  /* ===== CARGAR FOOTER ===== */
   const footerContainer = document.getElementById("siteFooter");
 
-  if (footerContainer) {
-    fetch("footer.html")
-      .then(response => response.text())
-      .then(data => {
-        footerContainer.innerHTML = data;
-        stabilizeInteractiveElements(footerContainer);
-      })
-      .catch(error => {
-        console.error("ERROR cargando footer:", error);
-      });
-  }
+  const loadHeader = headerContainer
+    ? fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          headerContainer.innerHTML = data;
+
+          const header = document.getElementById("rpm-header");
+          const burger = header ? header.querySelector(".rpm-burger") : null;
+          const nav = document.getElementById("rpmNav");
+          const dropdown = header ? header.querySelector(".rpm-dropdown") : null;
+          const dropLink = header ? header.querySelector(".rpm-link--drop") : null;
+
+          stabilizeInteractiveElements(headerContainer);
+
+          if (burger && nav && header) {
+            burger.addEventListener("click", function (e) {
+              e.preventDefault();
+              const open = header.classList.toggle("rpm-open");
+              burger.setAttribute("aria-expanded", open ? "true" : "false");
+              burger.blur();
+            });
+          }
+
+          if (dropdown && dropLink) {
+            dropLink.addEventListener("click", function (e) {
+              if (window.matchMedia("(max-width: 980px)").matches) {
+                if (!dropdown.classList.contains("rpm-dd-open")) {
+                  e.preventDefault();
+                  dropdown.classList.add("rpm-dd-open");
+                } else {
+                  dropdown.classList.remove("rpm-dd-open");
+                  e.preventDefault();
+                }
+                dropLink.blur();
+              }
+            });
+          }
+
+          if (header && nav) {
+            const navLinks = nav.querySelectorAll("a:not(.rpm-link--drop)");
+
+            navLinks.forEach(function (link) {
+              link.addEventListener("click", function () {
+                if (window.matchMedia("(max-width: 980px)").matches) {
+                  header.classList.remove("rpm-open");
+                  if (burger) {
+                    burger.setAttribute("aria-expanded", "false");
+                    burger.blur();
+                  }
+                }
+                this.blur();
+              });
+            });
+          }
+        })
+        .catch(error => {
+          console.error("ERROR cargando header:", error);
+        })
+    : Promise.resolve();
+
+  const loadFooter = footerContainer
+    ? fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+          footerContainer.innerHTML = data;
+          stabilizeInteractiveElements(footerContainer);
+        })
+        .catch(error => {
+          console.error("ERROR cargando footer:", error);
+        })
+    : Promise.resolve();
+
+  Promise.all([loadHeader, loadFooter]).finally(function () {
+    document.body.style.visibility = "visible";
+  });
 
 });
