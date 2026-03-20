@@ -1,3 +1,41 @@
+/* ===== RESERVA INMEDIATA DE ESPACIO PARA EVITAR BRINCO ===== */
+(function () {
+  const criticalLayoutStyle = document.createElement("style");
+  criticalLayoutStyle.id = "rpm-critical-layout";
+  criticalLayoutStyle.textContent = `
+    html, body{
+      width:100%;
+      overflow-x:hidden;
+      margin:0;
+      padding:0;
+      background:#0b1020;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      padding-top:128px;
+    }
+
+    #siteHeader{
+      min-height:128px;
+    }
+
+    #siteFooter{
+      min-height:1px;
+    }
+
+    @media (max-width:980px){
+      body{
+        padding-top:124px;
+      }
+      #siteHeader{
+        min-height:124px;
+      }
+    }
+  `;
+  document.head.appendChild(criticalLayoutStyle);
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
 
   function stabilizeInteractiveElements(scope) {
