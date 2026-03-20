@@ -165,10 +165,23 @@
       letter-spacing:1px;
       text-transform:uppercase;
       opacity:.92;
+      -webkit-tap-highlight-color:transparent;
+      tap-highlight-color:transparent;
+      outline:none;
+      box-shadow:none;
+      transform:none;
+      transition:background-color .18s ease, color .18s ease, opacity .18s ease, border-color .18s ease;
     }
 
     #rpm-header .rpm-link:hover{
       opacity:1;
+    }
+
+    #rpm-header .rpm-link:focus,
+    #rpm-header .rpm-link:active{
+      outline:none;
+      box-shadow:none;
+      transform:none;
     }
 
     #rpm-header .rpm-dropdown{
@@ -202,10 +215,23 @@
       color:rgba(255,255,255,0.92);
       text-decoration:none;
       font-size:14px;
+      -webkit-tap-highlight-color:transparent;
+      tap-highlight-color:transparent;
+      outline:none;
+      box-shadow:none;
+      transform:none;
+      transition:background-color .18s ease, color .18s ease, opacity .18s ease, border-color .18s ease;
     }
 
     #rpm-header .rpm-dropdown-menu a:hover{
       background:rgba(255,255,255,0.08);
+    }
+
+    #rpm-header .rpm-dropdown-menu a:focus,
+    #rpm-header .rpm-dropdown-menu a:active{
+      outline:none;
+      box-shadow:none;
+      transform:none;
     }
 
     #rpm-header .rpm-btn{
@@ -217,6 +243,19 @@
       font-size:14px;
       text-transform:uppercase;
       background:rgba(8,10,30,0.35);
+      -webkit-tap-highlight-color:transparent;
+      tap-highlight-color:transparent;
+      outline:none;
+      box-shadow:none;
+      transform:none;
+      transition:background-color .18s ease, color .18s ease, opacity .18s ease, border-color .18s ease;
+    }
+
+    #rpm-header .rpm-btn:focus,
+    #rpm-header .rpm-btn:active{
+      outline:none;
+      box-shadow:none;
+      transform:none;
     }
 
     #rpm-header .rpm-btn-gold{
@@ -235,6 +274,21 @@
       font-size:18px;
       line-height:1;
       cursor:pointer;
+      appearance:none;
+      -webkit-appearance:none;
+      -webkit-tap-highlight-color:transparent;
+      tap-highlight-color:transparent;
+      outline:none;
+      box-shadow:none;
+      transform:none;
+      transition:background-color .18s ease, color .18s ease, opacity .18s ease, border-color .18s ease;
+    }
+
+    #rpm-header .rpm-burger:focus,
+    #rpm-header .rpm-burger:active{
+      outline:none;
+      box-shadow:none;
+      transform:none;
     }
 
     @media (max-width:980px){
