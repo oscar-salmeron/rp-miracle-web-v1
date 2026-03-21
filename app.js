@@ -1,4 +1,7 @@
 (function () {
+
+  console.log('APP NUEVO FUNCIONANDO');
+
   const container = document.getElementById('spa-content');
 
   if (!container) {
@@ -27,6 +30,7 @@
 
   function normalizePath(path) {
     if (!path) return '/';
+
     let p = path.trim();
 
     if (p.endsWith('.html')) {
@@ -54,7 +58,9 @@
     }
 
     try {
-      const response = await fetch(file + '?v=' + Date.now(), { cache: 'no-store' });
+      // 🔥 FETCH SIN CACHE REAL
+      const response = await fetch(file + '?v=' + Date.now());
+
       if (!response.ok) {
         throw new Error('HTTP ' + response.status);
       }
@@ -64,7 +70,7 @@
       const temp = document.createElement('div');
       temp.innerHTML = html;
 
-      // ✅ TÍTULO CORRECTO (ANTES de renderizar)
+      // ✅ TÍTULO
       document.title = titles[cleanPath] || 'RP Miracle';
 
       // ✅ RENDER
@@ -72,6 +78,7 @@
 
       // ✅ REACTIVAR SCRIPTS
       const scripts = container.querySelectorAll('script');
+
       scripts.forEach((oldScript) => {
         const newScript = document.createElement('script');
 
@@ -80,6 +87,7 @@
         });
 
         newScript.textContent = oldScript.textContent;
+
         oldScript.parentNode.replaceChild(newScript, oldScript);
       });
 
@@ -96,9 +104,11 @@
 
   document.addEventListener('click', function (e) {
     const link = e.target.closest('a');
+
     if (!link) return;
 
     const href = link.getAttribute('href');
+
     if (!href) return;
 
     if (
@@ -110,7 +120,7 @@
       return;
     }
 
-    let route = normalizePath(href);
+    const route = normalizePath(href);
 
     if (!routes[route]) {
       return;
@@ -124,7 +134,7 @@
     loadRoute(window.location.pathname, false);
   });
 
-  // ✅ CARGA INICIAL
+  // 🔥 CARGA INICIAL
   loadRoute(window.location.pathname, false);
 
 })();
