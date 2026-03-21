@@ -24,7 +24,7 @@ function ensurePageStylesheet(href) {
     }
   }
 
-  document.addEventListener('click', function(e){
+ document.addEventListener('click', function(e){
 
   const link = e.target.closest('a');
   if (!link) return;
@@ -32,7 +32,7 @@ function ensurePageStylesheet(href) {
   const href = link.getAttribute('href');
   if (!href) return;
 
-  // ignorar externos
+  // ignorar externos y especiales
   if (
     href.startsWith('http') ||
     href.startsWith('mailto:') ||
@@ -40,18 +40,21 @@ function ensurePageStylesheet(href) {
     href.startsWith('#')
   ) return;
 
-  // ⚠️ CLAVE: bloquear .html también
-  e.preventDefault();
+  // SOLO interceptar rutas internas válidas
+  if (
+    href.includes('.html') ||
+    href.startsWith('/')
+  ) {
 
-  let route = href;
+    e.preventDefault();
 
-  // limpiar rutas
-  route = route.replace('.html','');
+    let route = href.replace('.html','');
 
-  if (route === '' || route === 'index') route = '/';
-  if (!route.startsWith('/')) route = '/' + route;
+    if (route === '' || route === 'index') route = '/';
+    if (!route.startsWith('/')) route = '/' + route;
 
-  navigate(route);
+    navigate(route);
+  }
 
 });
 
