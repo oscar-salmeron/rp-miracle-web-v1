@@ -116,3 +116,35 @@ if (href === '/unete') {
   loadPage('spa/inicio.html');
 
 })();
+
+function navigate(path){
+
+  const routes = {
+    "/": "spa/inicio.html",
+    "/productos": "spa/productos.html",
+    "/servicios": "spa/servicios.html",
+    "/distribuidor": "spa/distribuidor.html",
+    "/unete": "spa/unete.html",
+    "/contacto": "spa/contacto.html"
+  };
+
+  const file = routes[path];
+
+  if (!file) {
+    console.error("Ruta no encontrada:", path);
+    return;
+  }
+
+  fetch(file)
+    .then(res => res.text())
+    .then(html => {
+
+      document.querySelector("#app").innerHTML = html;
+
+      window.scrollTo(0, 0);
+
+      history.pushState({}, "", path);
+
+    })
+    .catch(err => console.error("Error cargando:", err));
+}
