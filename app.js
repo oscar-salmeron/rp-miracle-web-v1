@@ -139,7 +139,7 @@ function navigate(path){
     .then(res => res.text())
     .then(html => {
 
-      document.querySelector("#app").innerHTML = html;
+      document.querySelector("#spa-content").innerHTML = html;
 
       window.scrollTo(0, 0);
 
