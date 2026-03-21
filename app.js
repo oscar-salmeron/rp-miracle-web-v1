@@ -1,6 +1,6 @@
 (function () {
 
-  console.log('APP NUEVO FUNCIONANDO');
+  console.log('APP JS FINAL FUNCIONANDO');
 
   const container = document.getElementById('spa-content');
 
@@ -49,6 +49,7 @@
   }
 
   async function loadRoute(path, pushState = true) {
+
     const cleanPath = normalizePath(path);
     const file = routes[cleanPath];
 
@@ -58,7 +59,9 @@
     }
 
     try {
-      // 🔥 FETCH SIN CACHE REAL
+
+      console.log('Cargando:', file);
+
       const response = await fetch(file + '?v=' + Date.now());
 
       if (!response.ok) {
@@ -67,27 +70,25 @@
 
       const html = await response.text();
 
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
+      // 👉 LIMPIAR CONTENIDO ANTES (CLAVE)
+      container.innerHTML = '';
 
-      // ✅ TÍTULO
+      // 👉 INSERTAR
+      container.innerHTML = html;
+
+      // 👉 CAMBIAR TÍTULO
       document.title = titles[cleanPath] || 'RP Miracle';
 
-      // ✅ RENDER
-      container.innerHTML = temp.innerHTML;
-
-      // ✅ REACTIVAR SCRIPTS
+      // 👉 REACTIVAR SCRIPTS
       const scripts = container.querySelectorAll('script');
-
-      scripts.forEach((oldScript) => {
+      scripts.forEach(oldScript => {
         const newScript = document.createElement('script');
 
-        Array.from(oldScript.attributes).forEach((attr) => {
+        Array.from(oldScript.attributes).forEach(attr => {
           newScript.setAttribute(attr.name, attr.value);
         });
 
         newScript.textContent = oldScript.textContent;
-
         oldScript.parentNode.replaceChild(newScript, oldScript);
       });
 
@@ -98,17 +99,17 @@
       window.scrollTo(0, 0);
 
     } catch (error) {
-      console.error('Error cargando ruta SPA:', cleanPath, error);
+      console.error('ERROR SPA:', error);
     }
   }
 
+  // 👉 CLICK NAV
   document.addEventListener('click', function (e) {
-    const link = e.target.closest('a');
 
+    const link = e.target.closest('a');
     if (!link) return;
 
     const href = link.getAttribute('href');
-
     if (!href) return;
 
     if (
@@ -122,19 +123,23 @@
 
     const route = normalizePath(href);
 
-    if (!routes[route]) {
-      return;
-    }
+    if (!routes[route]) return;
 
     e.preventDefault();
     loadRoute(route, true);
   });
 
+  // 👉 BACK / FORWARD
   window.addEventListener('popstate', function () {
     loadRoute(window.location.pathname, false);
   });
 
-  // 🔥 CARGA INICIAL
-  loadRoute(window.location.pathname, false);
+  // 👉 ⚠️ CLAVE ABSOLUTA
+  // SIEMPRE cargar inicio si entra vacío
+  if (!window.location.pathname || window.location.pathname === '/') {
+    loadRoute('/', false);
+  } else {
+    loadRoute(window.location.pathname, false);
+  }
 
 })();
