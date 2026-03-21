@@ -16,6 +16,15 @@
     '/contacto': 'spa/contacto.html'
   };
 
+  const titles = {
+    '/': 'Inicio | RP Miracle',
+    '/productos': 'Productos | RP Miracle',
+    '/servicios': 'Servicios | RP Miracle',
+    '/distribuidor': 'Distribuidor | RP Miracle',
+    '/unete': 'Únete | RP Miracle',
+    '/contacto': 'Contacto | RP Miracle'
+  };
+
   function normalizePath(path) {
     if (!path) return '/';
     let p = path.trim();
@@ -52,38 +61,34 @@
 
       const html = await response.text();
 
-const temp = document.createElement('div');
-temp.innerHTML = html;
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
 
-const titles = {
-  '/': 'Inicio | RP Miracle',
-  '/productos': 'Productos | RP Miracle',
-  '/servicios': 'Servicios | RP Miracle',
-  '/distribuidor': 'Distribuidor | RP Miracle',
-  '/unete': 'Únete | RP Miracle',
-  '/contacto': 'Contacto | RP Miracle'
-};
+      // ✅ TÍTULO CORRECTO (ANTES de renderizar)
+      document.title = titles[cleanPath] || 'RP Miracle';
 
-document.title = titles[cleanPath] || 'RP Miracle';
+      // ✅ RENDER
+      container.innerHTML = temp.innerHTML;
 
-container.innerHTML = temp.innerHTML;
+      // ✅ REACTIVAR SCRIPTS
       const scripts = container.querySelectorAll('script');
-scripts.forEach((oldScript) => {
-  const newScript = document.createElement('script');
+      scripts.forEach((oldScript) => {
+        const newScript = document.createElement('script');
 
-  Array.from(oldScript.attributes).forEach((attr) => {
-    newScript.setAttribute(attr.name, attr.value);
-  });
+        Array.from(oldScript.attributes).forEach((attr) => {
+          newScript.setAttribute(attr.name, attr.value);
+        });
 
-  newScript.textContent = oldScript.textContent;
-  oldScript.parentNode.replaceChild(newScript, oldScript);
-});
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
 
       if (pushState) {
         history.pushState({}, '', cleanPath);
       }
 
       window.scrollTo(0, 0);
+
     } catch (error) {
       console.error('Error cargando ruta SPA:', cleanPath, error);
     }
@@ -119,5 +124,7 @@ scripts.forEach((oldScript) => {
     loadRoute(window.location.pathname, false);
   });
 
+  // ✅ CARGA INICIAL
   loadRoute(window.location.pathname, false);
+
 })();
