@@ -54,7 +54,7 @@
     }
 
     try {
-      const response = await fetch(file, { cache: 'no-store' });
+      const response = await fetch(file + '?v=' + Date.now(), { cache: 'no-store' });
       if (!response.ok) {
         throw new Error('HTTP ' + response.status);
       }
