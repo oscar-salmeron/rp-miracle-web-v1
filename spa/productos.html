@@ -738,16 +738,8 @@
   </script>
 
 <script>
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
-},{threshold:0.15});
-
-document.querySelectorAll("#categorias .card").forEach(card=>{
-  observer.observe(card);
+document.querySelectorAll("#categorias .card").forEach(card => {
+  card.classList.add("visible");
 });
 </script>
 
