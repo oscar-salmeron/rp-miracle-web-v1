@@ -51,14 +51,22 @@
       }
 
       const html = await response.text();
+
 const temp = document.createElement('div');
 temp.innerHTML = html;
 
-const pageTitleEl = temp.querySelector('[data-spa-title]');
-if (pageTitleEl) {
-  document.title = pageTitleEl.textContent.trim();
-}
-      container.innerHTML = temp.innerHTML;
+const titles = {
+  '/': 'Inicio | RP Miracle',
+  '/productos': 'Productos | RP Miracle',
+  '/servicios': 'Servicios | RP Miracle',
+  '/distribuidor': 'Distribuidor | RP Miracle',
+  '/unete': 'Únete | RP Miracle',
+  '/contacto': 'Contacto | RP Miracle'
+};
+
+document.title = titles[cleanPath] || 'RP Miracle';
+
+container.innerHTML = temp.innerHTML;
       const scripts = container.querySelectorAll('script');
 scripts.forEach((oldScript) => {
   const newScript = document.createElement('script');
