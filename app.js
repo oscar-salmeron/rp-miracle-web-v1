@@ -25,23 +25,35 @@ function ensurePageStylesheet(href) {
   }
 
   document.addEventListener('click', function(e){
-    const link = e.target.closest('a');
 
-    if (!link) return;
+  const link = e.target.closest('a');
+  if (!link) return;
 
-    const href = link.getAttribute('href');
+  const href = link.getAttribute('href');
+  if (!href) return;
 
-    if (!href) return;
+  // ignorar externos
+  if (
+    href.startsWith('http') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:') ||
+    href.startsWith('#')
+  ) return;
 
-    // evitar enlaces externos
-    if (
-      href.startsWith('http') ||
-      href.startsWith('mailto:') ||
-      href.startsWith('tel:') ||
-      href.startsWith('#')
-    ) return;
+  // ⚠️ CLAVE: bloquear .html también
+  e.preventDefault();
 
-    e.preventDefault();
+  let route = href;
+
+  // limpiar rutas
+  route = route.replace('.html','');
+
+  if (route === '' || route === 'index') route = '/';
+  if (!route.startsWith('/')) route = '/' + route;
+
+  navigate(route);
+
+});
 
     if (href === '/' || href === 'index.html') {
   ensurePageStylesheet(null);
