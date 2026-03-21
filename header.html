@@ -1,154 +1,191 @@
-<!-- ===== RP MIRACLE | INICIO | HEADER GLOBAL (PROTOCOLO 01) ===== -->
+<!-- ===== RP MIRACLE | HEADER GLOBAL FIX ===== -->
+
 <div id="html_rpm_header_global">
 
-  <!-- ===== INICIO BARRA SUPERIOR ===== -->
-  <div class="rp-top-ticker" aria-label="Mensaje informativo superior">
-    <div class="rp-top-ticker-track">
-      <span>📞 Llámanos hoy y agenda tu demostración</span>
-      <span>💳 Excelentes planes de pago disponibles</span>
-      <span>🍳 Cocina saludable con tecnología Royal Prestige</span>
-      <span>⭐ Equipos premium para tu cocina</span>
-      <span>📞 Agenda tu demostración hoy mismo</span>
-      <span>💳 Pregunta por nuestros planes de pago</span>
+<style>
+/* ===== RESET ESTABLE ===== */
+html, body{
+  margin:0;
+  padding:0;
+  background:#0b1020;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
 
-      <span>📞 Llámanos hoy y agenda tu demostración</span>
-      <span>💳 Excelentes planes de pago disponibles</span>
-      <span>🍳 Cocina saludable con tecnología Royal Prestige</span>
-      <span>⭐ Equipos premium para tu cocina</span>
-      <span>📞 Agenda tu demostración hoy mismo</span>
-      <span>💳 Pregunta por nuestros planes de pago</span>
-    </div>
+*{ box-sizing:border-box; }
+
+/* ===== HEADER FIXED SIN BRINCO ===== */
+body{
+  padding-top:128px;
+}
+
+/* ===== TOP BAR ===== */
+.rp-top-ticker{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:36px;
+  display:flex;
+  align-items:center;
+  background:#0f0f0f;
+  border-bottom:1px solid #D4AF37;
+  overflow:hidden;
+  z-index:10000;
+}
+
+.rp-top-ticker-track{
+  display:flex;
+  animation:rpTopTickerMove 32s linear infinite;
+}
+
+.rp-top-ticker span{
+  color:#fff;
+  font-size:14px;
+  padding:0 34px;
+  white-space:nowrap;
+}
+
+@keyframes rpTopTickerMove{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+/* ===== HEADER ===== */
+#rpm-header{
+  position:fixed;
+  top:36px;
+  left:0;
+  width:100%;
+  height:92px;
+  display:flex;
+  align-items:center;
+  background:#060922;
+  border-bottom:2px solid #D4AF37;
+  z-index:9999;
+}
+
+.rpm-header-inner{
+  width:min(1200px,92vw);
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.rpm-brand{
+  font-family:Georgia, serif;
+  font-size:28px;
+  color:#fff;
+}
+
+/* ===== NAV ===== */
+.rpm-nav{
+  display:flex;
+  gap:24px;
+}
+
+.rpm-link{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  text-transform:uppercase;
+  opacity:.9;
+  transition:opacity .2s ease;
+}
+
+.rpm-link:hover{
+  opacity:1;
+}
+
+/* ===== BOTONES ===== */
+.rpm-btn{
+  padding:10px 16px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.6);
+  color:#fff;
+  text-decoration:none;
+}
+
+.rpm-btn-gold{
+  background:#D4AF37;
+  color:#000;
+  border:none;
+}
+
+/* 🔥 ELIMINA EL BRINCO */
+.rpm-link,
+.rpm-btn,
+.rpm-dropdown-menu a{
+  transform:none !important;
+  box-shadow:none !important;
+}
+
+/* ===== DROPDOWN ===== */
+.rpm-dropdown{
+  position:relative;
+}
+
+.rpm-dropdown-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  display:none;
+  background:#0b1020;
+  padding:12px;
+  border:1px solid #D4AF37;
+}
+
+.rpm-dropdown:hover .rpm-dropdown-menu{
+  display:block;
+}
+
+.rpm-dropdown-menu a{
+  display:block;
+  color:#fff;
+  padding:8px;
+  text-decoration:none;
+}
+
+.rpm-dropdown-menu a:hover{
+  background:rgba(255,255,255,.08);
+}
+
+</style>
+
+<!-- ===== HTML ===== -->
+
+<div class="rp-top-ticker">
+  <div class="rp-top-ticker-track">
+    <span>📞 Llámanos hoy</span>
+    <span>💳 Planes disponibles</span>
+    <span>🍳 Cocina saludable</span>
   </div>
+</div>
 
-  <!-- ===== HEADER ===== -->
-  <header id="rpm-header">
-    <div class="rpm-header-inner">
-      <div class="rpm-brand">RP MIRACLE</div>
+<header id="rpm-header">
+  <div class="rpm-header-inner">
 
-      <button class="rpm-burger" type="button"
-              aria-label="Abrir menú"
-              aria-controls="rpmNav"
-              aria-expanded="false">☰</button>
+    <div class="rpm-brand">RP MIRACLE</div>
 
-      <nav id="rpmNav" class="rpm-nav">
-        <a class="rpm-link" href="index.html">Inicio</a>
+    <nav class="rpm-nav">
+      <a class="rpm-link" href="index.html">Inicio</a>
 
-        <div class="rpm-dropdown">
-          <a class="rpm-link rpm-link--drop" href="productos.html">Productos</a>
-          <div class="rpm-dropdown-menu">
-            <a href="linea-novel.html">Línea Novel</a>
-            <a href="linea-innove.html">Línea Innove</a>
-            <a href="linea-5capas.html">Línea 5 Capas</a>
-            <a href="linea_easy_release.html">Línea Easy Release</a>
-            <a href="electrodomesticos.html">Electrodomésticos</a>
-            <a href="cuchillos-serie-precision-3.html">Cuchillería</a>
-            <a href="sistemas-filtracion.html">Filtración</a>
-            <a href="accesorios.html">Accesorios</a>
-          </div>
+      <div class="rpm-dropdown">
+        <a class="rpm-link" href="productos.html">Productos</a>
+        <div class="rpm-dropdown-menu">
+          <a href="linea-novel.html">Línea Novel</a>
+          <a href="linea-innove.html">Línea Innove</a>
+          <a href="linea-5capas.html">Línea 5 Capas</a>
         </div>
+      </div>
 
-        <a class="rpm-link" href="servicios.html">Servicios</a>
-        <a class="rpm-link" href="distribuidor.html" target="_blank">Distribuidor</a>
-        <a class="rpm-btn rpm-btn-gold" href="unete.html">ÚNETE</a>
-        <a class="rpm-btn" href="contacto.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+      <a class="rpm-link" href="servicios.html">Servicios</a>
+      <a class="rpm-btn rpm-btn-gold" href="unete.html">ÚNETE</a>
+      <a class="rpm-btn" href="contacto.html">Contacto</a>
+    </nav>
 
-  <!-- ===== CSS CORREGIDO ===== -->
-  <style>
-
-    html {
-      scroll-behavior: auto !important;
-    }
-
-    body{
-      margin:0;
-      padding:0;
-      overflow-x:hidden;
-      overscroll-behavior:none;
-      background:#0b1020;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-
-    *{
-      box-sizing:border-box;
-      -webkit-tap-highlight-color:transparent;
-      tap-highlight-color:transparent;
-    }
-
-    body{ padding-top:128px; }
-
-    .rp-top-ticker{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:36px;
-      display:flex;
-      align-items:center;
-      background:#0f0f0f;
-      border-bottom:1px solid #D4AF37;
-      overflow:hidden;
-      z-index:10000;
-    }
-
-    .rp-top-ticker-track{
-      display:flex;
-      width:max-content;
-      animation:rpTopTickerMove 32s linear infinite;
-    }
-
-    .rp-top-ticker span{
-      color:#fff;
-      font-size:14px;
-      padding:0 34px;
-      white-space:nowrap;
-    }
-
-    @keyframes rpTopTickerMove{
-      from{ transform:translateX(0); }
-      to{ transform:translateX(-50%); }
-    }
-
-    #rpm-header{
-      position:fixed;
-      top:36px;
-      width:100%;
-      height:92px;
-      display:flex;
-      align-items:center;
-      border-bottom:2px solid #D4AF37;
-      background:rgba(6,9,34,.92);
-      backdrop-filter:blur(6px);
-      z-index:9999;
-    }
-
-    .rpm-header-inner{
-      width:min(1200px,92vw);
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .rpm-nav{
-      display:flex;
-      gap:28px;
-    }
-
-    .rpm-link,
-    .rpm-btn,
-    .rpm-dropdown-menu a,
-    .rpm-burger{
-      outline:none !important;
-      box-shadow:none !important;
-      transform:none !important;
-      transition:opacity .15s ease, background .15s ease;
-      touch-action:manipulation;
-    }
-
-  </style>
+  </div>
+</header>
 
 </div>
-<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== -->
