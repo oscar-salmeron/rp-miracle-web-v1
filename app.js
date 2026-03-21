@@ -51,7 +51,14 @@
       }
 
       const html = await response.text();
-      container.innerHTML = html;
+const temp = document.createElement('div');
+temp.innerHTML = html;
+
+const pageTitleEl = temp.querySelector('[data-spa-title]');
+if (pageTitleEl) {
+  document.title = pageTitleEl.textContent.trim();
+}
+      container.innerHTML = temp.innerHTML;
       const scripts = container.querySelectorAll('script');
 scripts.forEach((oldScript) => {
   const newScript = document.createElement('script');
