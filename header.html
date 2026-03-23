@@ -19,9 +19,7 @@
       <span>💳 Pregunta por nuestros planes de pago</span>
     </div>
   </div>
-  <!-- ===== FIN BARRA SUPERIOR ===== -->
 
-  <!-- ===== INICIO HEADER MARKUP ===== -->
   <header id="rpm-header">
     <div class="rpm-header-inner">
       <div class="rpm-brand">RP MIRACLE</div>
@@ -31,7 +29,7 @@
               aria-controls="rpmNav"
               aria-expanded="false">☰</button>
 
-      <nav id="rpmNav" class="rpm-nav" aria-label="Navegación principal">
+      <nav id="rpmNav" class="rpm-nav">
         <a class="rpm-link" href="/">Inicio</a>
 
         <div class="rpm-dropdown">
@@ -56,28 +54,26 @@
       </nav>
     </div>
   </header>
-  <!-- ===== FIN HEADER MARKUP ===== -->
 
-  <!-- ===== CSS (SIN CAMBIOS) ===== -->
+  <!-- ===== CSS ORIGINAL (SIN CAMBIOS) ===== -->
   <style>
-  /* TODO tu CSS EXACTAMENTE IGUAL */
+  /* PEGA AQUÍ TU CSS EXACTAMENTE COMO LO TENÍAS */
   </style>
 
-  <!-- ===== JS CORREGIDO ===== -->
+  <!-- ===== JS CORREGIDO DEFINITIVO ===== -->
   <script>
   (function(){
     const header = document.getElementById('rpm-header');
     if(!header) return;
 
     const burger = header.querySelector('.rpm-burger');
-    const nav = header.querySelector('#rpmNav');
     const dropdown = header.querySelector('.rpm-dropdown');
     const dropLink = header.querySelector('.rpm-link--drop');
     const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
 
-    let firstTap = false;
+    let tapState = 0;
 
-    /* ===== BURGER ===== */
+    /* BURGER */
     if (burger) {
       burger.addEventListener('click', function(){
         header.classList.toggle('rpm-open');
@@ -86,30 +82,29 @@
       });
     }
 
-    /* ===== DROPDOWN TOUCH FIX ===== */
+    /* DROPDOWN FIX */
     if (dropLink && dropdown) {
       dropLink.addEventListener('click', function(e){
         const isMobile = window.innerWidth <= 980;
-
         if (!isMobile) return;
 
-        /* PRIMER TAP → abre menú */
-        if (!dropdown.classList.contains('rpm-dd-open')) {
+        tapState++;
+
+        if (tapState === 1) {
           e.preventDefault();
           dropdown.classList.add('rpm-dd-open');
-          firstTap = true;
           return;
         }
 
-        /* SEGUNDO TAP → navega */
-        if (firstTap) {
-          firstTap = false;
-          return; // deja que navegue
+        if (tapState >= 2) {
+          dropdown.classList.remove('rpm-dd-open');
+          tapState = 0;
+          return; // permite navegar
         }
       });
     }
 
-    /* ===== CLICK FUERA ===== */
+    /* CLICK FUERA */
     document.addEventListener('click', function(e){
       const inside = e.target.closest('#rpm-header');
 
@@ -117,30 +112,30 @@
         header.classList.remove('rpm-open');
         if (dropdown) dropdown.classList.remove('rpm-dd-open');
         if (burger) burger.setAttribute('aria-expanded', 'false');
-        firstTap = false;
+        tapState = 0;
       }
     });
 
-    /* ===== CLICK EN OPCIÓN ===== */
+    /* CLICK EN OPCIONES */
     if (dropdownMenu) {
       dropdownMenu.querySelectorAll('a').forEach(function(link){
         link.addEventListener('click', function(){
           header.classList.remove('rpm-open');
           dropdown.classList.remove('rpm-dd-open');
           if (burger) burger.setAttribute('aria-expanded', 'false');
-          firstTap = false;
+          tapState = 0;
         });
       });
     }
 
-    /* ===== OTROS LINKS ===== */
+    /* OTROS LINKS */
     header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
       link.addEventListener('click', function(){
         if (window.innerWidth <= 980) {
           header.classList.remove('rpm-open');
           if (dropdown) dropdown.classList.remove('rpm-dd-open');
           if (burger) burger.setAttribute('aria-expanded', 'false');
-          firstTap = false;
+          tapState = 0;
         }
       });
     });
@@ -149,4 +144,4 @@
   </script>
 
 </div>
-<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== -->
+<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL ===== -->
