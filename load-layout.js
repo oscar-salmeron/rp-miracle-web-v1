@@ -77,6 +77,24 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(data => {
           headerContainer.innerHTML = data;
+          // 🔥 FORZAR EJECUCIÓN DE <style> Y <script> DEL HEADER
+const scripts = headerContainer.querySelectorAll("script");
+scripts.forEach(oldScript => {
+  const newScript = document.createElement("script");
+  if (oldScript.src) {
+    newScript.src = oldScript.src;
+  } else {
+    newScript.textContent = oldScript.textContent;
+  }
+  document.body.appendChild(newScript);
+});
+
+const styles = headerContainer.querySelectorAll("style");
+styles.forEach(oldStyle => {
+  const newStyle = document.createElement("style");
+  newStyle.textContent = oldStyle.textContent;
+  document.head.appendChild(newStyle);
+});
 
           // 🔥 SOLO estabilización (NO lógica duplicada)
           stabilizeInteractiveElements(headerContainer);
