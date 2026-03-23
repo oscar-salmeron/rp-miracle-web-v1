@@ -393,98 +393,63 @@
       if(!header) return;
 
       const burger = header.querySelector('.rpm-burger');
+      const nav = header.querySelector('#rpmNav');
       const dropdown = header.querySelector('.rpm-dropdown');
       const dropLink = header.querySelector('.rpm-link--drop');
       const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
 
-      function isMobile(){
-        return window.innerWidth <= 980;
-      }
-
-      function openMainMenu(){
-        header.classList.add('rpm-open');
-        if (burger) burger.setAttribute('aria-expanded', 'true');
-      }
-
-      function closeMainMenu(){
-        header.classList.remove('rpm-open');
-        if (burger) burger.setAttribute('aria-expanded', 'false');
-      }
-
-      function openDropdown(){
-        if (dropdown) dropdown.classList.add('rpm-dd-open');
-      }
-
-      function closeDropdown(){
-        if (dropdown) dropdown.classList.remove('rpm-dd-open');
-      }
-
-      function resetMenus(){
-        closeDropdown();
-        closeMainMenu();
-      }
-
       if (burger) {
-        burger.addEventListener('click', function(e){
-          e.stopPropagation();
+        burger.addEventListener('click', function(){
+          header.classList.toggle('rpm-open');
           const expanded = header.classList.contains('rpm-open');
-          if (expanded) {
-            closeDropdown();
-            closeMainMenu();
-          } else {
-            openMainMenu();
-          }
+          burger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         });
       }
 
-      if (dropLink && dropdown) {
+      if (dropLink && dropdown && dropdownMenu) {
         dropLink.addEventListener('click', function(e){
-          if (!isMobile()) return;
+          const isMobile = window.innerWidth <= 980;
 
-          const isOpen = dropdown.classList.contains('rpm-dd-open');
+          if (!isMobile) return;
 
-          if (!isOpen) {
+          if (!dropdown.classList.contains('rpm-dd-open')) {
             e.preventDefault();
-            openMainMenu();
-            openDropdown();
+            dropdown.classList.add('rpm-dd-open');
             return;
           }
 
-          closeDropdown();
+          dropdown.classList.remove('rpm-dd-open');
         });
       }
-
-      if (dropdownMenu) {
-        dropdownMenu.querySelectorAll('a').forEach(function(link){
-          link.addEventListener('click', function(){
-            resetMenus();
-          });
-        });
-      }
-
-      header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
-        if (link.classList.contains('rpm-link--drop')) return;
-
-        link.addEventListener('click', function(){
-          if (isMobile()) {
-            resetMenus();
-          }
-        });
-      });
 
       document.addEventListener('click', function(e){
         const isInsideHeader = e.target.closest('#rpm-header');
 
         if (!isInsideHeader) {
-          resetMenus();
+          header.classList.remove('rpm-open');
+          if (dropdown) dropdown.classList.remove('rpm-dd-open');
+          if (burger) burger.setAttribute('aria-expanded', 'false');
         }
       });
 
-      window.addEventListener('resize', function(){
-        if (!isMobile()) {
-          closeMainMenu();
-          closeDropdown();
-        }
+      if (dropdownMenu) {
+        dropdownMenu.querySelectorAll('a').forEach(function(link){
+          link.addEventListener('click', function(){
+            header.classList.remove('rpm-open');
+            dropdown.classList.remove('rpm-dd-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
+        link.addEventListener('click', function(){
+          if (window.innerWidth <= 980) {
+            header.classList.remove('rpm-open');
+            if (dropdown) dropdown.classList.remove('rpm-dd-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          }
+        });
       });
     })();
   </script>
