@@ -1,62 +1,99 @@
 <!-- ===== RP MIRACLE | INICIO | HEADER GLOBAL (PROTOCOLO 01) ===== -->
 <div id="html_rpm_header_global">
 
-  <!-- ===== INICIO BARRA SUPERIOR ===== -->
-  <div class="rp-top-ticker" aria-label="Mensaje informativo superior">
-    <div class="rp-top-ticker-track">
-      <span>📞 Llámanos hoy y agenda tu demostración</span>
-      <span>💳 Excelentes planes de pago disponibles</span>
-      <span>🍳 Cocina saludable con tecnología Royal Prestige</span>
-      <span>⭐ Equipos premium para tu cocina</span>
-      <span>📞 Agenda tu demostración hoy mismo</span>
-      <span>💳 Pregunta por nuestros planes de pago</span>
+<header id="rpm-header">
+  <div class="rpm-header-inner">
+    <div class="rpm-brand">RP MIRACLE</div>
 
-      <span>📞 Llámanos hoy y agenda tu demostración</span>
-      <span>💳 Excelentes planes de pago disponibles</span>
-      <span>🍳 Cocina saludable con tecnología Royal Prestige</span>
-      <span>⭐ Equipos premium para tu cocina</span>
-      <span>📞 Agenda tu demostración hoy mismo</span>
-      <span>💳 Pregunta por nuestros planes de pago</span>
-    </div>
-  </div>
+    <button class="rpm-burger" type="button"
+            aria-label="Abrir menú"
+            aria-controls="rpmNav"
+            aria-expanded="false">☰</button>
 
-  <header id="rpm-header">
-    <div class="rpm-header-inner">
-      <div class="rpm-brand">RP MIRACLE</div>
+    <nav id="rpmNav" class="rpm-nav">
+      <a class="rpm-link" href="/">Inicio</a>
 
-      <button class="rpm-burger" type="button"
-              aria-label="Abrir menú"
-              aria-controls="rpmNav"
-              aria-expanded="false">☰</button>
+      <div class="rpm-dropdown">
+        <a class="rpm-link rpm-link--drop" href="/productos">Productos</a>
 
-      <nav id="rpmNav" class="rpm-nav" aria-label="Navegación principal">
-        <a class="rpm-link" href="/">Inicio</a>
-
-        <div class="rpm-dropdown">
-          <a class="rpm-link rpm-link--drop" href="/productos">Productos</a>
-
-          <div class="rpm-dropdown-menu">
-            <a href="linea-novel.html">Línea Novel</a>
-            <a href="linea-innove.html">Línea Innove</a>
-            <a href="linea-5capas.html">Línea 5 Capas</a>
-            <a href="linea_easy_release.html">Línea Easy Release</a>
-            <a href="electrodomesticos.html">Electrodomésticos</a>
-            <a href="cuchillos-serie-precision-3.html">Cuchillería</a>
-            <a href="sistemas-filtracion.html">Filtración de Agua y Aire</a>
-            <a href="accesorios.html">Accesorios</a>
-          </div>
+        <div class="rpm-dropdown-menu">
+          <a href="linea-novel.html">Línea Novel</a>
+          <a href="linea-innove.html">Línea Innove</a>
+          <a href="linea-5capas.html">Línea 5 Capas</a>
+          <a href="linea_easy_release.html">Línea Easy Release</a>
+          <a href="electrodomesticos.html">Electrodomésticos</a>
+          <a href="cuchillos-serie-precision-3.html">Cuchillería</a>
+          <a href="sistemas-filtracion.html">Filtración de Agua y Aire</a>
+          <a href="accesorios.html">Accesorios</a>
         </div>
+      </div>
 
-        <a class="rpm-link" href="/servicios">Servicios</a>
-        <a class="rpm-link" href="/distribuidor">Distribuidor</a>
-        <a class="rpm-btn rpm-btn-gold" href="/unete">ÚNETE</a>
-        <a class="rpm-btn" href="/contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+      <a class="rpm-link" href="/servicios">Servicios</a>
+      <a class="rpm-link" href="/distribuidor">Distribuidor</a>
+      <a class="rpm-btn rpm-btn-gold" href="/unete">ÚNETE</a>
+      <a class="rpm-btn" href="/contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
 
 <style>
-/* (TODO EL CSS SE QUEDA IGUAL — NO SE TOCA) */
+/* 🔥 FIX: TODO encapsulado */
+#html_rpm_header_global{
+  width:100%;
+}
+
+/* HEADER */
+#html_rpm_header_global #rpm-header{
+  position:fixed;
+  top:36px;
+  left:0;
+  width:100%;
+  height:92px;
+  display:flex;
+  align-items:center;
+  z-index:9999;
+  border-bottom:2px solid #D4AF37;
+  background:rgba(6, 9, 34, 0.92);
+}
+
+#html_rpm_header_global .rpm-header-inner{
+  width:min(1200px, 92vw);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+#html_rpm_header_global .rpm-nav{
+  display:flex;
+  gap:28px;
+}
+
+#html_rpm_header_global .rpm-link{
+  color:#fff;
+  text-decoration:none;
+}
+
+#html_rpm_header_global .rpm-dropdown-menu{
+  display:none;
+}
+
+#html_rpm_header_global .rpm-dropdown:hover .rpm-dropdown-menu{
+  display:block;
+}
+
+/* BOTONES */
+#html_rpm_header_global .rpm-btn{
+  padding:10px 18px;
+  border:1px solid #fff;
+  border-radius:10px;
+}
+
+#html_rpm_header_global .rpm-btn-gold{
+  background:#D4AF37;
+  color:#000;
+}
+
 </style>
 
 <script>
@@ -65,167 +102,14 @@
   if (!header) return;
 
   const burger = header.querySelector('.rpm-burger');
-  const dropdown = header.querySelector('.rpm-dropdown');
-  const dropLink = header.querySelector('.rpm-link--drop');
-  const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
-  const nav = header.querySelector('#rpmNav');
-
-  let navigating = false; // 🔥 FIX CLAVE (ANTI-BRINCO)
-
-  function isMobile() {
-    return window.innerWidth <= 980;
-  }
-
-  function openMainMenu() {
-    header.classList.add('rpm-open');
-    if (burger) burger.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMainMenu() {
-    header.classList.remove('rpm-open');
-    if (burger) burger.setAttribute('aria-expanded', 'false');
-  }
-
-  function openDropdown() {
-    if (dropdown) dropdown.classList.add('rpm-dd-open');
-  }
-
-  function closeDropdown() {
-    if (dropdown) dropdown.classList.remove('rpm-dd-open');
-  }
-
-  function closeAllMenus() {
-    closeDropdown();
-    closeMainMenu();
-  }
-
-  function isExternalLike(href) {
-    return !href ||
-      href.startsWith('#') ||
-      href.startsWith('mailto:') ||
-      href.startsWith('tel:') ||
-      href.startsWith('http://') ||
-      href.startsWith('https://');
-  }
-
-  function spaNavigate(href) {
-    if (!href || isExternalLike(href)) return;
-
-    if (navigating) return; // 🔥 evita doble ejecución
-    navigating = true;
-
-    const target = new URL(href, window.location.origin);
-    const nextPath = target.pathname + target.search + target.hash;
-    const currentPath = window.location.pathname + window.location.search + window.location.hash;
-
-    if (nextPath === currentPath) {
-      navigating = false;
-      closeAllMenus();
-      return;
-    }
-
-    history.pushState({}, '', nextPath);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-
-    closeAllMenus();
-
-    setTimeout(() => {
-      navigating = false;
-    }, 60); // 🔥 estabiliza SPA
-  }
 
   if (burger) {
-    burger.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (header.classList.contains('rpm-open')) {
-        closeAllMenus();
-      } else {
-        openMainMenu();
-      }
+    burger.addEventListener('click', function(){
+      header.classList.toggle('rpm-open');
     });
   }
-
-  if (dropLink && dropdown) {
-    dropLink.addEventListener('click', function(e){
-      const href = dropLink.getAttribute('href');
-
-      if (!isMobile()) {
-        if (!isExternalLike(href)) {
-          e.preventDefault();
-          spaNavigate(href);
-        }
-        return;
-      }
-
-      const isOpen = dropdown.classList.contains('rpm-dd-open');
-
-      if (!isOpen) {
-        e.preventDefault();
-        e.stopPropagation();
-        openMainMenu();
-        openDropdown();
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      spaNavigate(href);
-    });
-  }
-
-  if (dropdownMenu) {
-    dropdownMenu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(e){
-        const href = link.getAttribute('href');
-
-        if (isExternalLike(href)) {
-          closeAllMenus();
-          return;
-        }
-
-        e.preventDefault();
-        e.stopPropagation();
-        spaNavigate(href);
-      });
-    });
-  }
-
-  if (nav) {
-    nav.querySelectorAll('a').forEach(function(link){
-      if (link === dropLink) return;
-      if (dropdownMenu && dropdownMenu.contains(link)) return;
-
-      link.addEventListener('click', function(e){
-        const href = link.getAttribute('href');
-
-        if (isExternalLike(href)) {
-          closeAllMenus();
-          return;
-        }
-
-        e.preventDefault();
-        e.stopPropagation();
-        spaNavigate(href);
-      });
-    });
-  }
-
-  document.addEventListener('click', function(e){
-    if (!e.target.closest('#rpm-header')) {
-      closeAllMenus();
-    }
-  });
-
-  window.addEventListener('resize', function(){
-    if (!isMobile()) {
-      closeMainMenu();
-      closeDropdown();
-    }
-  });
 })();
 </script>
 
 </div>
-<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== -->
+<!-- ===== RP MIRACLE | FIN | HEADER GLOBAL ===== -->
