@@ -507,16 +507,19 @@
         <div class="rp-field">
           <span class="rp-lock">🔒</span>
           <input
-            id="rpDistribuidorPassword"
-            class="rp-password"
-            type="password"
-            placeholder="Ingresar contraseña"
-            autocomplete="current-password">
+  id="rpDistribuidorPassword"
+  class="rp-password"
+  type="password"
+  placeholder="Ingresar contraseña"
+  autocomplete="current-password"
+  onkeydown="
+    if(event.key==='Enter'){
+      document.getElementById('rpDistribuidorEnter').click();
+    }
+  ">
         </div>
 
         <button id="rpDistribuidorEnter" class="rp-btn rp-btn-primary" type="button">
-          Entrar
-        </button>
 
         <div id="rpDistribuidorError" class="rp-login-error">
           Contraseña incorrecta. Inténtalo nuevamente.
@@ -557,7 +560,18 @@
 
           <div class="rp-actions">
             <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Abrir lista de precios</a>
-            <button id="rpDistribuidorLogoutTop" class="rp-btn rp-btn-outline" type="button">Cerrar portal</button>
+            <button
+  id="rpDistribuidorLogoutTop"
+  class="rp-btn rp-btn-outline"
+  type="button"
+  onclick="
+    document.getElementById('rpDistribuidorPanel').style.display='none';
+    document.getElementById('rpDistribuidorLogin').style.display='flex';
+    document.getElementById('rpDistribuidorPassword').value='';
+    document.getElementById('rpDistribuidorError').style.display='none';
+    window.scrollTo(0,0);
+    document.getElementById('rpDistribuidorPassword').focus();
+  ">Cerrar portal</button>
           </div>
         </div>
       </div>
@@ -728,7 +742,18 @@
         </p>
         <div class="rp-actions" style="justify-content:center;">
           <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Ir a lista de precios</a>
-          <button id="rpDistribuidorLogoutBottom" class="rp-btn rp-btn-outline" type="button">Cerrar portal</button>
+          <button
+  id="rpDistribuidorLogoutBottom"
+  class="rp-btn rp-btn-outline"
+  type="button"
+  onclick="
+    document.getElementById('rpDistribuidorPanel').style.display='none';
+    document.getElementById('rpDistribuidorLogin').style.display='flex';
+    document.getElementById('rpDistribuidorPassword').value='';
+    document.getElementById('rpDistribuidorError').style.display='none';
+    window.scrollTo(0,0);
+    document.getElementById('rpDistribuidorPassword').focus();
+  ">Cerrar portal</button>
         </div>
       </div>
 
@@ -736,68 +761,5 @@
 
   </section>
 
-  <script>
-    (function(){
-      const RP_DISTRIBUIDOR_PASSWORD = "Miracle27512";
-
-      const loginWrap = document.getElementById("rpDistribuidorLogin");
-      const panelWrap = document.getElementById("rpDistribuidorPanel");
-      const passwordInput = document.getElementById("rpDistribuidorPassword");
-      const enterBtn = document.getElementById("rpDistribuidorEnter");
-      const errorBox = document.getElementById("rpDistribuidorError");
-      const logoutTop = document.getElementById("rpDistribuidorLogoutTop");
-      const logoutBottom = document.getElementById("rpDistribuidorLogoutBottom");
-
-      function showPanel(){
-        loginWrap.style.display = "none";
-        panelWrap.style.display = "block";
-        errorBox.style.display = "none";
-        window.scrollTo(0, 0);
-      }
-
-      function showLogin(){
-        panelWrap.style.display = "none";
-        loginWrap.style.display = "flex";
-        passwordInput.value = "";
-        errorBox.style.display = "none";
-        window.scrollTo(0, 0);
-        setTimeout(function(){
-          passwordInput.focus();
-        }, 50);
-      }
-
-      function validateAccess(){
-        const typed = passwordInput.value.trim();
-        if(typed === RP_DISTRIBUIDOR_PASSWORD){
-          showPanel();
-        } else {
-          errorBox.style.display = "block";
-          passwordInput.focus();
-          passwordInput.select();
-        }
-      }
-
-      if(enterBtn){
-        enterBtn.addEventListener("click", validateAccess);
-      }
-
-      if(passwordInput){
-        passwordInput.addEventListener("keydown", function(e){
-          if(e.key === "Enter"){
-            validateAccess();
-          }
-        });
-      }
-
-      if(logoutTop){
-        logoutTop.addEventListener("click", showLogin);
-      }
-
-      if(logoutBottom){
-        logoutBottom.addEventListener("click", showLogin);
-      }
-
-      showLogin();
-    })();
-  </script>
+  
 </section>
