@@ -1,328 +1,600 @@
 <div data-spa-title style="display:none;">Servicios | RP Miracle</div>
 
 <section id="spaServiciosContent">
+  <style>
+    /* ===== SERVICIO (ADAPTADO SPA) ===== */
+    #rpServicio{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:34px 18px 44px;
+      color:#ffffff;
+      box-sizing:border-box;
+    }
 
-<style>
-/* ===== SERVICIO (ADAPTADO SPA) ===== */
-#rpServicio{
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  padding:34px 18px 44px;
-  color:#ffffff;
-  box-sizing:border-box;
-}
+    #rpServicio *{ box-sizing:border-box; }
 
-#rpServicio *{ box-sizing:border-box; }
+    #rpServicio .rp-breadcrumbs{
+      margin:0 0 18px;
+      font-size:14px;
+      line-height:1.5;
+      color:#d4af37;
+      font-weight:500;
+    }
 
-#rpServicio .rp-breadcrumbs{
-  margin:0 0 18px;
-  font-size:14px;
-  line-height:1.5;
-  color:#d4af37;
-  font-weight:500;
-}
+    #rpServicio .rp-breadcrumbs a{
+      color:#d4af37;
+      text-decoration:none;
+    }
 
-#rpServicio .rp-breadcrumbs a{
-  color:#d4af37;
-  text-decoration:none;
-}
+    #rpServicio .rp-breadcrumbs a:hover{
+      color:#f3df8a;
+      text-decoration:none;
+    }
 
-#rpServicio .rp-breadcrumbs a:hover{
-  color:#f3df8a;
-}
+    #rpServicio .rp-breadcrumb-sep{
+      margin:0 10px;
+      color:rgba(212,175,55,.72);
+    }
 
-#rpServicio .rp-breadcrumb-sep{
-  margin:0 10px;
-  color:rgba(212,175,55,.72);
-}
+    #rpServicio .rp-breadcrumb-current{
+      color:#ffffff;
+      font-weight:700;
+    }
 
-#rpServicio .rp-breadcrumb-current{
-  color:#ffffff;
-  font-weight:700;
-}
+    #rpServicio .rp-hero{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
 
-#rpServicio .rp-hero{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-}
+    #rpServicio .rp-media,
+    #rpServicio .rp-panel,
+    #rpServicio .rp-section,
+    #rpServicio .rp-card,
+    #rpServicio .rp-step{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:18px;
+      overflow:hidden;
+    }
 
-#rpServicio .rp-media,
-#rpServicio .rp-panel,
-#rpServicio .rp-section,
-#rpServicio .rp-card,
-#rpServicio .rp-step{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:18px;
-  overflow:hidden;
-}
+    #rpServicio .rp-media{
+      background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+      padding:18px;
+    }
 
-#rpServicio .rp-media{
-  background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
-  padding:18px;
-}
+    #rpServicio .rp-media img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      border-radius:12px;
+    }
 
-#rpServicio .rp-media img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-  border-radius:12px;
-}
+    #rpServicio .rp-panel{
+      padding:28px 26px;
+    }
 
-#rpServicio .rp-panel{
-  padding:28px 26px;
-}
+    #rpServicio .rp-badge{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(212,175,55,.16);
+      border:1px solid rgba(212,175,55,.32);
+      color:#f3df8a;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
 
-#rpServicio .rp-badge{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(212,175,55,.16);
-  border:1px solid rgba(212,175,55,.32);
-  color:#f3df8a;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:14px;
-}
+    #rpServicio h1{
+      margin:0 0 12px;
+      font-size:42px;
+      line-height:1.12;
+      color:#ffffff;
+    }
 
-#rpServicio h1{
-  margin:0 0 12px;
-  font-size:42px;
-  line-height:1.12;
-}
+    #rpServicio .rp-subtitle{
+      margin:0 0 16px;
+      font-size:18px;
+      line-height:1.65;
+      color:rgba(255,255,255,.92);
+      max-width:920px;
+    }
 
-#rpServicio .rp-subtitle{
-  margin:0 0 16px;
-  font-size:18px;
-  line-height:1.65;
-  color:rgba(255,255,255,.92);
-  max-width:920px;
-}
+    #rpServicio .rp-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 18px;
+    }
 
-#rpServicio .rp-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:0 0 18px;
-}
+    #rpServicio .rp-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.18);
+      color:#fff;
+      font-size:14px;
+    }
 
-#rpServicio .rp-chip{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:9px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  color:#fff;
-  font-size:14px;
-}
+    #rpServicio .rp-price-note{
+      margin:0 0 22px;
+      color:rgba(255,255,255,.82);
+      font-size:15px;
+      line-height:1.7;
+      max-width:940px;
+    }
 
-#rpServicio .rp-price-note{
-  margin:0 0 22px;
-  color:rgba(255,255,255,.82);
-  font-size:15px;
-  line-height:1.7;
-}
+    #rpServicio .rp-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
 
-#rpServicio .rp-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
+    #rpServicio .rp-btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:700;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
 
-#rpServicio .rp-btn{
-  display:inline-block;
-  text-decoration:none;
-  padding:14px 18px;
-  border-radius:14px;
-  font-weight:700;
-  transition:.25s;
-}
+    #rpServicio .rp-btn:hover{
+      transform:translateY(-2px);
+    }
 
-#rpServicio .rp-btn-primary{
-  background:#d4af37;
-  color:#111;
-}
+    #rpServicio .rp-btn-primary{
+      background:#d4af37;
+      color:#111111;
+    }
 
-#rpServicio .rp-btn-outline{
-  border:1px solid rgba(212,175,55,.55);
-  color:#fff;
-}
+    #rpServicio .rp-btn-primary:hover{
+      box-shadow:0 12px 24px rgba(212,175,55,.18);
+    }
 
-#rpServicio .rp-section{
-  margin-top:30px;
-  padding:22px;
-}
+    #rpServicio .rp-btn-outline{
+      border:1px solid rgba(212,175,55,.55);
+      color:#ffffff;
+      background:transparent;
+    }
 
-#rpServicio .rp-section h2{
-  margin-bottom:14px;
-  font-size:28px;
-}
+    #rpServicio .rp-btn-outline:hover{
+      background:rgba(212,175,55,.08);
+    }
 
-#rpServicio .rp-section p{
-  margin-bottom:10px;
-  line-height:1.7;
-}
+    #rpServicio .rp-section{
+      margin-top:30px;
+      padding:22px 22px 20px;
+    }
 
-#rpServicio .rp-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:18px;
-}
+    #rpServicio .rp-section h2{
+      margin:0 0 14px;
+      font-size:28px;
+      color:#ffffff;
+    }
 
-#rpServicio .rp-card{
-  padding:18px;
-}
+    #rpServicio .rp-section p{
+      margin:0 0 10px;
+      color:rgba(255,255,255,.9);
+      line-height:1.7;
+    }
 
-#rpServicio .rp-steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
+    #rpServicio .rp-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
 
-#rpServicio .rp-step{
-  padding:18px;
-}
+    #rpServicio .rp-card{
+      padding:18px;
+      background:rgba(255,255,255,.03);
+    }
 
-#rpServicio .rp-step-num{
-  width:34px;
-  height:34px;
-  border-radius:999px;
-  background:rgba(212,175,55,.16);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:10px;
-  font-weight:800;
-}
+    #rpServicio .rp-card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#ffffff;
+    }
 
-#rpServicio .rp-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
+    #rpServicio .rp-card p{
+      margin:0;
+      color:rgba(255,255,255,.88);
+      line-height:1.6;
+    }
 
-#rpServicio .rp-field{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
+    #rpServicio .rp-steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:12px;
+    }
 
-#rpServicio .rp-field-full{
-  grid-column:1/-1;
-}
+    #rpServicio .rp-step{
+      padding:18px;
+      background:rgba(255,255,255,.03);
+    }
 
-#rpServicio input,
-#rpServicio select,
-#rpServicio textarea{
-  padding:14px;
-  border-radius:14px;
-  border:1px solid rgba(212,175,55,.22);
-  background:rgba(30,36,64,.72);
-  color:#fff;
-}
+    #rpServicio .rp-step-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:rgba(212,175,55,.16);
+      border:1px solid rgba(212,175,55,.32);
+      color:#f3df8a;
+      font-weight:800;
+      margin-bottom:10px;
+    }
 
-#rpServicio textarea{
-  min-height:120px;
-}
+    #rpServicio .rp-step h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color:#ffffff;
+    }
 
-#rpServicio .rp-final-cta{
-  margin-top:30px;
-  padding:24px;
-  border-radius:18px;
-  border:1px solid rgba(212,175,55,.18);
-  text-align:center;
-}
+    #rpServicio .rp-step p{
+      margin:0;
+      color:rgba(255,255,255,.88);
+      line-height:1.6;
+    }
 
-@media (max-width:980px){
-  #rpServicio .rp-grid,
-  #rpServicio .rp-steps{
-    grid-template-columns:1fr;
-  }
-}
+    #rpServicio .rp-form-wrap{
+      margin-top:12px;
+    }
 
-@media (max-width:760px){
-  #rpServicio .rp-form{
-    grid-template-columns:1fr;
-  }
-}
-</style>
+    #rpServicio .rp-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px 14px;
+    }
 
-<section id="rpServicio">
+    #rpServicio .rp-field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
 
-  <div class="rp-breadcrumbs">
-    <a href="#inicio">Inicio</a>
-    <span class="rp-breadcrumb-sep">/</span>
-    <span class="rp-breadcrumb-current">Servicio</span>
-  </div>
+    #rpServicio .rp-field-full{
+      grid-column:1 / -1;
+    }
 
-  <div class="rp-hero">
+    #rpServicio .rp-field label{
+      color:#ffffff;
+      font-weight:700;
+      font-size:14px;
+    }
 
-    <div class="rp-media">
-      <img src="rc_images/rp_servicio_frescapure5500_demo_cliente_01.png">
+    #rpServicio .rp-input,
+    #rpServicio .rp-select,
+    #rpServicio .rp-textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(212,175,55,.22);
+      background:rgba(30,36,64,.72);
+      color:#ffffff;
+      outline:none;
+      font-size:16px;
+      transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    #rpServicio .rp-input::placeholder,
+    #rpServicio .rp-textarea::placeholder{
+      color:rgba(255,255,255,.46);
+    }
+
+    #rpServicio .rp-select{
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+      background-repeat:no-repeat;
+      background-position:right 16px center;
+      background-size:18px;
+      padding-right:48px;
+    }
+
+    #rpServicio .rp-input:focus,
+    #rpServicio .rp-select:focus,
+    #rpServicio .rp-textarea:focus{
+      border-color:rgba(212,175,55,.6);
+      box-shadow:0 0 0 3px rgba(212,175,55,.12);
+      background:rgba(32,39,70,.9);
+    }
+
+    #rpServicio .rp-textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    #rpServicio .rp-form-actions{
+      grid-column:1 / -1;
+      display:flex;
+      justify-content:flex-start;
+      margin-top:4px;
+    }
+
+    #rpServicio .rp-form button{
+      border:none;
+      cursor:pointer;
+    }
+
+    #rpServicio .rp-final-cta{
+      margin-top:30px;
+      padding:24px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+      border:1px solid rgba(212,175,55,.18);
+      text-align:center;
+    }
+
+    #rpServicio .rp-final-cta h3{
+      margin:0 0 8px;
+      font-size:28px;
+      color:#fff;
+    }
+
+    #rpServicio .rp-final-cta p{
+      margin:0 0 16px;
+      color:rgba(255,255,255,.88);
+      line-height:1.7;
+    }
+
+    @media (max-width:980px){
+      #rpServicio .rp-grid,
+      #rpServicio .rp-steps{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      #rpServicio .rp-form{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      #rpServicio{
+        padding:24px 14px 34px;
+      }
+
+      #rpServicio h1{
+        font-size:30px;
+      }
+
+      #rpServicio .rp-breadcrumbs{
+        font-size:13px;
+        margin-bottom:16px;
+      }
+
+      #rpServicio .rp-panel,
+      #rpServicio .rp-section{
+        padding:18px;
+      }
+
+      #rpServicio .rp-subtitle{
+        font-size:17px;
+      }
+    }
+  </style>
+
+  <section id="rpServicio">
+
+    <div class="rp-breadcrumbs">
+      <a href="#inicio">Inicio</a>
+      <span class="rp-breadcrumb-sep">/</span>
+      <span class="rp-breadcrumb-current">Servicio</span>
     </div>
 
-    <div class="rp-panel">
-      <span class="rp-badge">Atención y respaldo</span>
-      <h1>Servicio y respaldo para tus productos</h1>
-      <p class="rp-subtitle">
-        Si tu producto presenta algún detalle, nosotros te ayudamos con atención personalizada y seguimiento confiable.
-      </p>
+    <div class="rp-hero">
 
-      <div class="rp-meta">
-        <span class="rp-chip">Atención personalizada</span>
-        <span class="rp-chip">Visita y seguimiento</span>
-        <span class="rp-chip">WhatsApp y formulario</span>
+      <div class="rp-media">
+        <img src="rc_images/rp_servicio_frescapure5500_demo_cliente_01.png" alt="Servicio RP Miracle con sistema FrescaPure 5500">
       </div>
 
-      <div class="rp-actions">
-        <a class="rp-btn rp-btn-primary" href="https://wa.me/XXXXXXXXXXXX" target="_blank">Agendar visita</a>
+      <div class="rp-panel">
+        <span class="rp-badge">Atención y respaldo</span>
+        <h1>Servicio y respaldo para tus productos</h1>
+        <p class="rp-subtitle">
+          Si tu producto presenta algún detalle, nosotros te ayudamos con atención personalizada, seguimiento confiable y visita directa para revisar tu caso.
+        </p>
+
+        <div class="rp-meta">
+          <span class="rp-chip">Atención: <strong>Personalizada</strong></span>
+          <span class="rp-chip">Modalidad: <strong>Visita y seguimiento</strong></span>
+          <span class="rp-chip">Canales: <strong>WhatsApp y formulario</strong></span>
+        </div>
+
+        <p class="rp-price-note">
+          Estamos listos para ayudarte con garantías, reemplazo de piezas, cartuchos, revisiones y soluciones para distintos productos Royal Prestige®.
+        </p>
+
+        <div class="rp-actions">
+          <a class="rp-btn rp-btn-primary" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Agendar visita</a>
+          <a class="rp-btn rp-btn-outline" href="#formServicio">Solicitar servicio</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rp-section">
+      <h2>Estamos para ayudarte</h2>
+      <p>
+        Queremos brindarte una atención cercana, práctica y confiable para revisar tu producto, darte seguimiento y ayudarte a resolver la situación de la mejor manera posible.
+      </p>
+      <p>
+        Nuestro servicio está pensado para que te sientas acompañado durante todo el proceso, con orientación clara y atención personalizada.
+      </p>
+    </div>
+
+    <div class="rp-section">
+      <h2>¿En qué te podemos ayudar?</h2>
+
+      <div class="rp-grid">
+        <div class="rp-card">
+          <h3>Garantías de productos</h3>
+          <p>Te apoyamos con el seguimiento de garantía y la revisión del caso según el producto.</p>
+        </div>
+
+        <div class="rp-card">
+          <h3>Reemplazo de piezas</h3>
+          <p>Ayuda con válvulas, agarraderas, accesorios y otros componentes que requieran cambio.</p>
+        </div>
+
+        <div class="rp-card">
+          <h3>Filtros de agua</h3>
+          <p>Revisión de sistema, reemplazo de cartuchos y seguimiento del servicio correspondiente.</p>
+        </div>
+
+        <div class="rp-card">
+          <h3>Filtros de aire</h3>
+          <p>Apoyo con cartuchos, mantenimiento y orientación sobre el servicio de filtración.</p>
+        </div>
+
+        <div class="rp-card">
+          <h3>Electrodomésticos</h3>
+          <p>Atención para productos que presenten fallas, desgaste o detalles de funcionamiento.</p>
+        </div>
+
+        <div class="rp-card">
+          <h3>Revisión general</h3>
+          <p>Si tu producto presenta golpes, daños o cualquier detalle, podemos revisarlo contigo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rp-section">
+      <h2>¿Cómo funciona nuestro servicio?</h2>
+
+      <div class="rp-steps">
+        <div class="rp-step">
+          <div class="rp-step-num">1</div>
+          <h3>Nos contactas</h3>
+          <p>Escríbenos por WhatsApp o llena el formulario con los datos de tu caso.</p>
+        </div>
+
+        <div class="rp-step">
+          <div class="rp-step-num">2</div>
+          <h3>Agendamos seguimiento</h3>
+          <p>Coordinamos contigo la atención para revisar tu producto de manera personalizada.</p>
+        </div>
+
+        <div class="rp-step">
+          <div class="rp-step-num">3</div>
+          <h3>Revisamos el producto</h3>
+          <p>Evaluamos la situación y te orientamos claramente sobre el siguiente paso.</p>
+        </div>
+
+        <div class="rp-step">
+          <div class="rp-step-num">4</div>
+          <h3>Te damos solución</h3>
+          <p>Te apoyamos con garantía, reemplazo o la mejor alternativa para resolverlo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rp-section">
+      <h2>Atención sin complicaciones</h2>
+      <p>
+        Te ayudamos con el seguimiento de garantía, reemplazo de piezas o solución directa según el caso, siempre con una atención clara, rápida y confiable.
+      </p>
+      <p>
+        Nuestro objetivo es que tengas una experiencia de servicio cercana, práctica y bien acompañada desde el primer contacto.
+      </p>
+    </div>
+
+    <div class="rp-section" id="formServicio">
+      <h2>Envíanos tu consulta</h2>
+
+      <div class="rp-form-wrap">
+        <form class="rp-form">
+
+          <div class="rp-field">
+            <label for="rpServicioNombre">Nombre completo</label>
+            <input class="rp-input" id="rpServicioNombre" type="text" placeholder="Escribe tu nombre completo" required>
+          </div>
+
+          <div class="rp-field">
+            <label for="rpServicioTelefono">Teléfono</label>
+            <input class="rp-input" id="rpServicioTelefono" type="tel" placeholder="Escribe tu número" required>
+          </div>
+
+          <div class="rp-field">
+            <label for="rpServicioCorreo">Correo electrónico</label>
+            <input class="rp-input" id="rpServicioCorreo" type="email" placeholder="Escribe tu correo">
+          </div>
+
+          <div class="rp-field">
+            <label for="rpServicioCiudad">Ciudad</label>
+            <input class="rp-input" id="rpServicioCiudad" type="text" placeholder="Escribe tu ciudad" required>
+          </div>
+
+          <div class="rp-field rp-field-full">
+            <label for="rpServicioTipo">Tipo de consulta</label>
+            <select class="rp-select" id="rpServicioTipo" required>
+              <option value="">Seleccione una opción</option>
+              <option>Garantía de producto</option>
+              <option>Reemplazo de pieza</option>
+              <option>Filtro de agua</option>
+              <option>Filtro de aire</option>
+              <option>Electrodoméstico</option>
+              <option>Revisión general</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div class="rp-field rp-field-full">
+            <label for="rpServicioProducto">Producto relacionado</label>
+            <select class="rp-select" id="rpServicioProducto">
+              <option value="">Seleccione si aplica</option>
+              <option>Línea de ollas</option>
+              <option>Sartenes</option>
+              <option>Filtro de agua</option>
+              <option>Filtro de aire</option>
+              <option>Licuadora</option>
+              <option>Extractor de jugo</option>
+              <option>Chocolatera</option>
+              <option>Royal Espresso</option>
+              <option>Barista</option>
+              <option>ExperTea</option>
+              <option>Otro producto</option>
+            </select>
+          </div>
+
+          <div class="rp-field rp-field-full">
+            <label for="rpServicioMensaje">Mensaje</label>
+            <textarea class="rp-textarea" id="rpServicioMensaje" placeholder="Explique brevemente su consulta"></textarea>
+          </div>
+
+          <div class="rp-form-actions">
+            <button class="rp-btn rp-btn-primary" type="submit">Enviar consulta</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="rp-final-cta">
+      <h3>¿Necesitas ayuda con tu producto?</h3>
+      <p>
+        Escríbenos hoy mismo y con gusto te ayudamos a revisar tu caso con una atención cercana, confiable y personalizada.
+      </p>
+
+      <div class="rp-actions" style="justify-content:center;">
+        <a class="rp-btn rp-btn-primary" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
         <a class="rp-btn rp-btn-outline" href="#formServicio">Solicitar servicio</a>
       </div>
     </div>
 
-  </div>
-
-  <div class="rp-section">
-    <h2>¿En qué te podemos ayudar?</h2>
-
-    <div class="rp-grid">
-      <div class="rp-card"><h3>Garantías</h3></div>
-      <div class="rp-card"><h3>Piezas</h3></div>
-      <div class="rp-card"><h3>Filtros agua</h3></div>
-      <div class="rp-card"><h3>Filtros aire</h3></div>
-      <div class="rp-card"><h3>Electrodomésticos</h3></div>
-      <div class="rp-card"><h3>Revisión general</h3></div>
-    </div>
-  </div>
-
-  <div class="rp-section" id="formServicio">
-    <h2>Envíanos tu consulta</h2>
-
-    <form class="rp-form">
-      <div class="rp-field">
-        <input type="text" placeholder="Nombre completo">
-      </div>
-
-      <div class="rp-field">
-        <input type="tel" placeholder="Teléfono">
-      </div>
-
-      <div class="rp-field-full">
-        <textarea placeholder="Mensaje"></textarea>
-      </div>
-
-      <div class="rp-field-full">
-        <button class="rp-btn rp-btn-primary">Enviar</button>
-      </div>
-    </form>
-  </div>
-
-</section>
-
+  </section>
 </section>
