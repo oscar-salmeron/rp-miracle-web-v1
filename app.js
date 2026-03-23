@@ -13,14 +13,39 @@
     '/servicios': 'spa/servicios.html',
     '/distribuidor': 'spa/distribuidor.html',
     '/unete': 'spa/unete.html',
-    '/contacto': 'spa/contacto.html'
+    '/contacto': 'spa/contacto.html',
+    '/elite-cooking-system': 'spa/elite-cooking-system.html',
+    '/elite-5piezas': 'spa/elite-5piezas.html',
+    '/elite-sarten-8': 'spa/elite-sarten-8.html',
+    '/elite-base-magnetica': 'spa/elite-base-magnetica.html',
+    '/elite-protectores': 'spa/elite-protectores.html'
   };
 
-  let isNavigating = false; // 🔥 FIX CLAVE
+  let isNavigating = false;
+
+  function getCurrentPath() {
+    const hash = window.location.hash;
+
+    if (hash && hash.startsWith('#')) {
+      const p = hash.slice(1).trim();
+      return p.startsWith('/') ? p : '/' + p;
+    }
+
+    return window.location.pathname;
+  }
 
   function normalizePath(path) {
     if (!path) return '/';
+
     let p = path.trim();
+
+    if (p.startsWith('#')) {
+      p = p.slice(1);
+    }
+
+    if (!p.startsWith('/')) {
+      p = '/' + p;
+    }
 
     if (p.endsWith('.html')) {
       p = p.replace('.html', '');
@@ -42,8 +67,8 @@
     const file = routes[cleanPath];
 
     if (!file) return;
+    if (isNavigating) return;
 
-    if (isNavigating) return; // 🔥 evita doble ejecución
     isNavigating = true;
 
     try {
@@ -51,22 +76,20 @@
       if (!response.ok) throw new Error('HTTP ' + response.status);
 
       const html = await response.text();
-
       container.innerHTML = html;
 
       if (pushState) {
-        history.pushState({}, '', cleanPath);
+        history.pushState({}, '', '#' + cleanPath.replace(/^\//, ''));
       }
 
       window.scrollTo(0, 0);
-
     } catch (error) {
       console.error('Error cargando ruta SPA:', cleanPath, error);
     }
 
     setTimeout(() => {
       isNavigating = false;
-    }, 80); // 🔥 estabiliza render
+    }, 80);
   }
 
   document.addEventListener('click', function (e) {
@@ -79,8 +102,7 @@
     if (
       href.startsWith('http') ||
       href.startsWith('mailto:') ||
-      href.startsWith('tel:') ||
-      href.startsWith('#')
+      href.startsWith('tel:')
     ) {
       return;
     }
@@ -90,13 +112,12 @@
     if (!routes[route]) return;
 
     e.preventDefault();
-
     loadRoute(route, true);
   });
 
   window.addEventListener('popstate', function () {
-    loadRoute(window.location.pathname, false);
+    loadRoute(getCurrentPath(), false);
   });
 
-  loadRoute(window.location.pathname, false);
+  loadRoute(getCurrentPath(), false);
 })();
