@@ -497,7 +497,6 @@
 
   <section id="rpDistribuidorPortal">
 
-    <!-- ===== LOGIN ===== -->
     <div id="rpDistribuidorLogin">
       <div class="rp-login-shell">
         <h1 class="rp-login-title">Portal Distribuidor RP Miracle</h1>
@@ -507,19 +506,21 @@
         <div class="rp-field">
           <span class="rp-lock">🔒</span>
           <input
-  id="rpDistribuidorPassword"
-  class="rp-password"
-  type="password"
-  placeholder="Ingresar contraseña"
-  autocomplete="current-password"
-  onkeydown="
-    if(event.key==='Enter'){
-      document.getElementById('rpDistribuidorEnter').click();
-    }
-  ">
+            id="rpDistribuidorPassword"
+            class="rp-password"
+            type="password"
+            placeholder="Ingresar contraseña"
+            autocomplete="current-password"
+            onkeydown="if(event.key==='Enter'){document.getElementById('rpDistribuidorEnter').click();}">
         </div>
 
-        <button id="rpDistribuidorEnter" class="rp-btn rp-btn-primary" type="button">
+        <button
+          id="rpDistribuidorEnter"
+          class="rp-btn rp-btn-primary"
+          type="button"
+          onclick="(function(){var typed=document.getElementById('rpDistribuidorPassword').value.trim();var loginWrap=document.getElementById('rpDistribuidorLogin');var panelWrap=document.getElementById('rpDistribuidorPanel');var errorBox=document.getElementById('rpDistribuidorError');if(typed==='Miracle27512'){loginWrap.style.display='none';panelWrap.style.display='block';errorBox.style.display='none';window.scrollTo(0,0);}else{errorBox.style.display='block';document.getElementById('rpDistribuidorPassword').focus();document.getElementById('rpDistribuidorPassword').select();}})();">
+          Entrar
+        </button>
 
         <div id="rpDistribuidorError" class="rp-login-error">
           Contraseña incorrecta. Inténtalo nuevamente.
@@ -527,7 +528,6 @@
       </div>
     </div>
 
-    <!-- ===== PANEL INTERNO ===== -->
     <div id="rpDistribuidorPanel">
 
       <div class="rp-breadcrumbs">
@@ -561,17 +561,12 @@
           <div class="rp-actions">
             <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Abrir lista de precios</a>
             <button
-  id="rpDistribuidorLogoutTop"
-  class="rp-btn rp-btn-outline"
-  type="button"
-  onclick="
-    document.getElementById('rpDistribuidorPanel').style.display='none';
-    document.getElementById('rpDistribuidorLogin').style.display='flex';
-    document.getElementById('rpDistribuidorPassword').value='';
-    document.getElementById('rpDistribuidorError').style.display='none';
-    window.scrollTo(0,0);
-    document.getElementById('rpDistribuidorPassword').focus();
-  ">Cerrar portal</button>
+              id="rpDistribuidorLogoutTop"
+              class="rp-btn rp-btn-outline"
+              type="button"
+              onclick="document.getElementById('rpDistribuidorPanel').style.display='none';document.getElementById('rpDistribuidorLogin').style.display='flex';document.getElementById('rpDistribuidorPassword').value='';document.getElementById('rpDistribuidorError').style.display='none';window.scrollTo(0,0);document.getElementById('rpDistribuidorPassword').focus();">
+              Cerrar portal
+            </button>
           </div>
         </div>
       </div>
@@ -743,23 +738,16 @@
         <div class="rp-actions" style="justify-content:center;">
           <a class="rp-btn rp-btn-primary" href="https://app-lista-precios.vercel.app/" target="_blank" rel="noopener">Ir a lista de precios</a>
           <button
-  id="rpDistribuidorLogoutBottom"
-  class="rp-btn rp-btn-outline"
-  type="button"
-  onclick="
-    document.getElementById('rpDistribuidorPanel').style.display='none';
-    document.getElementById('rpDistribuidorLogin').style.display='flex';
-    document.getElementById('rpDistribuidorPassword').value='';
-    document.getElementById('rpDistribuidorError').style.display='none';
-    window.scrollTo(0,0);
-    document.getElementById('rpDistribuidorPassword').focus();
-  ">Cerrar portal</button>
+            id="rpDistribuidorLogoutBottom"
+            class="rp-btn rp-btn-outline"
+            type="button"
+            onclick="document.getElementById('rpDistribuidorPanel').style.display='none';document.getElementById('rpDistribuidorLogin').style.display='flex';document.getElementById('rpDistribuidorPassword').value='';document.getElementById('rpDistribuidorError').style.display='none';window.scrollTo(0,0);document.getElementById('rpDistribuidorPassword').focus();">
+            Cerrar portal
+          </button>
         </div>
       </div>
 
     </div>
 
   </section>
-
-  
 </section>
