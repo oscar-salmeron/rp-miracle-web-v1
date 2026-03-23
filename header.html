@@ -32,10 +32,10 @@
               aria-expanded="false">☰</button>
 
       <nav id="rpmNav" class="rpm-nav" aria-label="Navegación principal">
-        <a class="rpm-link" href="index.html">Inicio</a>
+        <a class="rpm-link" href="/">Inicio</a>
 
         <div class="rpm-dropdown">
-          <a class="rpm-link rpm-link--drop" href="productos.html">Productos</a>
+          <a class="rpm-link rpm-link--drop" href="/productos">Productos</a>
 
           <div class="rpm-dropdown-menu">
             <a href="linea-novel.html">Línea Novel</a>
@@ -49,10 +49,10 @@
           </div>
         </div>
 
-        <a class="rpm-link" href="servicios.html">Servicios</a>
-        <a class="rpm-link" href="distribuidor.html" target="_blank" rel="noopener">Distribuidor</a>
-        <a class="rpm-btn rpm-btn-gold" href="unete.html">ÚNETE</a>
-        <a class="rpm-btn" href="contacto.html">Contacto</a>
+        <a class="rpm-link" href="/servicios">Servicios</a>
+        <a class="rpm-link" href="/distribuidor">Distribuidor</a>
+        <a class="rpm-btn rpm-btn-gold" href="/unete">ÚNETE</a>
+        <a class="rpm-btn" href="/contacto">Contacto</a>
       </nav>
     </div>
   </header>
@@ -189,6 +189,7 @@
       border:1px solid rgba(212,175,55,0.35);
       box-shadow:0 18px 45px rgba(0,0,0,.55);
       display:none;
+      z-index:10001;
     }
 
     #rpm-header .rpm-dropdown:hover .rpm-dropdown-menu{
@@ -387,6 +388,76 @@
     }
   </style>
   <!-- ===== FIN HEADER CSS ===== -->
+
+  <!-- ===== INICIO HEADER JS ===== -->
+  <script>
+    (function(){
+      const header = document.getElementById('rpm-header');
+      if (!header) return;
+
+      const burger = header.querySelector('.rpm-burger');
+      const dropdown = header.querySelector('.rpm-dropdown');
+      const dropLink = header.querySelector('.rpm-link--drop');
+
+      function isMobile(){
+        return window.innerWidth <= 980;
+      }
+
+      function closeMenus(){
+        header.classList.remove('rpm-open');
+        if (burger) burger.setAttribute('aria-expanded', 'false');
+        if (dropdown) dropdown.classList.remove('rpm-dd-open');
+      }
+
+      if (burger){
+        burger.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isOpen = header.classList.toggle('rpm-open');
+          burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+          if (!isOpen && dropdown){
+            dropdown.classList.remove('rpm-dd-open');
+          }
+        });
+      }
+
+      if (dropLink && dropdown){
+        dropLink.addEventListener('click', function(e){
+          if (!isMobile()) return;
+
+          const isOpen = dropdown.classList.contains('rpm-dd-open');
+
+          if (!isOpen){
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.add('rpm-dd-open');
+            header.classList.add('rpm-open');
+            if (burger) burger.setAttribute('aria-expanded', 'true');
+            return;
+          }
+
+          dropdown.classList.remove('rpm-dd-open');
+        });
+      }
+
+      document.addEventListener('click', function(e){
+        if (!e.target.closest('#rpm-header') && !e.target.closest('.rp-top-ticker')){
+          closeMenus();
+        }
+      });
+
+      window.addEventListener('resize', function(){
+        if (!isMobile() && dropdown){
+          dropdown.classList.remove('rpm-dd-open');
+          if (burger) burger.setAttribute('aria-expanded', 'false');
+          header.classList.remove('rpm-open');
+        }
+      });
+    })();
+  </script>
+  <!-- ===== FIN HEADER JS ===== -->
 
 </div>
 <!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== -->
