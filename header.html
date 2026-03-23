@@ -387,91 +387,157 @@
   <!-- ===== FIN HEADER CSS ===== -->
 
   <!-- ===== INICIO HEADER JS ===== -->
-  <script>
+ <script>
 (function(){
   const header = document.getElementById('rpm-header');
-  if(!header) return;
+  if (!header) return;
 
   const burger = header.querySelector('.rpm-burger');
-  const nav = header.querySelector('#rpmNav');
   const dropdown = header.querySelector('.rpm-dropdown');
   const dropLink = header.querySelector('.rpm-link--drop');
   const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
+  const nav = header.querySelector('#rpmNav');
 
-  let mobileProductsOpen = false;
+  function isMobile() {
+    return window.innerWidth <= 980;
+  }
+
+  function openMainMenu() {
+    header.classList.add('rpm-open');
+    if (burger) burger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMainMenu() {
+    header.classList.remove('rpm-open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+  }
+
+  function openDropdown() {
+    if (dropdown) dropdown.classList.add('rpm-dd-open');
+  }
+
+  function closeDropdown() {
+    if (dropdown) dropdown.classList.remove('rpm-dd-open');
+  }
+
+  function closeAllMenus() {
+    closeDropdown();
+    closeMainMenu();
+  }
+
+  function isExternalLike(href) {
+    return !href ||
+      href.startsWith('#') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('http://') ||
+      href.startsWith('https://');
+  }
+
+  function spaNavigate(href) {
+    if (!href || isExternalLike(href)) return;
+
+    const target = new URL(href, window.location.origin);
+    const nextPath = target.pathname + target.search + target.hash;
+    const currentPath = window.location.pathname + window.location.search + window.location.hash;
+
+    if (nextPath === currentPath) {
+      closeAllMenus();
+      return;
+    }
+
+    history.pushState({}, '', nextPath);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    closeAllMenus();
+  }
 
   if (burger) {
-    burger.addEventListener('click', function(){
-      header.classList.toggle('rpm-open');
-      const expanded = header.classList.contains('rpm-open');
-      burger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    burger.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
 
-      if (!expanded) {
-        mobileProductsOpen = false;
-        if (dropdown) dropdown.classList.remove('rpm-dd-open');
+      if (header.classList.contains('rpm-open')) {
+        closeAllMenus();
+      } else {
+        openMainMenu();
       }
     });
   }
 
-  if (dropLink && dropdown && dropdownMenu) {
+  if (dropLink && dropdown) {
     dropLink.addEventListener('click', function(e){
-      const isMobile = window.innerWidth <= 980;
-
-      if (!isMobile) return;
-
-      if (!mobileProductsOpen) {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.add('rpm-dd-open');
-        mobileProductsOpen = true;
+      if (!isMobile()) {
+        const href = dropLink.getAttribute('href');
+        if (!isExternalLike(href)) {
+          e.preventDefault();
+          spaNavigate(href);
+        }
         return;
       }
 
-      dropdown.classList.remove('rpm-dd-open');
-      mobileProductsOpen = false;
-      // segundo toque: deja navegar normalmente a /productos
+      const isOpen = dropdown.classList.contains('rpm-dd-open');
+
+      if (!isOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+        openMainMenu();
+        openDropdown();
+        return;
+      }
+
+      e.preventDefault();
+      e.stopPropagation();
+      spaNavigate(dropLink.getAttribute('href'));
     });
   }
 
-  document.addEventListener('click', function(e){
-    const isInsideHeader = e.target.closest('#rpm-header');
-
-    if (!isInsideHeader) {
-      header.classList.remove('rpm-open');
-      if (dropdown) dropdown.classList.remove('rpm-dd-open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-      mobileProductsOpen = false;
-    }
-  });
-
   if (dropdownMenu) {
     dropdownMenu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
-        header.classList.remove('rpm-open');
-        dropdown.classList.remove('rpm-dd-open');
-        if (burger) burger.setAttribute('aria-expanded', 'false');
-        mobileProductsOpen = false;
+      link.addEventListener('click', function(e){
+        const href = link.getAttribute('href');
+
+        if (isExternalLike(href)) {
+          closeAllMenus();
+          return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+        spaNavigate(href);
       });
     });
   }
 
-  header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
-    link.addEventListener('click', function(){
-      if (window.innerWidth <= 980) {
-        header.classList.remove('rpm-open');
-        if (dropdown) dropdown.classList.remove('rpm-dd-open');
-        if (burger) burger.setAttribute('aria-expanded', 'false');
-        mobileProductsOpen = false;
-      }
+  if (nav) {
+    nav.querySelectorAll('a').forEach(function(link){
+      if (link === dropLink) return;
+      if (dropdownMenu && dropdownMenu.contains(link)) return;
+
+      link.addEventListener('click', function(e){
+        const href = link.getAttribute('href');
+
+        if (isExternalLike(href)) {
+          closeAllMenus();
+          return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+        spaNavigate(href);
+      });
     });
+  }
+
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('#rpm-header')) {
+      closeAllMenus();
+    }
   });
 
   window.addEventListener('resize', function(){
-    if (window.innerWidth > 980) {
-      mobileProductsOpen = false;
-      if (dropdown) dropdown.classList.remove('rpm-dd-open');
-      header.classList.remove('rpm-open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
+    if (!isMobile()) {
+      closeMainMenu();
+      closeDropdown();
     }
   });
 })();
