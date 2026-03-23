@@ -1,0 +1,574 @@
+<style>
+  /* ===== PRODUCTO ELITE BASE MAGNÉTICA ===== */
+  #rpProductEliteBase{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:34px 18px 44px;
+    color:#ffffff;
+    box-sizing:border-box;
+  }
+
+  #rpProductEliteBase *{ box-sizing:border-box; }
+
+  #rpProductEliteBase .rp-breadcrumbs{
+    margin:0 0 18px;
+    font-size:14px;
+    line-height:1.6;
+    color:#d4af37;
+  }
+
+  #rpProductEliteBase .rp-breadcrumbs a{
+    color:#d4af37;
+    text-decoration:none;
+  }
+
+  #rpProductEliteBase .rp-breadcrumbs a:hover{
+    text-decoration:underline;
+  }
+
+  #rpProductEliteBase .rp-breadcrumbs .rp-current{
+    color:#ffffff;
+    font-weight:700;
+  }
+
+  #rpProductEliteBase .rp-pdp-hero{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  #rpProductEliteBase .rp-pdp-media,
+  #rpProductEliteBase .rp-pdp-panel,
+  #rpProductEliteBase .rp-pdp-section,
+  #rpProductEliteBase .rp-pdp-video{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpProductEliteBase .rp-pdp-media{
+    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+    padding:18px;
+  }
+
+  #rpProductEliteBase .rp-pdp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  #rpProductEliteBase .rp-pdp-panel{
+    padding:26px 24px;
+  }
+
+  #rpProductEliteBase .rp-badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.32);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  #rpProductEliteBase h1{
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpProductEliteBase .rp-subtitle{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductEliteBase .rp-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 18px;
+  }
+
+  #rpProductEliteBase .rp-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    color:#fff;
+    font-size:14px;
+  }
+
+  #rpProductEliteBase .rp-price-note{
+    margin:0 0 22px;
+    color:rgba(255,255,255,.82);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  #rpProductEliteBase .rp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+
+  #rpProductEliteBase .rp-actions-stacked{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:16px;
+  }
+
+  #rpProductEliteBase .rp-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+
+  #rpProductEliteBase .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpProductEliteBase .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+  }
+
+  #rpProductEliteBase .rp-btn-primary:hover{
+    box-shadow:0 12px 24px rgba(212,175,55,.18);
+  }
+
+  #rpProductEliteBase .rp-btn-outline{
+    border:1px solid rgba(212,175,55,.55);
+    color:#ffffff;
+    background:transparent;
+  }
+
+  #rpProductEliteBase .rp-btn-outline:hover{
+    background:rgba(212,175,55,.08);
+  }
+
+  #rpProductEliteBase .rp-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:26px;
+    align-items:start;
+  }
+
+  #rpProductEliteBase .rp-grid-2 > .rp-pdp-section{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  #rpProductEliteBase .rp-pdp-section{
+    padding:22px 22px 20px;
+  }
+
+  #rpProductEliteBase .rp-pdp-section h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductEliteBase .rp-pdp-section p{
+    margin:0 0 10px;
+    color:rgba(255,255,255,.9);
+    line-height:1.7;
+  }
+
+  #rpProductEliteBase .rp-list{
+    margin:0;
+    padding-left:18px;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductEliteBase .rp-list li{
+    margin:0 0 10px;
+    line-height:1.6;
+  }
+
+  #rpProductEliteBase .rp-pdp-video{
+    margin-top:26px;
+    padding:22px;
+  }
+
+  #rpProductEliteBase .rp-pdp-video h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductEliteBase .rp-final-cta{
+    margin-top:26px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+    border:1px solid rgba(212,175,55,.18);
+    text-align:center;
+  }
+
+  #rpProductEliteBase .rp-final-cta h3{
+    margin:0 0 8px;
+    font-size:28px;
+    color:#fff;
+  }
+
+  #rpProductEliteBase .rp-final-cta p{
+    margin:0 0 16px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+  }
+
+  #rpProductEliteBase .rp-features-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:12px;
+  }
+
+  #rpProductEliteBase .rp-feature{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:14px;
+    padding:18px;
+  }
+
+  #rpProductEliteBase .rp-feature h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:#fff;
+  }
+
+  #rpProductEliteBase .rp-feature p{
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:1.6;
+  }
+
+  #rpProductEliteBase .rp-specs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:12px;
+  }
+
+  #rpProductEliteBase .rp-spec{
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:10px;
+    padding:12px 14px;
+    gap:12px;
+  }
+
+  #rpProductEliteBase .rp-spec-title{
+    color:rgba(255,255,255,.7);
+    font-weight:600;
+  }
+
+  #rpProductEliteBase .rp-spec-value{
+    color:#fff;
+    text-align:right;
+  }
+
+  #rpProductEliteBase .rp-pdp-section{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  #rpProductEliteBase .rp-pdp-section h2{
+    margin-top:0;
+  }
+
+  #rpProductEliteBase .rp-grid-2 + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  #rpProductEliteBase .rp-pdp-section + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  #rpProductEliteBase .rp-pdp-video + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  @media (max-width:980px){
+    #rpProductEliteBase .rp-pdp-hero{
+      grid-template-columns:1fr;
+    }
+    #rpProductEliteBase .rp-grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:800px){
+    #rpProductEliteBase .rp-features-grid{
+      grid-template-columns:1fr;
+    }
+    #rpProductEliteBase .rp-specs{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    #rpProductEliteBase{
+      padding:24px 14px 34px;
+    }
+    #rpProductEliteBase h1{
+      font-size:30px;
+    }
+    #rpProductEliteBase .rp-pdp-panel,
+    #rpProductEliteBase .rp-pdp-section,
+    #rpProductEliteBase .rp-pdp-video{
+      padding:18px;
+    }
+  }
+
+  /* ===== VIDEO PREMIUM RP ===== */
+  #rpProductEliteBase .rp-video{
+    max-width:1000px;
+    margin:40px auto 0;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  #rpProductEliteBase .rp-video iframe{
+    width:100%;
+    height:560px;
+    display:block;
+    border:0;
+  }
+
+  @media (max-width:900px){
+    #rpProductEliteBase .rp-video iframe{
+      height:420px;
+    }
+  }
+
+  @media (max-width:600px){
+    #rpProductEliteBase .rp-video iframe{
+      height:260px;
+    }
+  }
+</style>
+
+<section id="rpProductEliteBase">
+
+  <div class="rp-breadcrumbs">
+    <a href="/">Inicio</a> /
+    <a href="/productos">Productos</a> /
+    <a href="/elite-cooking-system">Elite Cooking System</a> /
+    <span class="rp-current">Base Magnética</span>
+  </div>
+
+  <div class="rp-pdp-hero">
+    <div class="rp-pdp-media">
+      <img src="rc_images/elite_base_magnetica.png" alt="Elite Cooking System Base Magnética">
+    </div>
+
+    <div class="rp-pdp-panel">
+      <span class="rp-badge">Elite Cooking System</span>
+      <h1>Base Magnética</h1>
+      <p class="rp-subtitle">
+        Accesorio complementario de la línea Elite Cooking System, diseñado para ampliar la versatilidad del sistema en la cocina diaria.
+      </p>
+
+      <div class="rp-meta">
+        <span class="rp-chip">SKU: <strong>Consultar con asesor</strong></span>
+        <span class="rp-chip">Disponibilidad: <strong>Nuevo lanzamiento</strong></span>
+        <span class="rp-chip">Categoría: <strong>Accesorio</strong></span>
+      </div>
+
+      <p class="rp-price-note">
+        La Base Magnética es un complemento práctico que forma parte de la nueva línea Elite Cooking System y está pensada para reforzar la funcionalidad del sistema.
+      </p>
+
+      <div class="rp-actions">
+        <a class="rp-btn rp-btn-primary" href="/contacto">Solicitar información</a>
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Descripción general</h2>
+      <p>
+        La Base Magnética de Elite Cooking System es un accesorio adicional pensado para complementar el sistema principal de cocina.
+      </p>
+      <p>
+        Su función dentro de la línea la convierte en una pieza útil para quienes desean una experiencia más versátil y completa.
+      </p>
+      <p>
+        Es ideal para ampliar el valor práctico del sistema con un accesorio diseñado específicamente para esta colección.
+      </p>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Ideal para</h2>
+      <ul class="rp-list">
+        <li>Usuarios que desean complementar su sistema principal.</li>
+        <li>Cocinas que buscan más versatilidad y funcionalidad.</li>
+        <li>Quienes desean aprovechar al máximo la línea Elite Cooking System.</li>
+        <li>Personas interesadas en accesorios prácticos y específicos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Beneficios</h2>
+      <ul class="rp-list">
+        <li>Accesorio diseñado para complementar la línea Elite.</li>
+        <li>Aporta funcionalidad adicional al sistema principal.</li>
+        <li>Refuerza la versatilidad general de la cocina.</li>
+        <li>Se integra naturalmente con la identidad del sistema.</li>
+        <li>Excelente opción para ampliar la experiencia de uso.</li>
+      </ul>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Uso recomendado</h2>
+      <ul class="rp-list">
+        <li>Como accesorio adicional del sistema Elite Cooking System.</li>
+        <li>Para usuarios que desean una cocina más versátil.</li>
+        <li>Como complemento práctico dentro del ecosistema Elite.</li>
+        <li>Para ampliar la experiencia funcional del sistema principal.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Características del accesorio</h2>
+
+    <div class="rp-features-grid">
+      <div class="rp-feature">
+        <h3>Accesorio oficial</h3>
+        <p>
+          Forma parte de la nueva línea Elite Cooking System como complemento del sistema principal.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Versatilidad adicional</h3>
+        <p>
+          Ayuda a ampliar las posibilidades de uso dentro de la cocina diaria.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Integración natural</h3>
+        <p>
+          Se complementa visual y funcionalmente con el resto de la línea Elite.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Diseño práctico</h3>
+        <p>
+          Pensado para ser un apoyo útil dentro de un sistema premium de cocina.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Especificaciones del accesorio</h2>
+
+    <div class="rp-specs">
+      <div class="rp-spec">
+        <span class="rp-spec-title">Línea</span>
+        <span class="rp-spec-value">Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Tipo de pieza</span>
+        <span class="rp-spec-value">Accesorio</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Nombre</span>
+        <span class="rp-spec-value">Base Magnética</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Configuración</span>
+        <span class="rp-spec-value">Complemento adicional</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Compatibilidad</span>
+        <span class="rp-spec-value">Línea Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Uso recomendado</span>
+        <span class="rp-spec-value">Accesorio complementario del sistema</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video de presentación</h2>
+    <div class="rp-video">
+      <iframe
+        src="https://www.youtube.com/embed/eGdogBIh9eQ"
+        title="Elite Cooking System"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Explorar la línea Elite Cooking System</h2>
+
+    <p>
+      Descubre también el sistema principal, las piezas adicionales y otros accesorios disponibles dentro de esta nueva línea.
+    </p>
+
+    <div class="rp-actions-stacked" style="margin-top:16px;">
+      <a class="rp-btn rp-btn-primary"
+         href="/contacto">
+         Solicitar más información
+      </a>
+
+      <a class="rp-btn rp-btn-outline"
+         href="/elite-cooking-system">
+         ← Volver a Elite Cooking System
+      </a>
+    </div>
+  </div>
+
+  <div class="rp-final-cta">
+    <h3>¿Quieres conocer este accesorio más a fondo?</h3>
+    <p>
+      Escríbenos y te ayudamos a evaluar si la Base Magnética de Elite Cooking System es el complemento ideal para tu cocina y tu sistema.
+    </p>
+    <div class="rp-actions" style="justify-content:center;">
+      <a class="rp-btn rp-btn-primary" href="/contacto">Ir a contacto</a>
+      <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+    </div>
+  </div>
+
+</section>
