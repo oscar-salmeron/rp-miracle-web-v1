@@ -388,71 +388,150 @@
 
   <!-- ===== INICIO HEADER JS ===== -->
   <script>
-    (function(){
-      const header = document.getElementById('rpm-header');
-      if(!header) return;
+(function(){
+  const header = document.getElementById('rpm-header');
+  if (!header) return;
 
-      const burger = header.querySelector('.rpm-burger');
-      const nav = header.querySelector('#rpmNav');
-      const dropdown = header.querySelector('.rpm-dropdown');
-      const dropLink = header.querySelector('.rpm-link--drop');
-      const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
+  const burger = header.querySelector('.rpm-burger');
+  const dropdown = header.querySelector('.rpm-dropdown');
+  const dropLink = header.querySelector('.rpm-link--drop');
+  const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
 
-      if (burger) {
-        burger.addEventListener('click', function(){
-          header.classList.toggle('rpm-open');
-          const expanded = header.classList.contains('rpm-open');
-          burger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        });
+  function isMobile(){
+    return window.innerWidth <= 980;
+  }
+
+  function openMainMenu(){
+    header.classList.add('rpm-open');
+    if (burger) burger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMainMenu(){
+    header.classList.remove('rpm-open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+  }
+
+  function openDropdown(){
+    if (dropdown) dropdown.classList.add('rpm-dd-open');
+  }
+
+  function closeDropdown(){
+    if (dropdown) dropdown.classList.remove('rpm-dd-open');
+  }
+
+  function closeAllMenus(){
+    closeDropdown();
+    closeMainMenu();
+  }
+
+  function spaNavigate(url){
+    if (!url) return;
+    if (window.location.pathname === url) {
+      closeAllMenus();
+      return;
+    }
+    history.pushState({}, '', url);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    closeAllMenus();
+  }
+
+  if (burger) {
+    burger.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      const expanded = header.classList.contains('rpm-open');
+      if (expanded) {
+        closeAllMenus();
+      } else {
+        openMainMenu();
+      }
+    });
+  }
+
+  if (dropLink && dropdown) {
+    dropLink.addEventListener('click', function(e){
+      if (!isMobile()) return;
+
+      const isOpen = dropdown.classList.contains('rpm-dd-open');
+
+      if (!isOpen) {
+        e.preventDefault();
+        openMainMenu();
+        openDropdown();
+        return;
       }
 
-      if (dropLink && dropdown && dropdownMenu) {
-        dropLink.addEventListener('click', function(e){
-          const isMobile = window.innerWidth <= 980;
+      e.preventDefault();
+      closeDropdown();
+      spaNavigate('/productos');
+    });
+  }
 
-          if (!isMobile) return;
+  document.addEventListener('click', function(e){
+    const inside = e.target.closest('#rpm-header');
+    if (!inside) {
+      closeAllMenus();
+    }
+  });
 
-          if (!dropdown.classList.contains('rpm-dd-open')) {
-            e.preventDefault();
-            dropdown.classList.add('rpm-dd-open');
-            return;
-          }
+  if (dropdownMenu) {
+    dropdownMenu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(e){
+        const href = link.getAttribute('href');
+        if (!href) return;
 
-          dropdown.classList.remove('rpm-dd-open');
-        });
-      }
+        const isExternal =
+          href.startsWith('http') ||
+          href.startsWith('mailto:') ||
+          href.startsWith('tel:') ||
+          href.startsWith('#');
 
-      document.addEventListener('click', function(e){
-        const isInsideHeader = e.target.closest('#rpm-header');
-
-        if (!isInsideHeader) {
-          header.classList.remove('rpm-open');
-          if (dropdown) dropdown.classList.remove('rpm-dd-open');
-          if (burger) burger.setAttribute('aria-expanded', 'false');
+        if (isExternal) {
+          closeAllMenus();
+          return;
         }
-      });
 
-      if (dropdownMenu) {
-        dropdownMenu.querySelectorAll('a').forEach(function(link){
-          link.addEventListener('click', function(){
-            header.classList.remove('rpm-open');
-            dropdown.classList.remove('rpm-dd-open');
-            if (burger) burger.setAttribute('aria-expanded', 'false');
-          });
-        });
+        e.preventDefault();
+        closeAllMenus();
+        spaNavigate(href);
+      });
+    });
+  }
+
+  header.querySelectorAll('.rpm-nav a, .rpm-btn').forEach(function(link){
+    if (link.classList.contains('rpm-link--drop')) return;
+    if (dropdownMenu && dropdownMenu.contains(link)) return;
+
+    link.addEventListener('click', function(e){
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      const isExternal =
+        href.startsWith('http') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
+        href.startsWith('#');
+
+      if (isExternal) {
+        closeAllMenus();
+        return;
       }
 
-      header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
-        link.addEventListener('click', function(){
-          if (window.innerWidth <= 980) {
-            header.classList.remove('rpm-open');
-            if (dropdown) dropdown.classList.remove('rpm-dd-open');
-            if (burger) burger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    })();
-  </script>
+      e.preventDefault();
+      closeAllMenus();
+      spaNavigate(href);
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    if (!isMobile()) {
+      closeMainMenu();
+      closeDropdown();
+    }
+  });
+})();
+</script>
   <!-- ===== FIN HEADER JS ===== -->
 
 </div>
