@@ -16,6 +16,8 @@
     '/contacto': 'spa/contacto.html'
   };
 
+  let isNavigating = false; // 🔥 FIX CLAVE
+
   function normalizePath(path) {
     if (!path) return '/';
     let p = path.trim();
@@ -39,18 +41,17 @@
     const cleanPath = normalizePath(path);
     const file = routes[cleanPath];
 
-    if (!file) {
-      console.error('Ruta no encontrada:', cleanPath);
-      return;
-    }
+    if (!file) return;
+
+    if (isNavigating) return; // 🔥 evita doble ejecución
+    isNavigating = true;
 
     try {
       const response = await fetch(file, { cache: 'no-store' });
-      if (!response.ok) {
-        throw new Error('HTTP ' + response.status);
-      }
+      if (!response.ok) throw new Error('HTTP ' + response.status);
 
       const html = await response.text();
+
       container.innerHTML = html;
 
       if (pushState) {
@@ -58,9 +59,14 @@
       }
 
       window.scrollTo(0, 0);
+
     } catch (error) {
       console.error('Error cargando ruta SPA:', cleanPath, error);
     }
+
+    setTimeout(() => {
+      isNavigating = false;
+    }, 80); // 🔥 estabiliza render
   }
 
   document.addEventListener('click', function (e) {
@@ -79,13 +85,12 @@
       return;
     }
 
-    let route = normalizePath(href);
+    const route = normalizePath(href);
 
-    if (!routes[route]) {
-      return;
-    }
+    if (!routes[route]) return;
 
     e.preventDefault();
+
     loadRoute(route, true);
   });
 
