@@ -1,186 +1,328 @@
 <div data-spa-title style="display:none;">Servicios | RP Miracle</div>
 
 <section id="spaServiciosContent">
-  <style>
-    #spaServiciosContent{
-      width:100%;
-      box-sizing:border-box;
-    }
 
-    #spaServiciosContent *{
-      box-sizing:border-box;
-    }
+<style>
+/* ===== SERVICIO (ADAPTADO SPA) ===== */
+#rpServicio{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:34px 18px 44px;
+  color:#ffffff;
+  box-sizing:border-box;
+}
 
-    #spaServiciosContent .rp-servicios-container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:60px 20px 70px;
-      color:#ffffff;
-    }
+#rpServicio *{ box-sizing:border-box; }
 
-    #spaServiciosContent .rp-servicios-header{
-      text-align:center;
-      margin-bottom:50px;
-    }
+#rpServicio .rp-breadcrumbs{
+  margin:0 0 18px;
+  font-size:14px;
+  line-height:1.5;
+  color:#d4af37;
+  font-weight:500;
+}
 
-    #spaServiciosContent .rp-servicios-header h1{
-      font-size:38px;
-      margin-bottom:14px;
-      color:#d4af37;
-    }
+#rpServicio .rp-breadcrumbs a{
+  color:#d4af37;
+  text-decoration:none;
+}
 
-    #spaServiciosContent .rp-servicios-header p{
-      font-size:16px;
-      color:#e6e6e6;
-      max-width:700px;
-      margin:0 auto;
-      line-height:1.6;
-    }
+#rpServicio .rp-breadcrumbs a:hover{
+  color:#f3df8a;
+}
 
-    #spaServiciosContent .rp-servicios-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:26px;
-    }
+#rpServicio .rp-breadcrumb-sep{
+  margin:0 10px;
+  color:rgba(212,175,55,.72);
+}
 
-    #spaServiciosContent .rp-servicio-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(212,175,55,.18);
-      border-radius:14px;
-      padding:26px 22px 28px;
-      transition:.25s ease;
-      position:relative;
-      overflow:hidden;
-    }
+#rpServicio .rp-breadcrumb-current{
+  color:#ffffff;
+  font-weight:700;
+}
 
-    #spaServiciosContent .rp-servicio-card:hover{
-      transform:translateY(-6px);
-      border-color:#d4af37;
-      box-shadow:0 10px 26px rgba(0,0,0,.35);
-    }
+#rpServicio .rp-hero{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
 
-    #spaServiciosContent .rp-servicio-icon{
-      font-size:34px;
-      margin-bottom:14px;
-    }
+#rpServicio .rp-media,
+#rpServicio .rp-panel,
+#rpServicio .rp-section,
+#rpServicio .rp-card,
+#rpServicio .rp-step{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,175,55,.18);
+  border-radius:18px;
+  overflow:hidden;
+}
 
-    #spaServiciosContent .rp-servicio-card h3{
-      font-size:20px;
-      margin-bottom:10px;
-      color:#d4af37;
-    }
+#rpServicio .rp-media{
+  background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+  padding:18px;
+}
 
-    #spaServiciosContent .rp-servicio-card p{
-      font-size:14.5px;
-      line-height:1.6;
-      color:#e0e0e0;
-    }
+#rpServicio .rp-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  border-radius:12px;
+}
 
-    #spaServiciosContent .rp-servicios-cta{
-      margin-top:60px;
-      text-align:center;
-      padding:40px 20px;
-      border:1px solid rgba(212,175,55,.18);
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-    }
+#rpServicio .rp-panel{
+  padding:28px 26px;
+}
 
-    #spaServiciosContent .rp-servicios-cta h2{
-      font-size:26px;
-      margin-bottom:12px;
-      color:#d4af37;
-    }
+#rpServicio .rp-badge{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(212,175,55,.16);
+  border:1px solid rgba(212,175,55,.32);
+  color:#f3df8a;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:14px;
+}
 
-    #spaServiciosContent .rp-servicios-cta p{
-      font-size:15px;
-      color:#e6e6e6;
-      margin-bottom:20px;
-    }
+#rpServicio h1{
+  margin:0 0 12px;
+  font-size:42px;
+  line-height:1.12;
+}
 
-    #spaServiciosContent .rp-btn{
-      display:inline-block;
-      padding:12px 26px;
-      border-radius:8px;
-      background:#d4af37;
-      color:#000;
-      font-weight:600;
-      text-decoration:none;
-      transition:.2s ease;
-    }
+#rpServicio .rp-subtitle{
+  margin:0 0 16px;
+  font-size:18px;
+  line-height:1.65;
+  color:rgba(255,255,255,.92);
+  max-width:920px;
+}
 
-    #spaServiciosContent .rp-btn:hover{
-      background:#b8962e;
-    }
+#rpServicio .rp-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 18px;
+}
 
-    @media (max-width: 900px){
-      #spaServiciosContent .rp-servicios-grid{
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+#rpServicio .rp-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:9px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,175,55,.18);
+  color:#fff;
+  font-size:14px;
+}
 
-    @media (max-width: 600px){
-      #spaServiciosContent .rp-servicios-grid{
-        grid-template-columns: 1fr;
-      }
+#rpServicio .rp-price-note{
+  margin:0 0 22px;
+  color:rgba(255,255,255,.82);
+  font-size:15px;
+  line-height:1.7;
+}
 
-      #spaServiciosContent .rp-servicios-header h1{
-        font-size:30px;
-      }
-    }
-  </style>
+#rpServicio .rp-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
 
-  <div class="rp-servicios-container">
+#rpServicio .rp-btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:14px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.25s;
+}
 
-    <div class="rp-servicios-header">
-      <h1>Servicios RP Miracle</h1>
-      <p>Soluciones integrales diseñadas para mejorar tu calidad de vida a través de tecnología premium, asesoría personalizada y acompañamiento profesional.</p>
+#rpServicio .rp-btn-primary{
+  background:#d4af37;
+  color:#111;
+}
+
+#rpServicio .rp-btn-outline{
+  border:1px solid rgba(212,175,55,.55);
+  color:#fff;
+}
+
+#rpServicio .rp-section{
+  margin-top:30px;
+  padding:22px;
+}
+
+#rpServicio .rp-section h2{
+  margin-bottom:14px;
+  font-size:28px;
+}
+
+#rpServicio .rp-section p{
+  margin-bottom:10px;
+  line-height:1.7;
+}
+
+#rpServicio .rp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:18px;
+}
+
+#rpServicio .rp-card{
+  padding:18px;
+}
+
+#rpServicio .rp-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+#rpServicio .rp-step{
+  padding:18px;
+}
+
+#rpServicio .rp-step-num{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  background:rgba(212,175,55,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+  font-weight:800;
+}
+
+#rpServicio .rp-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+#rpServicio .rp-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+#rpServicio .rp-field-full{
+  grid-column:1/-1;
+}
+
+#rpServicio input,
+#rpServicio select,
+#rpServicio textarea{
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(212,175,55,.22);
+  background:rgba(30,36,64,.72);
+  color:#fff;
+}
+
+#rpServicio textarea{
+  min-height:120px;
+}
+
+#rpServicio .rp-final-cta{
+  margin-top:30px;
+  padding:24px;
+  border-radius:18px;
+  border:1px solid rgba(212,175,55,.18);
+  text-align:center;
+}
+
+@media (max-width:980px){
+  #rpServicio .rp-grid,
+  #rpServicio .rp-steps{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:760px){
+  #rpServicio .rp-form{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<section id="rpServicio">
+
+  <div class="rp-breadcrumbs">
+    <a href="#inicio">Inicio</a>
+    <span class="rp-breadcrumb-sep">/</span>
+    <span class="rp-breadcrumb-current">Servicio</span>
+  </div>
+
+  <div class="rp-hero">
+
+    <div class="rp-media">
+      <img src="rc_images/rp_servicio_frescapure5500_demo_cliente_01.png">
     </div>
 
-    <div class="rp-servicios-grid">
+    <div class="rp-panel">
+      <span class="rp-badge">Atención y respaldo</span>
+      <h1>Servicio y respaldo para tus productos</h1>
+      <p class="rp-subtitle">
+        Si tu producto presenta algún detalle, nosotros te ayudamos con atención personalizada y seguimiento confiable.
+      </p>
 
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">🍳</div>
-        <h3>Demostraciones en Casa</h3>
-        <p>Agenda una experiencia personalizada donde conocerás el funcionamiento real de nuestros productos en tu propia cocina.</p>
+      <div class="rp-meta">
+        <span class="rp-chip">Atención personalizada</span>
+        <span class="rp-chip">Visita y seguimiento</span>
+        <span class="rp-chip">WhatsApp y formulario</span>
       </div>
 
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">💳</div>
-        <h3>Planes de Financiamiento</h3>
-        <p>Opciones accesibles de pago adaptadas a tus necesidades para que puedas adquirir equipos premium sin comprometer tu estabilidad financiera.</p>
+      <div class="rp-actions">
+        <a class="rp-btn rp-btn-primary" href="https://wa.me/XXXXXXXXXXXX" target="_blank">Agendar visita</a>
+        <a class="rp-btn rp-btn-outline" href="#formServicio">Solicitar servicio</a>
       </div>
-
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">🛠️</div>
-        <h3>Soporte y Garantía</h3>
-        <p>Respaldo completo en cada producto con atención directa, asesoría técnica y seguimiento postventa confiable.</p>
-      </div>
-
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">💧</div>
-        <h3>Asesoría en Sistemas de Filtración</h3>
-        <p>Evaluamos tu entorno y te recomendamos la mejor solución en purificación de agua para tu hogar o negocio.</p>
-      </div>
-
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">📦</div>
-        <h3>Entrega y Configuración</h3>
-        <p>Instalación y explicación completa para que aproveches al máximo cada producto desde el primer día.</p>
-      </div>
-
-      <div class="rp-servicio-card">
-        <div class="rp-servicio-icon">📞</div>
-        <h3>Atención Personalizada</h3>
-        <p>Comunicación directa y continua para resolver dudas, dar seguimiento y brindarte una experiencia premium.</p>
-      </div>
-
-    </div>
-
-    <div class="rp-servicios-cta">
-      <h2>Agenda tu demostración hoy</h2>
-      <p>Descubre por qué miles de familias ya están transformando su forma de cocinar y vivir.</p>
-      <a href="#contacto" class="rp-btn">Solicitar información</a>
     </div>
 
   </div>
+
+  <div class="rp-section">
+    <h2>¿En qué te podemos ayudar?</h2>
+
+    <div class="rp-grid">
+      <div class="rp-card"><h3>Garantías</h3></div>
+      <div class="rp-card"><h3>Piezas</h3></div>
+      <div class="rp-card"><h3>Filtros agua</h3></div>
+      <div class="rp-card"><h3>Filtros aire</h3></div>
+      <div class="rp-card"><h3>Electrodomésticos</h3></div>
+      <div class="rp-card"><h3>Revisión general</h3></div>
+    </div>
+  </div>
+
+  <div class="rp-section" id="formServicio">
+    <h2>Envíanos tu consulta</h2>
+
+    <form class="rp-form">
+      <div class="rp-field">
+        <input type="text" placeholder="Nombre completo">
+      </div>
+
+      <div class="rp-field">
+        <input type="tel" placeholder="Teléfono">
+      </div>
+
+      <div class="rp-field-full">
+        <textarea placeholder="Mensaje"></textarea>
+      </div>
+
+      <div class="rp-field-full">
+        <button class="rp-btn rp-btn-primary">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+</section>
+
 </section>
