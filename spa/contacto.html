@@ -1,8 +1,367 @@
 <div data-spa-title style="display:none;">Contacto | RP Miracle</div>
 
 <section id="spaContactoContent">
-  <div style="max-width:1200px; margin:0 auto; padding:60px 20px; color:#ffffff;">
-    <h1>Contacto</h1>
-    <p>Contacto temporal de prueba.</p>
-  </div>
+  <style>
+    #rpContactPage{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:36px 18px 48px;
+      color:#fff;
+      box-sizing:border-box;
+    }
+
+    #rpContactPage *{ box-sizing:border-box; }
+
+    #rpContactPage .rp-breadcrumbs{
+      margin:0 0 18px;
+      font-size:14px;
+      line-height:1.5;
+      color:#d4af37;
+      font-weight:500;
+    }
+
+    #rpContactPage .rp-breadcrumbs a{
+      color:#d4af37;
+      text-decoration:none;
+    }
+
+    #rpContactPage .rp-breadcrumbs a:hover{
+      color:#f3df8a;
+    }
+
+    #rpContactPage .rp-breadcrumb-sep{
+      margin:0 10px;
+      color:rgba(212,175,55,.72);
+    }
+
+    #rpContactPage .rp-breadcrumb-current{
+      color:#ffffff;
+      font-weight:700;
+    }
+
+    #rpContactPage .rp-contact-hero,
+    #rpContactPage .rp-contact-form-wrap,
+    #rpContactPage .rp-contact-info{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:18px;
+      padding:28px 24px;
+    }
+
+    #rpContactPage .rp-contact-hero{
+      text-align:center;
+      margin-bottom:26px;
+    }
+
+    #rpContactPage h1{
+      margin:0 0 10px;
+      font-size:42px;
+      line-height:1.12;
+      color:#fff;
+    }
+
+    #rpContactPage .rp-lead{
+      margin:0 auto 18px;
+      max-width:850px;
+      font-size:18px;
+      line-height:1.7;
+      color:rgba(255,255,255,.9);
+    }
+
+    #rpContactPage .rp-quick-actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    #rpContactPage .rp-btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:700;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      border:none;
+      cursor:pointer;
+    }
+
+    #rpContactPage .rp-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    #rpContactPage .rp-btn-primary{
+      background:#d4af37;
+      color:#111;
+    }
+
+    #rpContactPage .rp-btn-outline{
+      border:1px solid rgba(212,175,55,.55);
+      color:#fff;
+      background:transparent;
+    }
+
+    #rpContactPage .rp-contact-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+    }
+
+    #rpContactPage h2{
+      margin:0 0 14px;
+      font-size:30px;
+      color:#fff;
+    }
+
+    #rpContactPage .rp-form{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    #rpContactPage .rp-form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    #rpContactPage label{
+      display:block;
+      margin:0 0 6px;
+      font-weight:700;
+      color:#fff;
+    }
+
+    #rpContactPage input,
+    #rpContactPage select,
+    #rpContactPage textarea{
+      width:100%;
+      padding:13px 14px;
+      border-radius:12px;
+      border:1px solid rgba(212,175,55,.20);
+      background:rgba(255,255,255,.03);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+    }
+
+    #rpContactPage input::placeholder,
+    #rpContactPage textarea::placeholder{
+      color:rgba(255,255,255,.58);
+    }
+
+    #rpContactPage select option{
+      color:#111;
+    }
+
+    #rpContactPage textarea{
+      resize:vertical;
+      min-height:140px;
+    }
+
+    #rpContactPage .rp-contact-info{
+      display:grid;
+      gap:16px;
+    }
+
+    #rpContactPage .rp-info-card{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(212,175,55,.16);
+      border-radius:14px;
+      padding:18px;
+    }
+
+    #rpContactPage .rp-info-card h3{
+      margin:0 0 8px;
+      font-size:20px;
+      color:#fff;
+    }
+
+    #rpContactPage .rp-info-card p{
+      margin:0;
+      line-height:1.7;
+      color:rgba(255,255,255,.9);
+    }
+
+    #rpContactPage .rp-note{
+      margin-top:8px;
+      font-size:14px;
+      line-height:1.6;
+      color:rgba(255,255,255,.74);
+    }
+
+    @media (max-width:980px){
+      #rpContactPage .rp-contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      #rpContactPage{
+        padding:24px 14px 34px;
+      }
+
+      #rpContactPage h1{
+        font-size:32px;
+      }
+
+      #rpContactPage .rp-form-grid{
+        grid-template-columns:1fr;
+      }
+
+      #rpContactPage .rp-contact-hero,
+      #rpContactPage .rp-contact-form-wrap,
+      #rpContactPage .rp-contact-info{
+        padding:20px 18px;
+      }
+
+      #rpContactPage .rp-breadcrumbs{
+        font-size:13px;
+        margin-bottom:16px;
+      }
+    }
+  </style>
+
+  <section id="rpContactPage">
+
+    <div class="rp-breadcrumbs">
+      <a href="#inicio">Inicio</a>
+      <span class="rp-breadcrumb-sep">/</span>
+      <span class="rp-breadcrumb-current">Contacto</span>
+    </div>
+
+    <div class="rp-contact-hero">
+      <h1>Contáctanos</h1>
+      <p class="rp-lead">
+        Nuestro equipo puede ayudarte con información sobre productos, garantía o soporte técnico,
+        demostraciones y oportunidades de distribución.
+      </p>
+
+      <div class="rp-quick-actions">
+        <a class="rp-btn rp-btn-primary" href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        <a class="rp-btn rp-btn-outline" href="tel:+1XXXXXXXXXX">Llamar ahora</a>
+      </div>
+    </div>
+
+    <div class="rp-contact-grid">
+
+      <div class="rp-contact-form-wrap" id="formulario">
+        <h2>Envíanos tu consulta</h2>
+
+        <form
+          class="rp-form"
+          onsubmit="(function(form){var hash=(window.location.hash||'').toLowerCase();var origin='contacto';if(hash.indexOf('origen=unete')!==-1){origin='unete';}else if(hash.indexOf('origen=servicios')!==-1){origin='servicios';}else if(hash.indexOf('origen=distribuidor')!==-1){origin='distribuidor';}form.querySelector('input[name=&quot;origen&quot;]').value=origin;})(this);">
+
+          <input type="hidden" name="origen" value="contacto">
+
+          <div class="rp-form-grid">
+            <div>
+              <label for="rpContactoNombre">Nombre completo</label>
+              <input id="rpContactoNombre" name="nombre" type="text" placeholder="Escribe tu nombre completo">
+            </div>
+
+            <div>
+              <label for="rpContactoTelefono">Teléfono</label>
+              <input id="rpContactoTelefono" name="telefono" type="tel" placeholder="Escribe tu numero">
+            </div>
+
+            <div>
+              <label for="rpContactoCorreo">Correo electrónico</label>
+              <input id="rpContactoCorreo" name="correo" type="email" placeholder="Escribe tu correo">
+            </div>
+
+            <div>
+              <label for="rpContactoCiudad">Ciudad</label>
+              <input id="rpContactoCiudad" name="ciudad" type="text" placeholder="Escribe tu ciudad">
+            </div>
+          </div>
+
+          <div>
+            <label for="rpContactoTipo">Tipo de consulta</label>
+            <select id="rpContactoTipo" name="tipo_consulta">
+              <option value="">Seleccione una opción</option>
+              <option>Información sobre productos</option>
+              <option>Garantía o soporte técnico</option>
+              <option>Demostración de producto</option>
+              <option>Distribuidor / negocio</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rpContactoProducto">Producto relacionado</label>
+            <select id="rpContactoProducto" name="producto">
+              <option value="">Seleccione si aplica</option>
+              <option>Línea Novel</option>
+              <option>Línea Innove</option>
+              <option>Sistema de filtración de agua</option>
+              <option>Sistema de filtración de aire</option>
+              <option>Licuadora</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rpContactoMensaje">Mensaje</label>
+            <textarea id="rpContactoMensaje" name="mensaje" placeholder="Explique brevemente su consulta"></textarea>
+          </div>
+
+          <div>
+            <button class="rp-btn rp-btn-primary" type="submit">Enviar consulta</button>
+          </div>
+
+          <p class="rp-note">
+            Puedes escribirnos para recibir información de productos, solicitar apoyo por garantía o soporte técnico,
+            agendar una demostración o conocer oportunidades de distribución.
+          </p>
+        </form>
+      </div>
+
+      <div class="rp-contact-info">
+        <div class="rp-info-card" id="whatsapp">
+          <h3>WhatsApp</h3>
+          <p>
+            Si deseas atención rápida y personalizada, puedes escribirnos directamente por WhatsApp.
+          </p>
+        </div>
+
+        <div class="rp-info-card">
+          <h3>Demostraciones</h3>
+          <p>
+            Podemos orientarte para conocer mejor los beneficios y el funcionamiento de nuestros sistemas.
+          </p>
+        </div>
+
+        <div class="rp-info-card">
+          <h3>Garantía o soporte técnico</h3>
+          <p>
+            Si tu consulta está relacionada con funcionamiento, garantía o asistencia sobre tu producto,
+            también podemos ayudarte desde esta página.
+          </p>
+        </div>
+
+        <div class="rp-info-card">
+          <h3>Distribuidor / negocio</h3>
+          <p>
+            Si deseas información sobre oportunidades de distribución, también puedes comunicarte con nosotros.
+          </p>
+        </div>
+
+        <div class="rp-info-card">
+          <h3>Horario de atención</h3>
+          <p>
+            Nuestro equipo está disponible para atender consultas,
+            coordinar demostraciones y brindar soporte.
+          </p>
+          <p>
+            <strong>Lunes a domingo</strong><br>
+            9:00 AM – 10:00 PM
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
 </section>
