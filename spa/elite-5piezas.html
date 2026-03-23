@@ -1,217 +1,411 @@
 <style>
-/* ===== PRODUCTO ELITE 5 PIEZAS ===== */
-#rpProductElite{
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  padding:34px 18px 44px;
-  color:#ffffff;
-  box-sizing:border-box;
-}
-
-#rpProductElite *{ box-sizing:border-box; }
-
-#rpProductElite .rp-breadcrumbs{
-  margin:0 0 18px;
-  font-size:14px;
-  line-height:1.6;
-  color:#d4af37;
-}
-
-#rpProductElite .rp-breadcrumbs a{
-  color:#d4af37;
-  text-decoration:none;
-}
-
-#rpProductElite .rp-breadcrumbs a:hover{
-  text-decoration:underline;
-}
-
-#rpProductElite .rp-breadcrumbs .rp-current{
-  color:#ffffff;
-  font-weight:700;
-}
-
-#rpProductElite .rp-pdp-hero{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:28px;
-  align-items:start;
-}
-
-#rpProductElite .rp-pdp-media,
-#rpProductElite .rp-pdp-panel,
-#rpProductElite .rp-pdp-section,
-#rpProductElite .rp-pdp-video{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:18px;
-  overflow:hidden;
-}
-
-#rpProductElite .rp-pdp-media{
-  background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
-  padding:18px;
-}
-
-#rpProductElite .rp-pdp-media img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-#rpProductElite .rp-pdp-panel{
-  padding:26px 24px;
-}
-
-#rpProductElite .rp-badge{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(212,175,55,.16);
-  border:1px solid rgba(212,175,55,.32);
-  color:#f3df8a;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:14px;
-}
-
-#rpProductElite h1{
-  margin:0 0 12px;
-  font-size:40px;
-  line-height:1.12;
-  color:#ffffff;
-}
-
-#rpProductElite .rp-subtitle{
-  margin:0 0 16px;
-  font-size:18px;
-  line-height:1.6;
-  color:rgba(255,255,255,.92);
-}
-
-#rpProductElite .rp-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:0 0 18px;
-}
-
-#rpProductElite .rp-chip{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:9px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  color:#fff;
-  font-size:14px;
-}
-
-#rpProductElite .rp-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:8px;
-}
-
-#rpProductElite .rp-btn{
-  display:inline-block;
-  text-decoration:none;
-  padding:14px 18px;
-  border-radius:14px;
-  font-weight:700;
-}
-
-#rpProductElite .rp-btn-primary{
-  background:#d4af37;
-  color:#111111;
-}
-
-#rpProductElite .rp-btn-outline{
-  border:1px solid rgba(212,175,55,.55);
-  color:#ffffff;
-}
-
-#rpProductElite .rp-grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:26px;
-}
-
-#rpProductElite .rp-pdp-section{
-  padding:22px;
-}
-
-#rpProductElite .rp-list{
-  padding-left:18px;
-}
-
-#rpProductElite .rp-specs{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:12px;
-}
-
-#rpProductElite .rp-spec{
-  display:flex;
-  justify-content:space-between;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:10px;
-  padding:12px;
-}
-
-.rp-video iframe{
-  width:100%;
-  height:420px;
-}
-
-@media (max-width:980px){
-  #rpProductElite .rp-pdp-hero{
-    grid-template-columns:1fr;
+  /* ===== PRODUCTO ELITE 5 PIEZAS ===== */
+  #rpProductElite5{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:34px 18px 44px;
+    color:#ffffff;
+    box-sizing:border-box;
   }
-  #rpProductElite .rp-grid-2{
-    grid-template-columns:1fr;
+
+  #rpProductElite5 *{ box-sizing:border-box; }
+
+  #rpProductElite5 .rp-breadcrumbs{
+    margin:0 0 18px;
+    font-size:14px;
+    line-height:1.6;
+    color:#d4af37;
   }
-}
+
+  #rpProductElite5 .rp-breadcrumbs a{
+    color:#d4af37;
+    text-decoration:none;
+  }
+
+  #rpProductElite5 .rp-breadcrumbs a:hover{
+    text-decoration:underline;
+  }
+
+  #rpProductElite5 .rp-breadcrumbs .rp-current{
+    color:#ffffff;
+    font-weight:700;
+  }
+
+  #rpProductElite5 .rp-pdp-hero{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  #rpProductElite5 .rp-pdp-media,
+  #rpProductElite5 .rp-pdp-panel,
+  #rpProductElite5 .rp-pdp-section,
+  #rpProductElite5 .rp-pdp-video{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpProductElite5 .rp-pdp-media{
+    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+    padding:18px;
+  }
+
+  #rpProductElite5 .rp-pdp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  #rpProductElite5 .rp-pdp-panel{
+    padding:26px 24px;
+  }
+
+  #rpProductElite5 .rp-badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.32);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  #rpProductElite5 h1{
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpProductElite5 .rp-subtitle{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductElite5 .rp-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 18px;
+  }
+
+  #rpProductElite5 .rp-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    color:#fff;
+    font-size:14px;
+  }
+
+  #rpProductElite5 .rp-price-note{
+    margin:0 0 22px;
+    color:rgba(255,255,255,.82);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  #rpProductElite5 .rp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+
+  #rpProductElite5 .rp-actions-stacked{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:16px;
+  }
+
+  #rpProductElite5 .rp-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+
+  #rpProductElite5 .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpProductElite5 .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+  }
+
+  #rpProductElite5 .rp-btn-primary:hover{
+    box-shadow:0 12px 24px rgba(212,175,55,.18);
+  }
+
+  #rpProductElite5 .rp-btn-outline{
+    border:1px solid rgba(212,175,55,.55);
+    color:#ffffff;
+    background:transparent;
+  }
+
+  #rpProductElite5 .rp-btn-outline:hover{
+    background:rgba(212,175,55,.08);
+  }
+
+  #rpProductElite5 .rp-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:26px;
+    align-items:start;
+  }
+
+  #rpProductElite5 .rp-grid-2 > .rp-pdp-section{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  #rpProductElite5 .rp-pdp-section{
+    padding:22px 22px 20px;
+  }
+
+  #rpProductElite5 .rp-pdp-section h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductElite5 .rp-pdp-section p{
+    margin:0 0 10px;
+    color:rgba(255,255,255,.9);
+    line-height:1.7;
+  }
+
+  #rpProductElite5 .rp-list{
+    margin:0;
+    padding-left:18px;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductElite5 .rp-list li{
+    margin:0 0 10px;
+    line-height:1.6;
+  }
+
+  #rpProductElite5 .rp-pdp-video{
+    margin-top:26px;
+    padding:22px;
+  }
+
+  #rpProductElite5 .rp-pdp-video h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductElite5 .rp-final-cta{
+    margin-top:26px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+    border:1px solid rgba(212,175,55,.18);
+    text-align:center;
+  }
+
+  #rpProductElite5 .rp-final-cta h3{
+    margin:0 0 8px;
+    font-size:28px;
+    color:#fff;
+  }
+
+  #rpProductElite5 .rp-final-cta p{
+    margin:0 0 16px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+  }
+
+  #rpProductElite5 .rp-features-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:12px;
+  }
+
+  #rpProductElite5 .rp-feature{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:14px;
+    padding:18px;
+  }
+
+  #rpProductElite5 .rp-feature h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:#fff;
+  }
+
+  #rpProductElite5 .rp-feature p{
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:1.6;
+  }
+
+  #rpProductElite5 .rp-specs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:12px;
+  }
+
+  #rpProductElite5 .rp-spec{
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:10px;
+    padding:12px 14px;
+    gap:12px;
+  }
+
+  #rpProductElite5 .rp-spec-title{
+    color:rgba(255,255,255,.7);
+    font-weight:600;
+  }
+
+  #rpProductElite5 .rp-spec-value{
+    color:#fff;
+    text-align:right;
+  }
+
+  #rpProductElite5 .rp-pdp-section{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  #rpProductElite5 .rp-pdp-section h2{
+    margin-top:0;
+  }
+
+  #rpProductElite5 .rp-grid-2 + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  #rpProductElite5 .rp-pdp-section + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  #rpProductElite5 .rp-pdp-video + .rp-pdp-section{
+    margin-top:30px;
+  }
+
+  @media (max-width:980px){
+    #rpProductElite5 .rp-pdp-hero{
+      grid-template-columns:1fr;
+    }
+    #rpProductElite5 .rp-grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:800px){
+    #rpProductElite5 .rp-features-grid{
+      grid-template-columns:1fr;
+    }
+    #rpProductElite5 .rp-specs{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    #rpProductElite5{
+      padding:24px 14px 34px;
+    }
+    #rpProductElite5 h1{
+      font-size:30px;
+    }
+    #rpProductElite5 .rp-pdp-panel,
+    #rpProductElite5 .rp-pdp-section,
+    #rpProductElite5 .rp-pdp-video{
+      padding:18px;
+    }
+  }
+
+  /* ===== VIDEO PREMIUM RP ===== */
+  #rpProductElite5 .rp-video{
+    max-width:1000px;
+    margin:40px auto 0;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  #rpProductElite5 .rp-video iframe{
+    width:100%;
+    height:560px;
+    display:block;
+    border:0;
+  }
+
+  @media (max-width:900px){
+    #rpProductElite5 .rp-video iframe{
+      height:420px;
+    }
+  }
+
+  @media (max-width:600px){
+    #rpProductElite5 .rp-video iframe{
+      height:260px;
+    }
+  }
 </style>
 
-<section id="rpProductElite">
+<section id="rpProductElite5">
 
   <div class="rp-breadcrumbs">
-    <a href="#/">Inicio</a> /
-    <a href="#/productos">Productos</a> /
-    <a href="#/elite-cooking-system">Elite Cooking System</a> /
-    <span class="rp-current">Juego 5 piezas</span>
+    <a href="/">Inicio</a> /
+    <a href="/productos">Productos</a> /
+    <a href="/elite-cooking-system">Elite Cooking System</a> /
+    <span class="rp-current">Juego de Cocina – 5 piezas</span>
   </div>
 
   <div class="rp-pdp-hero">
     <div class="rp-pdp-media">
-      <img src="rc_images/elite_5piezas.png">
+      <img src="rc_images/elite_5piezas.png" alt="Elite Cooking System Juego de Cocina 5 piezas">
     </div>
 
     <div class="rp-pdp-panel">
       <span class="rp-badge">Elite Cooking System</span>
       <h1>Juego de Cocina – 5 piezas</h1>
-
       <p class="rp-subtitle">
-        Sistema principal de la línea Elite diseñado para ofrecer versatilidad, rendimiento y elegancia en cada preparación.
+        Sistema principal de la línea Elite Cooking System, diseñado para ofrecer presencia, funcionalidad y versatilidad en la cocina diaria.
       </p>
 
       <div class="rp-meta">
-        <span class="rp-chip">Sistema principal</span>
-        <span class="rp-chip">Nuevo lanzamiento</span>
-        <span class="rp-chip">Cocina premium</span>
+        <span class="rp-chip">SKU: <strong>Consultar con asesor</strong></span>
+        <span class="rp-chip">Disponibilidad: <strong>Nuevo lanzamiento</strong></span>
+        <span class="rp-chip">Categoría: <strong>Set principal</strong></span>
       </div>
 
+      <p class="rp-price-note">
+        Este sistema integra las piezas base de la nueva línea Elite Cooking System y está pensado para quienes buscan una solución premium, elegante y funcional para cocinar todos los días.
+      </p>
+
       <div class="rp-actions">
-        <a class="rp-btn rp-btn-primary" href="#/contacto">Solicitar información</a>
-        <a class="rp-btn rp-btn-outline" href="#">WhatsApp</a>
+        <a class="rp-btn rp-btn-primary" href="/contacto">Solicitar información</a>
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -220,42 +414,159 @@
     <div class="rp-pdp-section">
       <h2>Descripción general</h2>
       <p>
-        El sistema Elite Cooking System de 5 piezas representa la base de la nueva línea, combinando diseño premium, funcionalidad y eficiencia térmica.
+        El Juego de Cocina de 5 piezas de Elite Cooking System representa el núcleo principal de esta nueva línea.
+      </p>
+      <p>
+        Su configuración reúne piezas clave para cubrir preparaciones cotidianas con un enfoque en versatilidad, presentación y practicidad.
+      </p>
+      <p>
+        Es una propuesta ideal para quienes desean iniciar con un sistema moderno y premium dentro de la colección Elite.
       </p>
     </div>
 
     <div class="rp-pdp-section">
       <h2>Piezas incluidas</h2>
       <ul class="rp-list">
-        <li>Sauté Pan 26 cm / 3.5 QT</li>
-        <li>Dutch Oven 22 cm / 4 QT</li>
-        <li>Sartén 10”</li>
+        <li>26 cm / 3.5 QT Saute Pan con tapa</li>
+        <li>22 cm / 4 QT Dutch Oven con tapa</li>
+        <li>Sartén de 10 pulgadas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Beneficios</h2>
+      <ul class="rp-list">
+        <li>Set principal diseñado para la cocina diaria.</li>
+        <li>Configuración práctica con piezas de alta utilidad.</li>
+        <li>Excelente punto de entrada a la línea Elite Cooking System.</li>
+        <li>Ideal para distintas preparaciones en el hogar.</li>
+        <li>Presentación premium con identidad visual moderna.</li>
+      </ul>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Ideal para</h2>
+      <ul class="rp-list">
+        <li>Hogares que buscan un sistema principal elegante y funcional.</li>
+        <li>Personas que desean comenzar con la nueva línea Elite.</li>
+        <li>Cocinas que valoran versatilidad y presentación premium.</li>
+        <li>Usuarios que desean un set base para múltiples recetas.</li>
       </ul>
     </div>
   </div>
 
   <div class="rp-pdp-section">
-    <h2>Beneficios</h2>
-    <ul class="rp-list">
-      <li>Distribución uniforme del calor</li>
-      <li>Diseño elegante premium</li>
-      <li>Versatilidad en múltiples preparaciones</li>
-    </ul>
+    <h2>Características del sistema</h2>
+
+    <div class="rp-features-grid">
+      <div class="rp-feature">
+        <h3>Set principal</h3>
+        <p>
+          Reúne las piezas base que representan el corazón de Elite Cooking System.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Versatilidad diaria</h3>
+        <p>
+          Su configuración permite atender múltiples tipos de recetas con practicidad.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Diseño premium</h3>
+        <p>
+          Proyecta una presencia moderna y elegante dentro de la cocina.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Expansión del sistema</h3>
+        <p>
+          Puede complementarse con piezas adicionales y accesorios vendidos por separado.
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="rp-pdp-section">
-    <h2>Especificaciones</h2>
+    <h2>Especificaciones del sistema</h2>
+
     <div class="rp-specs">
-      <div class="rp-spec"><span>Tipo</span><span>Set principal</span></div>
-      <div class="rp-spec"><span>Piezas</span><span>5</span></div>
-      <div class="rp-spec"><span>Línea</span><span>Elite Cooking System</span></div>
+      <div class="rp-spec">
+        <span class="rp-spec-title">Línea</span>
+        <span class="rp-spec-value">Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Cantidad de piezas</span>
+        <span class="rp-spec-value">5 piezas</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Tipo de sistema</span>
+        <span class="rp-spec-value">Sistema principal de cocina</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Configuración</span>
+        <span class="rp-spec-value">Set principal</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Compatibilidad</span>
+        <span class="rp-spec-value">Línea Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Uso recomendado</span>
+        <span class="rp-spec-value">Cocción diaria y preparaciones variadas</span>
+      </div>
     </div>
   </div>
 
   <div class="rp-pdp-video">
-    <h2>Video</h2>
+    <h2>Video de presentación</h2>
     <div class="rp-video">
-      <iframe src="https://www.youtube.com/embed/eGdogBIh9eQ" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/eGdogBIh9eQ"
+        title="Elite Cooking System"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Explorar la línea Elite Cooking System</h2>
+
+    <p>
+      Descubre también las piezas adicionales y accesorios disponibles dentro de esta nueva línea.
+    </p>
+
+    <div class="rp-actions-stacked" style="margin-top:16px;">
+      <a class="rp-btn rp-btn-primary"
+         href="/contacto">
+         Solicitar más información
+      </a>
+
+      <a class="rp-btn rp-btn-outline"
+         href="/elite-cooking-system">
+         ← Volver a Elite Cooking System
+      </a>
+    </div>
+  </div>
+
+  <div class="rp-final-cta">
+    <h3>¿Quieres conocer este sistema más a fondo?</h3>
+    <p>
+      Escríbenos y te ayudamos a evaluar si el Juego de Cocina de 5 piezas de Elite Cooking System es el ideal para tu cocina y tu estilo de vida.
+    </p>
+    <div class="rp-actions" style="justify-content:center;">
+      <a class="rp-btn rp-btn-primary" href="/contacto">Ir a contacto</a>
+      <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
     </div>
   </div>
 
