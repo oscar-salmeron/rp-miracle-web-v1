@@ -1,8 +1,170 @@
 <div data-spa-title style="display:none;">Distribuidor | RP Miracle</div>
 
 <section id="spaDistribuidorContent">
-  <div style="max-width:1200px; margin:0 auto; padding:60px 20px; color:#ffffff;">
-    <h1>Distribuidor</h1>
-    <p>Página temporal de prueba para Distribuidor.</p>
+
+<style>
+/* ===== DISTRIBUIDOR (SPA ADAPTADO) ===== */
+
+#rpDistribuidorPortal{
+  min-height:100vh;
+  width:100%;
+  color:#ffffff;
+  box-sizing:border-box;
+}
+
+#rpDistribuidorLogin{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:
+    linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
+    url("rc_images/rp-distribuidor-login-bg.png") center center / cover no-repeat;
+}
+
+#rpDistribuidorLogin .rp-login-shell{
+  width:100%;
+  max-width:460px;
+  padding:30px 28px;
+  border-radius:22px;
+  background:rgba(7,12,33,.74);
+  border:1px solid rgba(212,175,55,.22);
+  text-align:center;
+}
+
+#rpDistribuidorLogin h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+#rpDistribuidorLogin .rp-password{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:12px;
+}
+
+#rpDistribuidorLogin .rp-btn{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+  background:#d4af37;
+  border:none;
+  cursor:pointer;
+}
+
+#rpDistribuidorLogin .rp-login-error{
+  display:none;
+  margin-top:10px;
+  color:#ffb3b3;
+}
+
+/* PANEL */
+#rpDistribuidorPanel{
+  display:none;
+  max-width:1200px;
+  margin:0 auto;
+  padding:34px 18px;
+}
+
+#rpDistribuidorPanel .rp-section{
+  margin-top:30px;
+}
+
+#rpDistribuidorPanel .rp-features-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+@media (max-width:800px){
+  #rpDistribuidorPanel .rp-features-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<section id="rpDistribuidorPortal">
+
+  <!-- LOGIN -->
+  <div id="rpDistribuidorLogin">
+    <div class="rp-login-shell">
+      <h1>Portal Distribuidor</h1>
+      <p>Acceso privado a herramientas internas</p>
+
+      <input id="rpDistribuidorPassword" class="rp-password" type="password" placeholder="Contraseña">
+
+      <button id="rpDistribuidorEnter" class="rp-btn">Entrar</button>
+
+      <div id="rpDistribuidorError" class="rp-login-error">
+        Contraseña incorrecta
+      </div>
+    </div>
   </div>
+
+  <!-- PANEL -->
+  <div id="rpDistribuidorPanel">
+
+    <div class="rp-section">
+      <h2>Recursos comerciales</h2>
+      <ul>
+        <li>Biblioteca RP Miracle</li>
+        <li>Productos</li>
+        <li>Literatura</li>
+        <li>Plan de negocios</li>
+      </ul>
+    </div>
+
+    <div class="rp-section">
+      <h2>Accesos rápidos</h2>
+
+      <div class="rp-features-grid">
+        <div>
+          <h3>Lista de precios</h3>
+          <a href="https://app-lista-precios.vercel.app/" target="_blank">Abrir</a>
+        </div>
+
+        <div>
+          <h3>Biblioteca</h3>
+          <a href="https://hycite.widencollective.com/" target="_blank">Abrir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function(){
+
+  const PASSWORD = "ACCESO123";
+
+  const login = document.getElementById("rpDistribuidorLogin");
+  const panel = document.getElementById("rpDistribuidorPanel");
+  const input = document.getElementById("rpDistribuidorPassword");
+  const btn = document.getElementById("rpDistribuidorEnter");
+  const error = document.getElementById("rpDistribuidorError");
+
+  function showPanel(){
+    login.style.display="none";
+    panel.style.display="block";
+  }
+
+  function validate(){
+    if(input.value === PASSWORD){
+      showPanel();
+    }else{
+      error.style.display="block";
+    }
+  }
+
+  btn.addEventListener("click", validate);
+
+})();
+</script>
+
 </section>
