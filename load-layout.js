@@ -76,24 +76,29 @@ document.addEventListener("DOMContentLoaded", function () {
     ? fetch("header.html")
         .then(response => response.text())
         .then(data => {
-          headerContainer.innerHTML = data;
-          // 🔥 FORZAR EJECUCIÓN DE <style> Y <script> DEL HEADER
-const scripts = headerContainer.querySelectorAll("script");
-scripts.forEach(oldScript => {
-  const newScript = document.createElement("script");
-  if (oldScript.src) {
-    newScript.src = oldScript.src;
-  } else {
-    newScript.textContent = oldScript.textContent;
-  }
-  document.body.appendChild(newScript);
+         // 🔥 PARSEO LIMPIO DEL HEADER
+const temp = document.createElement("div");
+temp.innerHTML = data;
+
+// 🔥 EXTRAER Y MOVER <style> ANTES DE INSERTAR
+temp.querySelectorAll("style").forEach(style => {
+  document.head.appendChild(style.cloneNode(true));
 });
 
-const styles = headerContainer.querySelectorAll("style");
-styles.forEach(oldStyle => {
-  const newStyle = document.createElement("style");
-  newStyle.textContent = oldStyle.textContent;
-  document.head.appendChild(newStyle);
+// 🔥 INSERTAR HTML LIMPIO (SIN estilos internos duplicados)
+headerContainer.innerHTML = temp.innerHTML;
+
+// 🔥 REEJECUTAR SCRIPTS
+temp.querySelectorAll("script").forEach(script => {
+  const newScript = document.createElement("script");
+
+  if (script.src) {
+    newScript.src = script.src;
+  } else {
+    newScript.textContent = script.textContent;
+  }
+
+  document.body.appendChild(newScript);
 });
 
           // 🔥 SOLO estabilización (NO lógica duplicada)
