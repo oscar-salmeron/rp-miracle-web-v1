@@ -1,8 +1,186 @@
 <div data-spa-title style="display:none;">Servicios | RP Miracle</div>
 
 <section id="spaServiciosContent">
-  <div style="max-width:1200px; margin:0 auto; padding:60px 20px; color:#ffffff;">
-    <h1>Servicios</h1>
-    <p>Página temporal de prueba para Servicios.</p>
+  <style>
+    #spaServiciosContent{
+      width:100%;
+      box-sizing:border-box;
+    }
+
+    #spaServiciosContent *{
+      box-sizing:border-box;
+    }
+
+    #spaServiciosContent .rp-servicios-container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px 70px;
+      color:#ffffff;
+    }
+
+    #spaServiciosContent .rp-servicios-header{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    #spaServiciosContent .rp-servicios-header h1{
+      font-size:38px;
+      margin-bottom:14px;
+      color:#d4af37;
+    }
+
+    #spaServiciosContent .rp-servicios-header p{
+      font-size:16px;
+      color:#e6e6e6;
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.6;
+    }
+
+    #spaServiciosContent .rp-servicios-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:26px;
+    }
+
+    #spaServiciosContent .rp-servicio-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:14px;
+      padding:26px 22px 28px;
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    #spaServiciosContent .rp-servicio-card:hover{
+      transform:translateY(-6px);
+      border-color:#d4af37;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+    }
+
+    #spaServiciosContent .rp-servicio-icon{
+      font-size:34px;
+      margin-bottom:14px;
+    }
+
+    #spaServiciosContent .rp-servicio-card h3{
+      font-size:20px;
+      margin-bottom:10px;
+      color:#d4af37;
+    }
+
+    #spaServiciosContent .rp-servicio-card p{
+      font-size:14.5px;
+      line-height:1.6;
+      color:#e0e0e0;
+    }
+
+    #spaServiciosContent .rp-servicios-cta{
+      margin-top:60px;
+      text-align:center;
+      padding:40px 20px;
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+    }
+
+    #spaServiciosContent .rp-servicios-cta h2{
+      font-size:26px;
+      margin-bottom:12px;
+      color:#d4af37;
+    }
+
+    #spaServiciosContent .rp-servicios-cta p{
+      font-size:15px;
+      color:#e6e6e6;
+      margin-bottom:20px;
+    }
+
+    #spaServiciosContent .rp-btn{
+      display:inline-block;
+      padding:12px 26px;
+      border-radius:8px;
+      background:#d4af37;
+      color:#000;
+      font-weight:600;
+      text-decoration:none;
+      transition:.2s ease;
+    }
+
+    #spaServiciosContent .rp-btn:hover{
+      background:#b8962e;
+    }
+
+    @media (max-width: 900px){
+      #spaServiciosContent .rp-servicios-grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px){
+      #spaServiciosContent .rp-servicios-grid{
+        grid-template-columns: 1fr;
+      }
+
+      #spaServiciosContent .rp-servicios-header h1{
+        font-size:30px;
+      }
+    }
+  </style>
+
+  <div class="rp-servicios-container">
+
+    <div class="rp-servicios-header">
+      <h1>Servicios RP Miracle</h1>
+      <p>Soluciones integrales diseñadas para mejorar tu calidad de vida a través de tecnología premium, asesoría personalizada y acompañamiento profesional.</p>
+    </div>
+
+    <div class="rp-servicios-grid">
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">🍳</div>
+        <h3>Demostraciones en Casa</h3>
+        <p>Agenda una experiencia personalizada donde conocerás el funcionamiento real de nuestros productos en tu propia cocina.</p>
+      </div>
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">💳</div>
+        <h3>Planes de Financiamiento</h3>
+        <p>Opciones accesibles de pago adaptadas a tus necesidades para que puedas adquirir equipos premium sin comprometer tu estabilidad financiera.</p>
+      </div>
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">🛠️</div>
+        <h3>Soporte y Garantía</h3>
+        <p>Respaldo completo en cada producto con atención directa, asesoría técnica y seguimiento postventa confiable.</p>
+      </div>
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">💧</div>
+        <h3>Asesoría en Sistemas de Filtración</h3>
+        <p>Evaluamos tu entorno y te recomendamos la mejor solución en purificación de agua para tu hogar o negocio.</p>
+      </div>
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">📦</div>
+        <h3>Entrega y Configuración</h3>
+        <p>Instalación y explicación completa para que aproveches al máximo cada producto desde el primer día.</p>
+      </div>
+
+      <div class="rp-servicio-card">
+        <div class="rp-servicio-icon">📞</div>
+        <h3>Atención Personalizada</h3>
+        <p>Comunicación directa y continua para resolver dudas, dar seguimiento y brindarte una experiencia premium.</p>
+      </div>
+
+    </div>
+
+    <div class="rp-servicios-cta">
+      <h2>Agenda tu demostración hoy</h2>
+      <p>Descubre por qué miles de familias ya están transformando su forma de cocinar y vivir.</p>
+      <a href="#contacto" class="rp-btn">Solicitar información</a>
+    </div>
+
   </div>
 </section>
