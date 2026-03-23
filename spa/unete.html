@@ -1,166 +1,311 @@
 <div data-spa-title style="display:none;">Únete | RP Miracle</div>
 
 <section id="spaUneteContent">
+  <style>
+    /* ===== UNETE RP MIRACLE | SPA ===== */
+    #rpJoinRP{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:34px 18px 44px;
+      color:#ffffff;
+      box-sizing:border-box;
+    }
 
-<style>
-#rpJoinRP{
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  padding:34px 18px 44px;
-  color:#ffffff;
-  box-sizing:border-box;
-}
+    #rpJoinRP *{ box-sizing:border-box; }
 
-#rpJoinRP *{ box-sizing:border-box; }
+    #rpJoinRP .rp-breadcrumbs{
+      margin:0 0 18px;
+      font-size:14px;
+      color:#d4af37;
+      font-weight:500;
+      line-height:1.5;
+    }
 
-#rpJoinRP .rp-hero{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:28px;
-  align-items:center;
-}
+    #rpJoinRP .rp-breadcrumbs a{
+      color:#d4af37;
+      text-decoration:none;
+    }
 
-#rpJoinRP .rp-box{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:18px;
-  padding:26px;
-}
+    #rpJoinRP .rp-breadcrumbs a:hover{
+      color:#f3df8a;
+    }
 
-#rpJoinRP h1{
-  font-size:42px;
-  margin:0 0 12px;
-}
+    #rpJoinRP .rp-breadcrumb-sep{
+      margin:0 10px;
+      color:rgba(212,175,55,.72);
+    }
 
-#rpJoinRP .rp-subtitle{
-  font-size:18px;
-  line-height:1.6;
-  margin-bottom:18px;
-  color:rgba(255,255,255,.9);
-}
+    #rpJoinRP .rp-breadcrumb-current{
+      color:#fff;
+      font-weight:700;
+    }
 
-#rpJoinRP .rp-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+    #rpJoinRP .rp-hero{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
 
-#rpJoinRP .rp-btn{
-  padding:14px 18px;
-  border-radius:14px;
-  font-weight:700;
-  text-decoration:none;
-}
+    #rpJoinRP .rp-box,
+    #rpJoinRP .rp-section,
+    #rpJoinRP .rp-video,
+    #rpJoinRP .rp-final{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:18px;
+      overflow:hidden;
+    }
 
-#rpJoinRP .rp-btn-primary{
-  background:#d4af37;
-  color:#111;
-}
+    #rpJoinRP .rp-box{
+      padding:26px;
+    }
 
-#rpJoinRP .rp-btn-outline{
-  border:1px solid rgba(212,175,55,.5);
-  color:#fff;
-}
+    #rpJoinRP .rp-image{
+      background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+      padding:18px;
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:18px;
+      overflow:hidden;
+    }
 
-#rpJoinRP .rp-image img{
-  width:100%;
-  border-radius:16px;
-}
+    #rpJoinRP .rp-image img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:cover;
+      border-radius:12px;
+    }
 
-#rpJoinRP .rp-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:30px;
-}
+    #rpJoinRP h1{
+      font-size:42px;
+      margin:0 0 12px;
+      line-height:1.12;
+      color:#ffffff;
+    }
 
-#rpJoinRP .rp-section{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:18px;
-  padding:22px;
-}
+    #rpJoinRP .rp-subtitle{
+      font-size:18px;
+      line-height:1.6;
+      margin:0 0 18px;
+      color:rgba(255,255,255,.9);
+    }
 
-#rpJoinRP .rp-video{
-  margin-top:30px;
-}
+    #rpJoinRP .rp-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:10px;
+    }
 
-#rpJoinRP video{
-  width:100%;
-  border-radius:16px;
-}
+    #rpJoinRP .rp-btn{
+      display:inline-block;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:700;
+      text-decoration:none;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
 
-@media(max-width:900px){
-  #rpJoinRP .rp-hero,
-  #rpJoinRP .rp-grid{
-    grid-template-columns:1fr;
-  }
-}
-</style>
+    #rpJoinRP .rp-btn:hover{
+      transform:translateY(-2px);
+    }
 
-<section id="rpJoinRP">
+    #rpJoinRP .rp-btn-primary{
+      background:#d4af37;
+      color:#111;
+      box-shadow:0 10px 22px rgba(212,175,55,.10);
+    }
 
-<!-- HERO -->
-<div class="rp-hero">
+    #rpJoinRP .rp-btn-primary:hover{
+      box-shadow:0 14px 28px rgba(212,175,55,.22);
+    }
 
-  <!-- TEXTO -->
-  <div class="rp-box">
-    <h1>Construye tu propio negocio con RP Miracle</h1>
+    #rpJoinRP .rp-btn-outline{
+      border:1px solid rgba(212,175,55,.5);
+      color:#fff;
+      background:transparent;
+    }
 
-    <p class="rp-subtitle">
-      Forma parte de un sistema independiente respaldado por una marca reconocida y comienza a desarrollar una oportunidad real de crecimiento personal y económico.
-    </p>
+    #rpJoinRP .rp-btn-outline:hover{
+      background:rgba(212,175,55,.08);
+    }
 
-    <div class="rp-actions">
-      <a class="rp-btn rp-btn-primary" href="#contacto?origen=unete">
-        Quiero iniciar
-      </a>
+    #rpJoinRP .rp-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+    }
 
-      <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXX" target="_blank">
-        WhatsApp
-      </a>
+    #rpJoinRP .rp-section{
+      padding:22px;
+    }
+
+    #rpJoinRP h2{
+      margin:0 0 12px;
+      font-size:24px;
+      color:#ffffff;
+    }
+
+    #rpJoinRP ul{
+      margin:0;
+      padding-left:18px;
+      color:rgba(255,255,255,.92);
+    }
+
+    #rpJoinRP li{
+      margin-bottom:10px;
+      line-height:1.65;
+    }
+
+    #rpJoinRP .rp-video{
+      margin-top:30px;
+      padding:0;
+    }
+
+    #rpJoinRP .rp-video video{
+      width:100%;
+      display:block;
+    }
+
+    #rpJoinRP .rp-final{
+      margin-top:30px;
+      text-align:center;
+      padding:26px;
+    }
+
+    #rpJoinRP .rp-final p{
+      margin:0 0 16px;
+      color:rgba(255,255,255,.9);
+      line-height:1.7;
+    }
+
+    @media (max-width:900px){
+      #rpJoinRP .rp-hero,
+      #rpJoinRP .rp-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      #rpJoinRP{
+        padding:24px 14px 34px;
+      }
+
+      #rpJoinRP h1{
+        font-size:30px;
+      }
+
+      #rpJoinRP .rp-breadcrumbs{
+        font-size:13px;
+        margin-bottom:16px;
+      }
+
+      #rpJoinRP .rp-box,
+      #rpJoinRP .rp-section,
+      #rpJoinRP .rp-final{
+        padding:18px;
+      }
+
+      #rpJoinRP .rp-subtitle{
+        font-size:17px;
+      }
+
+      #rpJoinRP .rp-image{
+        padding:14px;
+      }
+    }
+  </style>
+
+  <section id="rpJoinRP">
+
+    <div class="rp-breadcrumbs">
+      <a href="#inicio">Inicio</a>
+      <span class="rp-breadcrumb-sep">/</span>
+      <span class="rp-breadcrumb-current">Únete</span>
     </div>
-  </div>
 
-  <!-- IMAGEN -->
-  <div class="rp-image">
-    <img src="rc_images/rp-unete-hero.png" alt="Oportunidad de negocio RP Miracle">
-  </div>
+    <div class="rp-hero">
+      <div class="rp-box">
+        <h1>Construye tu propio negocio con RP Miracle</h1>
+        <p class="rp-subtitle">
+          Forma parte de un sistema independiente respaldado por una marca reconocida y comienza a desarrollar una oportunidad basada en crecimiento personal, disciplina y acompañamiento.
+        </p>
 
-</div>
+        <div class="rp-actions">
+          <a class="rp-btn rp-btn-primary" href="#contacto?origen=unete">Quiero iniciar</a>
+          <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
+      </div>
 
-<!-- BENEFICIOS -->
-<div class="rp-grid">
+      <div class="rp-image">
+        <img src="rc_images/rp-unete-hero.png" alt="Oportunidad de negocio RP Miracle">
+      </div>
+    </div>
 
-  <div class="rp-section">
-    <h2>¿Qué puedes lograr?</h2>
-    <ul>
-      <li>Ingresos basados en tu desempeño</li>
-      <li>Crecimiento personal constante</li>
-      <li>Desarrollo de habilidades comerciales</li>
-      <li>Flexibilidad en tu actividad</li>
-    </ul>
-  </div>
+    <div class="rp-grid">
+      <div class="rp-section">
+        <h2>¿Qué puedes lograr?</h2>
+        <ul>
+          <li>Generar ingresos según tu desempeño</li>
+          <li>Desarrollar habilidades comerciales</li>
+          <li>Crecimiento personal constante</li>
+          <li>Flexibilidad en tu actividad</li>
+        </ul>
+      </div>
 
-  <div class="rp-section">
-    <h2>¿Qué incluye el sistema?</h2>
-    <ul>
-      <li>Capacitación inicial</li>
-      <li>Acompañamiento continuo</li>
-      <li>Herramientas de trabajo</li>
-      <li>Guía paso a paso</li>
-    </ul>
-  </div>
+      <div class="rp-section">
+        <h2>¿Qué incluye el sistema?</h2>
+        <ul>
+          <li>Capacitación inicial</li>
+          <li>Acompañamiento y mentoría</li>
+          <li>Herramientas de trabajo</li>
+          <li>Guía paso a paso</li>
+        </ul>
+      </div>
+    </div>
 
-</div>
+    <div class="rp-grid">
+      <div class="rp-section">
+        <h2>Perfil ideal</h2>
+        <ul>
+          <li>Personas con actitud positiva</li>
+          <li>Deseo de superación</li>
+          <li>Interés por aprender</li>
+          <li>No se requiere experiencia</li>
+        </ul>
+      </div>
 
-<!-- VIDEO -->
-<div class="rp-video">
-  <video autoplay muted loop playsinline>
-    <source src="media/rp_miracle_oportunidad.mp4" type="video/mp4">
-  </video>
-</div>
+      <div class="rp-section">
+        <h2>¿Cómo iniciar?</h2>
+        <ul>
+          <li>1. Llena el formulario</li>
+          <li>2. Te contactamos</li>
+          <li>3. Recibes orientación</li>
+          <li>4. Comienzas tu proceso</li>
+        </ul>
+      </div>
+    </div>
 
-</section>
+    <div class="rp-video">
+      <video autoplay muted loop playsinline>
+        <source src="media/rp_miracle_oportunidad.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="rp-final">
+      <h2>Da el siguiente paso</h2>
+      <p>
+        Si estás listo para comenzar un proceso diferente, enfocado en crecimiento y resultados reales, este es el momento.
+      </p>
+
+      <div class="rp-actions" style="justify-content:center;">
+        <a class="rp-btn rp-btn-primary" href="#contacto?origen=unete">Registrarme</a>
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+
+  </section>
 </section>
