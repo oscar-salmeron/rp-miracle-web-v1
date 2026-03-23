@@ -386,5 +386,74 @@
   </style>
   <!-- ===== FIN HEADER CSS ===== -->
 
+  <!-- ===== INICIO HEADER JS ===== -->
+  <script>
+    (function(){
+      const header = document.getElementById('rpm-header');
+      if(!header) return;
+
+      const burger = header.querySelector('.rpm-burger');
+      const nav = header.querySelector('#rpmNav');
+      const dropdown = header.querySelector('.rpm-dropdown');
+      const dropLink = header.querySelector('.rpm-link--drop');
+      const dropdownMenu = header.querySelector('.rpm-dropdown-menu');
+
+      if (burger) {
+        burger.addEventListener('click', function(){
+          header.classList.toggle('rpm-open');
+          const expanded = header.classList.contains('rpm-open');
+          burger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+      }
+
+      if (dropLink && dropdown && dropdownMenu) {
+        dropLink.addEventListener('click', function(e){
+          const isMobile = window.innerWidth <= 980;
+
+          if (!isMobile) return;
+
+          if (!dropdown.classList.contains('rpm-dd-open')) {
+            e.preventDefault();
+            dropdown.classList.add('rpm-dd-open');
+            return;
+          }
+
+          dropdown.classList.remove('rpm-dd-open');
+        });
+      }
+
+      document.addEventListener('click', function(e){
+        const isInsideHeader = e.target.closest('#rpm-header');
+
+        if (!isInsideHeader) {
+          header.classList.remove('rpm-open');
+          if (dropdown) dropdown.classList.remove('rpm-dd-open');
+          if (burger) burger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (dropdownMenu) {
+        dropdownMenu.querySelectorAll('a').forEach(function(link){
+          link.addEventListener('click', function(){
+            header.classList.remove('rpm-open');
+            dropdown.classList.remove('rpm-dd-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      header.querySelectorAll('.rpm-nav > a, .rpm-btn').forEach(function(link){
+        link.addEventListener('click', function(){
+          if (window.innerWidth <= 980) {
+            header.classList.remove('rpm-open');
+            if (dropdown) dropdown.classList.remove('rpm-dd-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
+  <!-- ===== FIN HEADER JS ===== -->
+
 </div>
 <!-- ===== RP MIRACLE | FIN | HEADER GLOBAL (PROTOCOLO 01) ===== -->
