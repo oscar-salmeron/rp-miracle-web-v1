@@ -1,16 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" }
-  ],
-  "headers": [
+  "routes": [
     {
-      "source": "/elite-cooking-system.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
+      "src": "/(filtracion-agua|extractor-de-jugos|elite-cooking-system)",
+      "headers": {
+        "cache-control": "no-cache"
+      },
+      "dest": "/$1.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
