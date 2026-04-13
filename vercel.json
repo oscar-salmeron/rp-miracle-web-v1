@@ -1,12 +1,5 @@
 {
-  "routes": [
-    {
-      "src": "/(elite-cooking-system|filtracion-agua|extractor-de-jugos)\\.html",
-      "dest": "/$1.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
