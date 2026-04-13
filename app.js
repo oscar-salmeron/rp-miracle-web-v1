@@ -26,13 +26,6 @@
   let isNavigating = false;
 
   function getCurrentPath() {
-    const hash = window.location.hash;
-
-    if (hash && hash.startsWith('#')) {
-      const p = hash.slice(1).trim();
-      return p.startsWith('/') ? p : '/' + p;
-    }
-
     return window.location.pathname;
   }
 
@@ -40,18 +33,6 @@
     if (!path) return '/';
 
     let p = path.trim();
-
-    // Soporta enlaces tipo "/#ruta"
-    if (p.includes('#')) {
-      const hashPart = p.split('#')[1].trim();
-      if (!hashPart) return '/';
-      p = hashPart;
-    }
-
-    // Soporta enlaces tipo "#ruta"
-    if (p.startsWith('#')) {
-      p = p.slice(1);
-    }
 
     if (!p.startsWith('/')) {
       p = '/' + p;
@@ -89,7 +70,7 @@
       container.innerHTML = html;
 
       if (pushState) {
-        history.pushState({}, '', '/#' + cleanPath.replace(/^\//, ''));
+        history.pushState({}, '', cleanPath);
       }
 
       window.scrollTo(0, 0);
@@ -117,7 +98,11 @@
       return;
     }
 
-    const route = normalizePath(href);
+    const url = new URL(link.href);
+
+    if (url.origin !== location.origin) return;
+
+    const route = normalizePath(url.pathname);
 
     if (!routes[route]) return;
 
@@ -126,10 +111,6 @@
   });
 
   window.addEventListener('popstate', function () {
-    loadRoute(getCurrentPath(), false);
-  });
-
-  window.addEventListener('hashchange', function () {
     loadRoute(getCurrentPath(), false);
   });
 
