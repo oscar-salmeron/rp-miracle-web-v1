@@ -32,28 +32,30 @@
               aria-expanded="false">☰</button>
 
       <nav id="rpmNav" class="rpm-nav" aria-label="Navegación principal">
-        <a class="rpm-link" href="/#/">Inicio</a>
+        
+        <a class="rpm-link" href="/">Inicio</a>
 
         <div class="rpm-dropdown">
-          <a class="rpm-link rpm-link--drop" href="/#productos">Productos</a>
+          <a class="rpm-link rpm-link--drop" href="/productos">Productos</a>
 
           <div class="rpm-dropdown-menu">
-            <a href="linea-novel.html">Línea Novel</a>
-            <a href="linea-innove.html">Línea Innove</a>
-            <a href="linea-5capas.html">Línea 5 Capas</a>
-            <a href="linea_easy_release.html">Línea Easy Release</a>
-            <a href="/index.html#elite-cooking-system">Elite Cooking System</a>
-            <a href="electrodomesticos.html">Electrodomésticos</a>
-            <a href="cuchillos-serie-precision-3.html">Cuchillería</a>
-            <a href="sistemas-filtracion.html">Filtración de Agua y Aire</a>
-            <a href="accesorios.html">Accesorios</a>
+            <a href="/productos">Línea Novel</a>
+            <a href="/productos">Línea Innove</a>
+            <a href="/productos">Línea 5 Capas</a>
+            <a href="/productos">Línea Easy Release</a>
+            <a href="/elite-cooking-system">Elite Cooking System</a>
+            <a href="/productos">Electrodomésticos</a>
+            <a href="/productos">Cuchillería</a>
+            <a href="/productos">Filtración de Agua y Aire</a>
+            <a href="/productos">Accesorios</a>
           </div>
         </div>
 
-        <a class="rpm-link" href="/#servicios">Servicios</a>
-        <a class="rpm-link" href="/#distribuidor">Distribuidor</a>
-        <a class="rpm-btn rpm-btn-gold" href="/#unete">ÚNETE</a>
-        <a class="rpm-btn" href="/#contacto">Contacto</a>
+        <a class="rpm-link" href="/servicios">Servicios</a>
+        <a class="rpm-link" href="/distribuidor">Distribuidor</a>
+        <a class="rpm-btn rpm-btn-gold" href="/unete">ÚNETE</a>
+        <a class="rpm-btn" href="/contacto">Contacto</a>
+
       </nav>
     </div>
   </header>
@@ -77,10 +79,8 @@
       height:auto;
     }
 
-    /* ===== ESPACIO SUPERIOR GLOBAL ===== */
     body{ padding-top:128px; }
 
-    /* ===== BARRA SUPERIOR ===== */
     .rp-top-ticker{
       position:fixed;
       top:0;
@@ -118,7 +118,6 @@
       to{ transform:translateX(-50%); }
     }
 
-    /* ===== HEADER ===== */
     #rpm-header{
       position:fixed;
       top:36px;
@@ -240,31 +239,8 @@
     }
 
     @media (max-width:980px){
-      body{ padding-top:124px; }
-
-      .rp-top-ticker{
-        height:32px;
-      }
-
-      .rp-top-ticker span{
-        font-size:12px;
-        padding:0 24px;
-      }
-
-      #rpm-header{
-        top:32px;
-        height:92px;
-      }
-
-      #rpm-header .rpm-header-inner{
-        width:min(1200px, 96vw);
-        gap:12px;
-      }
-
       #rpm-header .rpm-burger{
         display:inline-flex;
-        align-items:center;
-        justify-content:center;
       }
 
       #rpm-header .rpm-nav{
@@ -274,120 +250,16 @@
         right:0;
         display:none;
         flex-direction:column;
-        align-items:stretch;
-        gap:0;
         padding:14px;
         background:rgba(6, 9, 34, 0.98);
-        border-bottom:2px solid rgba(212,175,55,.55);
-        z-index:9998;
       }
 
       #rpm-header.rpm-open .rpm-nav{
         display:flex;
       }
-
-      #rpm-header .rpm-link,
-      #rpm-header .rpm-btn{
-        width:100%;
-        text-align:left;
-        padding:12px;
-        border-radius:10px;
-      }
-
-      #rpm-header .rpm-dropdown{
-        height:auto;
-        align-items:stretch;
-        flex-direction:column;
-      }
-
-      #rpm-header .rpm-dropdown-menu{
-        position:static;
-        display:none;
-        min-width:auto;
-        margin-top:8px;
-      }
-
-      #rpm-header .rpm-dropdown.rpm-dd-open .rpm-dropdown-menu{
-        display:block;
-      }
-    }
-
-    /* ===== AJUSTE GLOBAL MÓVIL PARA PÁGINAS MADRE E HIJAS RP ===== */
-    [id^="rpLine"],
-    [id^="rpProduct"]{
-      width:100% !important;
-      max-width:100% !important;
-      margin:0 auto !important;
-      overflow-x:hidden !important;
-    }
-
-    [id^="rpLine"] .rp-wrap,
-    [id^="rpProduct"]{
-      width:100% !important;
-      max-width:1200px !important;
-      margin:0 auto !important;
-    }
-
-    [id^="rpLine"] img,
-    [id^="rpProduct"] img{
-      max-width:100% !important;
-      height:auto !important;
-    }
-
-    @media (max-width:640px){
-
-      [id^="rpLine"]{
-        padding-left:14px !important;
-        padding-right:14px !important;
-      }
-
-      [id^="rpProduct"]{
-        padding-left:14px !important;
-        padding-right:14px !important;
-      }
-
-      [id^="rpLine"] .rp-wrap{
-        max-width:100% !important;
-        margin:0 auto !important;
-      }
-
-      [id^="rpLine"] .rp-hero-line,
-      [id^="rpLine"] .rp-section,
-      [id^="rpLine"] .rp-section-muted{
-        padding-left:0 !important;
-        padding-right:0 !important;
-      }
-
-      [id^="rpLine"] .rp-grid-cards{
-        grid-template-columns:1fr !important;
-      }
-
-      [id^="rpLine"] .rp-card,
-      [id^="rpLine"] .rp-card-media,
-      [id^="rpLine"] .rp-card-body{
-        width:100% !important;
-        max-width:100% !important;
-      }
-
-      [id^="rpProduct"] .rp-pdp-hero,
-      [id^="rpProduct"] .rp-grid-2,
-      [id^="rpProduct"] .rp-piece-grid,
-      [id^="rpProduct"] .rp-features-grid,
-      [id^="rpProduct"] .rp-specs{
-        width:100% !important;
-        max-width:100% !important;
-      }
-
-      [id^="rpProduct"] .rp-pdp-media,
-      [id^="rpProduct"] .rp-pdp-panel,
-      [id^="rpProduct"] .rp-pdp-section,
-      [id^="rpProduct"] .rp-pdp-video,
-      [id^="rpProduct"] .rp-final-cta{
-        width:100% !important;
-        max-width:100% !important;
-      }
     }
   </style>
+
   <!-- ===== INICIO HEADER JS ===== -->
 <script>
   (function(){
@@ -445,7 +317,6 @@
 
         const isOpen = dropdown.classList.contains('rpm-dd-open');
 
-        /* PRIMER CLIC EN MÓVIL: abre submenú */
         if (!isOpen){
           e.preventDefault();
           e.stopPropagation();
@@ -454,7 +325,6 @@
           return;
         }
 
-        /* SEGUNDO CLIC EN MÓVIL: navega a /productos y cierra menú */
         closeAllMenus();
       });
     }
