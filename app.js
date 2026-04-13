@@ -98,15 +98,32 @@
       return;
     }
 
-    const url = new URL(link.href);
+    let route = '/';
 
-    if (url.origin !== location.origin) return;
+    try {
+      const url = new URL(link.href, window.location.origin);
 
-    const route = normalizePath(url.pathname);
+      if (url.origin !== location.origin) return;
+
+      route = normalizePath(url.pathname);
+    } catch (error) {
+      route = normalizePath(href);
+    }
 
     if (!routes[route]) return;
 
     e.preventDefault();
+
+    const mobileMenu = document.querySelector(
+      '.menu-open, .nav-open, .active, .open, .is-open'
+    );
+
+    if (mobileMenu) {
+      mobileMenu.classList.remove('menu-open', 'nav-open', 'active', 'open', 'is-open');
+    }
+
+    document.body.classList.remove('menu-open', 'nav-open', 'active', 'open', 'is-open');
+
     loadRoute(route, true);
   });
 
