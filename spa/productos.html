@@ -608,6 +608,23 @@
         </div>
       </article>
 
+      <article class="card" data-cat="cocina" data-name="Elite Cooking System">
+        <div class="img">
+          <img src="../rc_images/elite_cooking_system_categoria_16x9.webp" alt="Elite Cooking System RP Miracle">
+        </div>
+        <div class="body">
+          <h3>Elite Cooking System</h3>
+          <ul>
+            <li>Sistema premium de cocina de alto desempeño</li>
+            <li>Piezas diseñadas para versatilidad y eficiencia</li>
+            <li>Ideal para una experiencia superior en tu cocina</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="/elite-cooking-system">Ver línea</a>
+          </div>
+        </div>
+      </article>
+
       <article class="card" data-cat="electricos" data-name="Electrodomésticos">
         <div class="img">
           <img src="../rc_images/cat_electrodomesticos.png" alt="Electrodomésticos Royal Prestige">
@@ -698,20 +715,34 @@
 
   <script>
   (function(){
-    const search = document.getElementById('rpSearch');
-    const chips  = Array.from(document.querySelectorAll('#categorias .chip'));
-    const cards  = Array.from(document.querySelectorAll('#categorias .card'));
+    const root = document.getElementById('categorias');
+    if (!root) return;
+
+    const search = root.querySelector('#rpSearch');
+    const chips  = Array.from(root.querySelectorAll('.chip'));
+    const cards  = Array.from(root.querySelectorAll('.card'));
     let active = 'all';
 
+    function normalize(str){
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
     function apply(){
-      const q = (search.value || '').trim().toLowerCase();
+      const q = normalize(search ? search.value : '');
+
       cards.forEach(card => {
-        const catRaw = (card.getAttribute('data-cat') || '').toLowerCase().trim();
+        const catRaw  = normalize(card.getAttribute('data-cat'));
         const catList = catRaw.split(/\s+/).filter(Boolean);
-        const name = (card.getAttribute('data-name') || '').toLowerCase();
-        const text = (card.innerText || '').toLowerCase();
+        const name    = normalize(card.getAttribute('data-name'));
+        const text    = normalize(card.textContent);
+
         const okCat = (active === 'all') || catList.includes(active);
-        const okTxt = !q || name.includes(q) || text.includes(q);
+        const okTxt = !q || name.includes(q) || text.includes(q) || catRaw.includes(q);
+
         card.style.display = (okCat && okTxt) ? '' : 'none';
       });
     }
@@ -720,13 +751,14 @@
       btn.addEventListener('click', () => {
         chips.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        active = (btn.getAttribute('data-cat') || 'all').toLowerCase();
+        active = normalize(btn.getAttribute('data-cat') || 'all');
         apply();
       });
     });
 
     if (search) {
       search.addEventListener('input', apply);
+      search.addEventListener('search', apply);
     }
 
     apply();
