@@ -718,50 +718,83 @@
     const root = document.getElementById('categorias');
     if (!root) return;
 
-    const search = root.querySelector('#rpSearch');
-    const chips  = Array.from(root.querySelectorAll('.chip'));
-    const cards  = Array.from(root.querySelectorAll('.card'));
-    let active = 'all';
-
-    function normalize(str){
-      return (str || '')
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim();
-    }
-
-    function apply(){
-      const q = normalize(search ? search.value : '');
-
-      cards.forEach(card => {
-        const catRaw  = normalize(card.getAttribute('data-cat'));
-        const catList = catRaw.split(/\s+/).filter(Boolean);
-        const name    = normalize(card.getAttribute('data-name'));
-        const text    = normalize(card.textContent);
-
-        const okCat = (active === 'all') || catList.includes(active);
-        const okTxt = !q || name.includes(q) || text.includes(q) || catRaw.includes(q);
-
-        card.style.display = (okCat && okTxt) ? '' : 'none';
+    if (root.dataset.filtersBound === '1') {
+      const oldSearch = root.querySelector('#rpSearch');
+      if (oldSearch) oldSearch.value = '';
+      const oldChips = Array.from(root.querySelectorAll('.chip'));
+      oldChips.forEach(function(btn){
+        btn.classList.remove('active');
+        if ((btn.getAttribute('data-cat') || '').toLowerCase() === 'all') {
+          btn.classList.add('active');
+        }
       });
     }
 
-    chips.forEach(btn => {
-      btn.addEventListener('click', () => {
-        chips.forEach(b => b.classList.remove('active'));
+    root.dataset.filtersBound = '1';
+
+    const search = root.querySelector('#rpSearch');
+    const chips  = Array.from(root.querySelectorAll('.chip'));
+    const cards  = Array.from(root.querySelectorAll('.card'));
+
+    let activeCat = 'all';
+
+    function normalize(str){
+      return (str || '')
+        .toString()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function buildHaystack(card){
+      const name = normalize(card.getAttribute('data-name'));
+      const cats = normalize(card.getAttribute('data-cat')).split(' ').filter(Boolean);
+      const text = normalize(card.textContent);
+      return {
+        name: name,
+        cats: cats,
+        text: text,
+        all: normalize(name + ' ' + cats.join(' ') + ' ' + text)
+      };
+    }
+
+    function applyFilters(){
+      const query = normalize(search ? search.value : '');
+
+      cards.forEach(function(card){
+        const data = buildHaystack(card);
+
+        const matchCategory = (activeCat === 'all') || data.cats.indexOf(activeCat) !== -1;
+        const matchText = !query || data.all.indexOf(query) !== -1;
+
+        card.style.display = (matchCategory && matchText) ? '' : 'none';
+      });
+    }
+
+    chips.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        chips.forEach(function(b){
+          b.classList.remove('active');
+        });
+
         btn.classList.add('active');
-        active = normalize(btn.getAttribute('data-cat') || 'all');
-        apply();
+        activeCat = normalize(btn.getAttribute('data-cat') || 'all');
+
+        applyFilters();
       });
     });
 
     if (search) {
-      search.addEventListener('input', apply);
-      search.addEventListener('search', apply);
+      search.addEventListener('input', applyFilters);
+      search.addEventListener('keyup', applyFilters);
+      search.addEventListener('search', applyFilters);
+      search.addEventListener('change', applyFilters);
     }
 
-    apply();
+    activeCat = 'all';
+    applyFilters();
   })();
   </script>
 
