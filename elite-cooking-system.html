@@ -6,6 +6,7 @@
 
 <title>Elite Cooking System - RP Miracle</title>
 
+<!-- ===== OG ULTRA PRO ===== -->
 <meta property="og:title" content="Elite Cooking System - RP Miracle">
 <meta property="og:description" content="Tecnología premium para cocinar con autoridad y excelencia.">
 <meta property="og:image" content="https://rpmiracle.com/og-images/og-elite-cooking-system-rp-miracle.jpg">
@@ -15,24 +16,36 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://rpmiracle.com/og-images/og-elite-cooking-system-rp-miracle.jpg">
 
+<!-- ===== REDIRECCIÓN INTELIGENTE ===== -->
 <script>
-window.location.href = "/";
+(function () {
+  var ua = navigator.userAgent.toLowerCase();
+
+  var isBot =
+    ua.includes("facebookexternalhit") ||
+    ua.includes("whatsapp") ||
+    ua.includes("twitterbot") ||
+    ua.includes("linkedinbot") ||
+    ua.includes("slackbot") ||
+    ua.includes("discordbot");
+
+  // Solo redirige si NO es bot
+  if (!isBot) {
+    window.location.replace("/");
+  }
+})();
 </script>
 
 </head>
-<body>
-<!-- IMAGEN FALLBACK PARA SMS -->
-<img src="https://rpmiracle.com/og-images/og-elite-cooking-system-rp-miracle.jpg" 
-     alt="Elite Cooking System RP Miracle"
-     style="width:100%; max-width:1200px; display:block;">
 
-<!-- ===== OG FALLBACK (SMS / iMessage) ===== -->
-<div style="position:absolute; top:-9999px; left:-9999px; width:1200px; height:auto; overflow:hidden;">
-  <img src="https://rpmiracle.com/og-images/og-elite-cooking-system-rp-miracle.jpg"
-       alt="Elite Cooking System RP Miracle"
-       width="1200"
-       height="630">
-</div>
-<!-- ===== FIN OG FALLBACK ===== -->
+<body>
+
+<!-- ===== FALLBACK SMS (INVISIBLE PERO DETECTABLE) ===== -->
+<img src="https://rpmiracle.com/og-images/og-elite-cooking-system-rp-miracle.jpg"
+     alt="Elite Cooking System RP Miracle"
+     width="1200"
+     height="630"
+     style="position:absolute; left:-9999px; top:-9999px;">
+
 </body>
 </html>
