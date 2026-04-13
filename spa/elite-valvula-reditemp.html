@@ -1,0 +1,567 @@
+<style>
+  /* ===== PRODUCTO ELITE AROS SILICROMÁTICOS ===== */
+  #rpProductEliteAros{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:34px 18px 44px;
+    color:#ffffff;
+    box-sizing:border-box;
+  }
+
+  #rpProductEliteAros *{ box-sizing:border-box; }
+
+  #rpProductEliteAros .rp-breadcrumbs{
+    margin:0 0 18px;
+    font-size:14px;
+    line-height:1.6;
+    color:#d4af37;
+  }
+
+  #rpProductEliteAros .rp-breadcrumbs a{
+    color:#d4af37;
+    text-decoration:none;
+  }
+
+  #rpProductEliteAros .rp-breadcrumbs a:hover{
+    text-decoration:underline;
+  }
+
+  #rpProductEliteAros .rp-breadcrumbs .rp-current{
+    color:#ffffff;
+    font-weight:700;
+  }
+
+  #rpProductEliteAros .rp-pdp-hero{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  #rpProductEliteAros .rp-pdp-media,
+  #rpProductEliteAros .rp-pdp-panel,
+  #rpProductEliteAros .rp-pdp-section,
+  #rpProductEliteAros .rp-pdp-video{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpProductEliteAros .rp-pdp-media{
+    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
+    padding:18px;
+  }
+
+  #rpProductEliteAros .rp-pdp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  #rpProductEliteAros .rp-pdp-panel{
+    padding:26px 24px;
+  }
+
+  #rpProductEliteAros .rp-badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(212,175,55,.16);
+    border:1px solid rgba(212,175,55,.32);
+    color:#f3df8a;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  #rpProductEliteAros h1{
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.12;
+    color:#ffffff;
+  }
+
+  #rpProductEliteAros .rp-subtitle{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductEliteAros .rp-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 18px;
+  }
+
+  #rpProductEliteAros .rp-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.18);
+    color:#fff;
+    font-size:14px;
+  }
+
+  #rpProductEliteAros .rp-price-note{
+    margin:0 0 22px;
+    color:rgba(255,255,255,.82);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  #rpProductEliteAros .rp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+
+  #rpProductEliteAros .rp-actions-stacked{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:16px;
+  }
+
+  #rpProductEliteAros .rp-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:14px;
+    font-weight:700;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+
+  #rpProductEliteAros .rp-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  #rpProductEliteAros .rp-btn-primary{
+    background:#d4af37;
+    color:#111111;
+  }
+
+  #rpProductEliteAros .rp-btn-primary:hover{
+    box-shadow:0 12px 24px rgba(212,175,55,.18);
+  }
+
+  #rpProductEliteAros .rp-btn-outline{
+    border:1px solid rgba(212,175,55,.55);
+    color:#ffffff;
+    background:transparent;
+  }
+
+  #rpProductEliteAros .rp-btn-outline:hover{
+    background:rgba(212,175,55,.08);
+  }
+
+  #rpProductEliteAros .rp-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:26px;
+    align-items:start;
+  }
+
+  #rpProductEliteAros .rp-grid-2 > .rp-pdp-section{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  #rpProductEliteAros .rp-pdp-section{
+    padding:22px 22px 20px;
+    margin-top:30px;
+  }
+
+  #rpProductEliteAros .rp-pdp-section h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductEliteAros .rp-pdp-section p{
+    margin:0 0 10px;
+    color:rgba(255,255,255,.9);
+    line-height:1.7;
+  }
+
+  #rpProductEliteAros .rp-list{
+    margin:0;
+    padding-left:18px;
+    color:rgba(255,255,255,.92);
+  }
+
+  #rpProductEliteAros .rp-list li{
+    margin:0 0 10px;
+    line-height:1.6;
+  }
+
+  #rpProductEliteAros .rp-pdp-video{
+    margin-top:30px;
+    padding:22px;
+  }
+
+  #rpProductEliteAros .rp-pdp-video h2{
+    margin:0 0 14px;
+    font-size:24px;
+    color:#ffffff;
+  }
+
+  #rpProductEliteAros .rp-final-cta{
+    margin-top:30px;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(212,175,55,.05) 100%);
+    border:1px solid rgba(212,175,55,.18);
+    text-align:center;
+  }
+
+  #rpProductEliteAros .rp-final-cta h3{
+    margin:0 0 8px;
+    font-size:28px;
+    color:#fff;
+  }
+
+  #rpProductEliteAros .rp-final-cta p{
+    margin:0 0 16px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+  }
+
+  #rpProductEliteAros .rp-features-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:12px;
+  }
+
+  #rpProductEliteAros .rp-feature{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:14px;
+    padding:18px;
+  }
+
+  #rpProductEliteAros .rp-feature h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:#fff;
+  }
+
+  #rpProductEliteAros .rp-feature p{
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:1.6;
+  }
+
+  #rpProductEliteAros .rp-specs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:12px;
+  }
+
+  #rpProductEliteAros .rp-spec{
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:10px;
+    padding:12px 14px;
+    gap:12px;
+  }
+
+  #rpProductEliteAros .rp-spec-title{
+    color:rgba(255,255,255,.7);
+    font-weight:600;
+  }
+
+  #rpProductEliteAros .rp-spec-value{
+    color:#fff;
+    text-align:right;
+  }
+
+  @media (max-width:980px){
+    #rpProductEliteAros .rp-pdp-hero{
+      grid-template-columns:1fr;
+    }
+    #rpProductEliteAros .rp-grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:800px){
+    #rpProductEliteAros .rp-features-grid{
+      grid-template-columns:1fr;
+    }
+    #rpProductEliteAros .rp-specs{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    #rpProductEliteAros{
+      padding:24px 14px 34px;
+    }
+    #rpProductEliteAros h1{
+      font-size:30px;
+    }
+    #rpProductEliteAros .rp-pdp-panel,
+    #rpProductEliteAros .rp-pdp-section,
+    #rpProductEliteAros .rp-pdp-video{
+      padding:18px;
+    }
+  }
+
+  #rpProductEliteAros .rp-video{
+    max-width:1000px;
+    margin:0 auto;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08);
+    background:#000;
+  }
+
+  #rpProductEliteAros .rp-video video{
+    width:100%;
+    height:auto;
+    display:block;
+    border:0;
+    background:#000;
+  }
+</style>
+
+<section id="rpProductEliteAros">
+
+  <div class="rp-breadcrumbs">
+    <a href="/">Inicio</a> /
+    <a href="/productos">Productos</a> /
+    <a href="/elite-cooking-system">Elite Cooking System</a> /
+    <span class="rp-current">Aros Silicromáticos</span>
+  </div>
+
+  <div class="rp-pdp-hero">
+    <div class="rp-pdp-media">
+      <img src="rc_images/aros_silicromatico.png" alt="Elite Cooking System Aros Silicromáticos">
+    </div>
+
+    <div class="rp-pdp-panel">
+      <span class="rp-badge">Elite Cooking System</span>
+      <h1>Aros Silicromáticos</h1>
+      <p class="rp-subtitle">
+        Refacción original del sistema Elite Cooking System, diseñada para apoyar el sellado adecuado y preservar el funcionamiento óptimo del sistema.
+      </p>
+
+      <div class="rp-meta">
+        <span class="rp-chip">SKU: <strong>Consultar con asesor</strong></span>
+        <span class="rp-chip">Disponibilidad: <strong>Refacción original</strong></span>
+        <span class="rp-chip">Categoría: <strong>Refacción</strong></span>
+      </div>
+
+      <p class="rp-price-note">
+        Los Aros Silicromáticos forman parte de las refacciones del sistema Elite Cooking System y ayudan a mantener el desempeño adecuado del utensilio dentro de su uso regular.
+      </p>
+
+      <div class="rp-actions">
+        <a class="rp-btn rp-btn-primary" href="/contacto">Solicitar información</a>
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Descripción general</h2>
+      <p>
+        Los Aros Silicromáticos son una refacción diseñada para integrarse correctamente al sistema Elite Cooking System.
+      </p>
+      <p>
+        Su función es contribuir al desempeño correcto del sistema, apoyando el sellado y la operación adecuada del utensilio.
+      </p>
+      <p>
+        Son una opción importante para quienes desean mantener su equipo en condiciones óptimas y con componentes originales.
+      </p>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Ideal para</h2>
+      <ul class="rp-list">
+        <li>Usuarios que desean mantener su sistema con refacciones originales.</li>
+        <li>Quienes buscan conservar el buen funcionamiento del utensilio.</li>
+        <li>Cocinas que valoran mantenimiento preventivo y cuidado del sistema.</li>
+        <li>Usuarios que desean prolongar la vida útil de su equipo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-grid-2">
+    <div class="rp-pdp-section">
+      <h2>Beneficios</h2>
+      <ul class="rp-list">
+        <li>Refacción original compatible con la línea Elite Cooking System.</li>
+        <li>Apoya el correcto funcionamiento del sistema.</li>
+        <li>Contribuye al mantenimiento del rendimiento del utensilio.</li>
+        <li>Ayuda a conservar la experiencia de uso esperada.</li>
+        <li>Ideal para cuidado y reemplazo oportuno de componentes.</li>
+      </ul>
+    </div>
+
+    <div class="rp-pdp-section">
+      <h2>Uso recomendado</h2>
+      <ul class="rp-list">
+        <li>Como reemplazo original dentro del sistema Elite Cooking System.</li>
+        <li>Para mantenimiento y conservación del funcionamiento adecuado.</li>
+        <li>Para usuarios que desean mantener su sistema en óptimas condiciones.</li>
+        <li>Como parte del cuidado preventivo del utensilio.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Características de la refacción</h2>
+
+    <div class="rp-features-grid">
+      <div class="rp-feature">
+        <h3>Refacción original</h3>
+        <p>
+          Diseñada para integrarse correctamente al sistema Elite Cooking System.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Soporte al funcionamiento</h3>
+        <p>
+          Ayuda a conservar el desempeño adecuado del utensilio dentro del uso normal.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Mantenimiento del sistema</h3>
+        <p>
+          Forma parte del cuidado preventivo y de la conservación del equipo.
+        </p>
+      </div>
+
+      <div class="rp-feature">
+        <h3>Compatibilidad específica</h3>
+        <p>
+          Pensada para usuarios de la línea Elite Cooking System que requieren reemplazo original.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Especificaciones de la refacción</h2>
+
+    <div class="rp-specs">
+      <div class="rp-spec">
+        <span class="rp-spec-title">Línea</span>
+        <span class="rp-spec-value">Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Tipo de pieza</span>
+        <span class="rp-spec-value">Refacción</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Nombre</span>
+        <span class="rp-spec-value">Aros Silicromáticos</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Configuración</span>
+        <span class="rp-spec-value">Reemplazo original</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Compatibilidad</span>
+        <span class="rp-spec-value">Línea Elite Cooking System</span>
+      </div>
+
+      <div class="rp-spec">
+        <span class="rp-spec-title">Uso recomendado</span>
+        <span class="rp-spec-value">Mantenimiento y reemplazo del sistema</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video de presentación</h2>
+    <div class="rp-video">
+      <video controls playsinline preload="metadata">
+        <source src="media/elite_presentacion.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video de uso y cuidados</h2>
+    <div class="rp-video">
+      <video controls playsinline preload="metadata">
+        <source src="media/elite_uso_cuidados.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Catálogo completo</h2>
+    <p>
+      Descarga el brochure oficial de Elite Cooking System para conocer mejor la línea, sus características, accesorios y refacciones.
+    </p>
+
+    <div class="rp-actions-stacked">
+      <a class="rp-btn rp-btn-primary"
+         href="catalogos/elite_cooking_system_brochure.pdf"
+         target="_blank"
+         rel="noopener">
+         Ver catálogo completo
+      </a>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Explorar la línea Elite Cooking System</h2>
+
+    <p>
+      Descubre también el sistema principal, las piezas adicionales, accesorios y refacciones disponibles dentro de esta línea.
+    </p>
+
+    <div class="rp-actions-stacked" style="margin-top:16px;">
+      <a class="rp-btn rp-btn-primary"
+         href="/contacto">
+         Solicitar más información
+      </a>
+
+      <a class="rp-btn rp-btn-outline"
+         href="/elite-cooking-system">
+         ← Volver a Elite Cooking System
+      </a>
+    </div>
+  </div>
+
+  <div class="rp-final-cta">
+    <h3>¿Quieres conocer esta refacción más a fondo?</h3>
+    <p>
+      Escríbenos y te ayudamos a evaluar si los Aros Silicromáticos de Elite Cooking System son la refacción adecuada para mantener tu sistema en óptimas condiciones.
+    </p>
+    <div class="rp-actions" style="justify-content:center;">
+      <a class="rp-btn rp-btn-primary" href="/contacto">Ir a contacto</a>
+      <a class="rp-btn rp-btn-outline" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+    </div>
+  </div>
+
+</section>

@@ -345,30 +345,20 @@
   /* ===== VIDEO PREMIUM RP ===== */
   #rpProductElite8 .rp-video{
     max-width:1000px;
-    margin:40px auto 0;
+    margin:0 auto;
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 20px 60px rgba(0,0,0,.45);
     border:1px solid rgba(255,255,255,.08);
+    background:#000;
   }
 
-  #rpProductElite8 .rp-video iframe{
+  #rpProductElite8 .rp-video video{
     width:100%;
-    height:560px;
+    height:auto;
     display:block;
     border:0;
-  }
-
-  @media (max-width:900px){
-    #rpProductElite8 .rp-video iframe{
-      height:420px;
-    }
-  }
-
-  @media (max-width:600px){
-    #rpProductElite8 .rp-video iframe{
-      height:260px;
-    }
+    background:#000;
   }
 </style>
 
@@ -531,12 +521,36 @@
   <div class="rp-pdp-video">
     <h2>Video de presentación</h2>
     <div class="rp-video">
-      <iframe
-        src="https://www.youtube.com/embed/eGdogBIh9eQ"
-        title="Elite Cooking System"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <video controls playsinline preload="metadata">
+        <source src="media/elite_presentacion.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video de uso y cuidados</h2>
+    <div class="rp-video">
+      <video controls playsinline preload="metadata">
+        <source src="media/elite_uso_cuidados.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+  </div>
+
+  <div class="rp-pdp-section">
+    <h2>Catálogo completo</h2>
+    <p>
+      Descarga el brochure oficial de Elite Cooking System para conocer mejor la línea, sus características, accesorios y refacciones.
+    </p>
+
+    <div class="rp-actions-stacked">
+      <a class="rp-btn rp-btn-primary"
+         href="catalogos/elite_cooking_system_brochure.pdf"
+         target="_blank"
+         rel="noopener">
+         Ver catálogo completo
+      </a>
     </div>
   </div>
 
@@ -544,7 +558,7 @@
     <h2>Explorar la línea Elite Cooking System</h2>
 
     <p>
-      Descubre también el sistema principal y los accesorios adicionales disponibles dentro de esta nueva línea.
+      Descubre también el sistema principal, los accesorios adicionales y las refacciones disponibles dentro de esta nueva línea.
     </p>
 
     <div class="rp-actions-stacked" style="margin-top:16px;">

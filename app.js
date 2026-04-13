@@ -18,7 +18,9 @@
     '/elite-5piezas': 'spa/elite-5piezas.html',
     '/elite-sarten-8': 'spa/elite-sarten-8.html',
     '/elite-base-magnetica': 'spa/elite-base-magnetica.html',
-    '/elite-protectores': 'spa/elite-protectores.html'
+    '/elite-protectores': 'spa/elite-protectores.html',
+    '/elite-aros-silicromaticos': 'spa/elite-aros-silicromaticos.html',
+    '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html'
   };
 
   let isNavigating = false;
@@ -39,6 +41,14 @@
 
     let p = path.trim();
 
+    // Soporta enlaces tipo "/#ruta"
+    if (p.includes('#')) {
+      const hashPart = p.split('#')[1].trim();
+      if (!hashPart) return '/';
+      p = hashPart;
+    }
+
+    // Soporta enlaces tipo "#ruta"
     if (p.startsWith('#')) {
       p = p.slice(1);
     }
@@ -79,7 +89,7 @@
       container.innerHTML = html;
 
       if (pushState) {
-        history.pushState({}, '', '#' + cleanPath.replace(/^\//, ''));
+        history.pushState({}, '', '/#' + cleanPath.replace(/^\//, ''));
       }
 
       window.scrollTo(0, 0);
@@ -116,6 +126,10 @@
   });
 
   window.addEventListener('popstate', function () {
+    loadRoute(getCurrentPath(), false);
+  });
+
+  window.addEventListener('hashchange', function () {
     loadRoute(getCurrentPath(), false);
   });
 
