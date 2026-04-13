@@ -26,6 +26,13 @@
   let isNavigating = false;
 
   function getCurrentPath() {
+    const hash = window.location.hash;
+
+    if (hash && hash.startsWith('#')) {
+      const p = hash.slice(1).trim();
+      return p.startsWith('/') ? p : '/' + p;
+    }
+
     return window.location.pathname;
   }
 
@@ -33,6 +40,16 @@
     if (!path) return '/';
 
     let p = path.trim();
+
+    if (p.includes('#')) {
+      const hashPart = p.split('#')[1].trim();
+      if (!hashPart) return '/';
+      p = hashPart;
+    }
+
+    if (p.startsWith('#')) {
+      p = p.slice(1);
+    }
 
     if (!p.startsWith('/')) {
       p = '/' + p;
@@ -70,7 +87,7 @@
       container.innerHTML = html;
 
       if (pushState) {
-        history.pushState({}, '', cleanPath);
+        history.pushState({}, '', '/#' + cleanPath.replace(/^\//, ''));
       }
 
       window.scrollTo(0, 0);
@@ -98,36 +115,19 @@
       return;
     }
 
-    let route = '/';
-
-    try {
-      const url = new URL(link.href, window.location.origin);
-
-      if (url.origin !== location.origin) return;
-
-      route = normalizePath(url.pathname);
-    } catch (error) {
-      route = normalizePath(href);
-    }
+    const route = normalizePath(href);
 
     if (!routes[route]) return;
 
     e.preventDefault();
-
-    const mobileMenu = document.querySelector(
-      '.menu-open, .nav-open, .active, .open, .is-open'
-    );
-
-    if (mobileMenu) {
-      mobileMenu.classList.remove('menu-open', 'nav-open', 'active', 'open', 'is-open');
-    }
-
-    document.body.classList.remove('menu-open', 'nav-open', 'active', 'open', 'is-open');
-
     loadRoute(route, true);
   });
 
   window.addEventListener('popstate', function () {
+    loadRoute(getCurrentPath(), false);
+  });
+
+  window.addEventListener('hashchange', function () {
     loadRoute(getCurrentPath(), false);
   });
 
