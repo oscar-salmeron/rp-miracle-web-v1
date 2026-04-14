@@ -14,13 +14,16 @@
     '/distribuidor': 'spa/distribuidor.html',
     '/unete': 'spa/unete.html',
     '/contacto': 'spa/contacto.html',
-    '/elite-cooking-system': 'spa/elite-cooking-system.html',
     '/elite-5piezas': 'spa/elite-5piezas.html',
     '/elite-sarten-8': 'spa/elite-sarten-8.html',
     '/elite-base-magnetica': 'spa/elite-base-magnetica.html',
     '/elite-protectores': 'spa/elite-protectores.html',
     '/elite-aros-silicromaticos': 'spa/elite-aros-silicromaticos.html',
     '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html'
+  };
+
+  const realPages = {
+    '/elite-cooking-system': '/elite-cooking-system.html'
   };
 
   let isNavigating = false;
@@ -116,6 +119,12 @@
     }
 
     const route = normalizePath(href);
+
+    if (realPages[route]) {
+      e.preventDefault();
+      window.location.href = realPages[route];
+      return;
+    }
 
     if (!routes[route]) return;
 
