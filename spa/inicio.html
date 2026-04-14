@@ -184,6 +184,7 @@
   filter: blur(.2px);
   transform: translateZ(0);
 }
+
 .rp-products > *{
   position:relative;
   z-index:1;
@@ -265,6 +266,8 @@
   width:100%;
   height:240px;
   object-fit:cover;
+  object-position:center center;
+  display:block;
 }
 
 .rp-card-body{
@@ -319,6 +322,7 @@
   background:linear-gradient(135deg,#8fa84b,#a7c65a);
   box-shadow:0 16px 34px rgba(0,0,0,.60);
 }
+
 #rp-products::before,
 #rp-products::after{
   content:"";
@@ -332,6 +336,28 @@
 #rp-products::before{ top:0; }
 #rp-products::after{ bottom:0; }
 
+@media (max-width: 768px){
+  .rp-products{
+    padding:50px 16px 60px 16px;
+  }
+
+  .rp-products h2{
+    font-size:34px;
+  }
+
+  .rp-products-grid{
+    gap:22px;
+  }
+
+  .rp-card img{
+    height:auto;
+    object-fit:contain;
+    object-position:center center;
+    background:linear-gradient(180deg,#0f1628 0%, #111a2e 100%);
+    padding:14px 14px 0 14px;
+    box-sizing:border-box;
+  }
+}
 </style>
 
 <section class="rp-section rp-products">
@@ -342,7 +368,7 @@
 <div class="rp-products-grid">
 
 <div class="rp-card">
-<img src="rc_images/sistema_10piezas_5capas.png">
+<img src="rc_images/sistema_10piezas_5capas.png" alt="Sistema 10 Piezas – 5 Capas">
 <div class="rp-card-body">
 <h3>Sistema 10 Piezas – 5 Capas</h3>
 <p>Durabilidad superior para toda la vida.</p>
@@ -351,7 +377,7 @@
 </div>
 
 <div class="rp-card">
-<img src="rc_images/power_blender_max.png">
+<img src="rc_images/power_blender_max.png" alt="Power Blender Max">
 <div class="rp-card-body">
 <h3>Power Blender Max</h3>
 <p>Potencia profesional en tu cocina.</p>
@@ -360,7 +386,7 @@
 </div>
 
 <div class="rp-card">
-<img src="rc_images/sistema_agua_5500.png">
+<img src="rc_images/sistema_agua_5500.png" alt="Sistema de Agua 5500">
 <div class="rp-card-body">
 <h3>Sistema de Agua 5500</h3>
 <p>Agua pura, bienestar real.</p>
@@ -369,7 +395,7 @@
 </div>
 
 <div class="rp-card">
-<img src="rc_images/sarten_easy_release.png">
+<img src="rc_images/sarten_easy_release.png" alt="Sartén Easy Release">
 <div class="rp-card-body">
 <h3>Sartén Easy Release</h3>
 <p>Cocina sin grasa, limpieza sin esfuerzo.</p>
