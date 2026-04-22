@@ -58,7 +58,7 @@
 }
 
 #rpLineElite .rp-card:hover .rp-card-media img{
-  transform:scale(1.035);
+  transform:none;
 }
 
 #rpLineElite .rp-card-body{
@@ -82,18 +82,19 @@
   line-height:1.5;
 }
 
-#rpLineElite .rp-card-media img{
-  width:100%;
-  height:auto;
-  display:block;
-  transition:transform .45s ease, filter .45s ease;
-  transform:scale(1);
-}
-
 #rpLineElite .rp-card-media{
   position:relative;
   overflow:hidden;
   background:#000;
+}
+
+#rpLineElite .rp-card-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition:none;
+  transform:none;
+  filter:none;
 }
 
 #rpLineElite .rp-card-actions{
@@ -186,21 +187,6 @@
 #rpLineElite .rp-card-actions a{
   position:relative;
   z-index:2;
-}
-
-#rpLineElite .rp-card-media{ position:relative; }
-
-#rpLineElite .rp-badge{
-  position:absolute;
-  left:12px;
-  top:12px;
-  font-size:12px;
-  font-weight:800;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(0,0,0,.45);
-  border:1px solid rgba(212,175,55,.35);
-  color:#fff;
 }
 
 #rpLineElite .rp-card-title{ margin:0 0 10px; }
