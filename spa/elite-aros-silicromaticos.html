@@ -50,8 +50,11 @@
   }
 
   #rpProductEliteAros .rp-pdp-media{
-    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
-    padding:18px;
+    background:transparent;
+    padding:0;
+    border:0;
+    border-radius:18px;
+    overflow:hidden;
   }
 
   #rpProductEliteAros .rp-pdp-media img{
@@ -59,6 +62,7 @@
     height:auto;
     display:block;
     object-fit:contain;
+    border-radius:18px;
   }
 
   #rpProductEliteAros .rp-pdp-panel{
@@ -497,9 +501,19 @@
   </div>
 
   <div class="rp-pdp-video">
+    <h2>Presentación con el Chef Omar</h2>
+    <div class="rp-video">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-chef-omar-presentacion-thumbnail.jpg">
+        <source src="media/elite-chef-omar-presentacion.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
     <h2>Video de presentación</h2>
     <div class="rp-video">
-      <video controls playsinline preload="metadata">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-presentacion-thumbnail.jpg">
         <source src="media/elite_presentacion.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
@@ -509,7 +523,7 @@
   <div class="rp-pdp-video">
     <h2>Video de uso y cuidados</h2>
     <div class="rp-video">
-      <video controls playsinline preload="metadata">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-uso-cuidados-thumbnail.jpg">
         <source src="media/elite_uso_cuidados.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
