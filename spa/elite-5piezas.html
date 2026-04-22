@@ -50,8 +50,11 @@
   }
 
   #rpProductElite5 .rp-pdp-media{
-    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
-    padding:18px;
+    background:transparent;
+    padding:0;
+    border:0;
+    border-radius:18px;
+    overflow:hidden;
   }
 
   #rpProductElite5 .rp-pdp-media img{
@@ -353,9 +356,10 @@
     background:#000;
   }
 
-  #rpProductElite5 .rp-video video{
+  #rpProductElite5 .rp-video video,
+  #rpProductElite5 .rp-video iframe{
     width:100%;
-    height:auto;
+    aspect-ratio:16/9;
     display:block;
     border:0;
     background:#000;
@@ -514,6 +518,19 @@
         <span class="rp-spec-title">Uso recomendado</span>
         <span class="rp-spec-value">Cocción diaria y preparaciones variadas</span>
       </div>
+    </div>
+  </div>
+
+  <div class="rp-pdp-video">
+    <h2>Video destacado</h2>
+    <div class="rp-video">
+      <iframe
+        src="https://www.youtube.com/embed/xsXyuK-c2n0"
+        title="Elite Cooking System Video destacado"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 
