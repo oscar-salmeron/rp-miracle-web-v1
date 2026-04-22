@@ -49,17 +49,21 @@
     overflow:hidden;
   }
 
-  #rpProductEliteBase .rp-pdp-media{
-    background:linear-gradient(180deg,#efefef 0%, #dddddd 100%);
-    padding:18px;
-  }
+ #rpProductEliteBase .rp-pdp-media{
+  background:transparent;
+  padding:0;
+  border:0;
+  border-radius:18px;
+  overflow:hidden;
+}
 
   #rpProductEliteBase .rp-pdp-media img{
-    width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
-  }
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  border-radius:18px;
+}
 
   #rpProductEliteBase .rp-pdp-panel{
     padding:26px 24px;
@@ -518,12 +522,60 @@
     </div>
   </div>
 
+  <style>
+  /* ===== PRODUCTO ELITE BASE MAGNÉTICA ===== */
+  #rpProductEliteBase{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:34px 18px 44px;
+    color:#ffffff;
+    box-sizing:border-box;
+  }
+
+  #rpProductEliteBase *{ box-sizing:border-box; }
+
+  #rpProductEliteBase .rp-pdp-media{
+    background:transparent;
+    padding:0;
+    border:0;
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  #rpProductEliteBase .rp-pdp-media img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    border-radius:18px;
+  }
+</style>
+
+<section id="rpProductEliteBase">
+
+  <div class="rp-pdp-hero">
+    <div class="rp-pdp-media">
+      <img src="rc_images/elite_base_magnetica.png">
+    </div>
+  </div>
+
+  <!-- ===== VIDEOS ===== -->
+
+  <div class="rp-pdp-video">
+    <h2>Presentación con el Chef Omar</h2>
+    <div class="rp-video">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-chef-omar-presentacion-thumbnail.jpg">
+        <source src="media/elite-chef-omar-presentacion.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
   <div class="rp-pdp-video">
     <h2>Video de presentación</h2>
     <div class="rp-video">
-      <video controls playsinline preload="metadata">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-presentacion-thumbnail.jpg">
         <source src="media/elite_presentacion.mp4" type="video/mp4">
-        Tu navegador no soporta video HTML5.
       </video>
     </div>
   </div>
@@ -531,12 +583,13 @@
   <div class="rp-pdp-video">
     <h2>Video de uso y cuidados</h2>
     <div class="rp-video">
-      <video controls playsinline preload="metadata">
+      <video controls playsinline preload="metadata" poster="rc_images/elite-uso-cuidados-thumbnail.jpg">
         <source src="media/elite_uso_cuidados.mp4" type="video/mp4">
-        Tu navegador no soporta video HTML5.
       </video>
     </div>
   </div>
+
+</section>
 
   <div class="rp-pdp-section">
     <h2>Catálogo completo</h2>
