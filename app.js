@@ -19,12 +19,11 @@
     '/elite-base-magnetica': 'spa/elite-base-magnetica.html',
     '/elite-protectores': 'spa/elite-protectores.html',
     '/elite-aros-silicromaticos': 'spa/elite-aros-silicromaticos.html',
-    '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html'
+    '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html',
+'/elite-cooking-system': 'spa/elite-cooking-system.html'
   };
 
-  const realPages = {
-    '/elite-cooking-system': '/elite-cooking-system.html'
-  };
+ const realPages = {};
 
   let isNavigating = false;
 
