@@ -129,15 +129,23 @@
          throw new Error('Bucle detectado: el servidor devolvió el index.');
       }
 
-      // Cirugía exacta: Borra los contenedores estorbo de RocketCake
+      // === CIRUGÍA CORREGIDA: Conservar el espacio del Header ===
       const temp = document.createElement('div');
       temp.innerHTML = html;
 
       const headerDiv = temp.querySelector('#siteHeader');
       if (headerDiv) {
         const wrapper = headerDiv.closest('div[id^="html_"]');
-        if (wrapper) wrapper.remove();
-        else headerDiv.remove();
+        if (wrapper) {
+          // Vaciamos el cuadro, pero le forzamos una altura para que funcione
+          // como "espaciador" y el texto NO se esconda debajo del menú
+          wrapper.innerHTML = '';
+          wrapper.style.height = '130px'; 
+          wrapper.style.backgroundColor = 'transparent';
+          wrapper.style.border = 'none';
+        } else {
+          headerDiv.remove();
+        }
       }
 
       const footerDiv = temp.querySelector('#siteFooter');
@@ -200,4 +208,63 @@
   });
 
   loadRoute(getCurrentPath(), false);
+
+  // === WIDGET DE INVITACIÓN / ENCUESTA (Aparece a los 5 segundos) ===
+  setTimeout(() => {
+    if (!document.getElementById('rpm-survey-widget')) {
+      const widget = document.createElement('div');
+      widget.id = 'rpm-survey-widget';
+      
+      // Asegúrate de reemplazar las 'XXXXXXXXXX' con tu número de WhatsApp
+      const whatsappNumber = "XXXXXXXXXX"; 
+      
+      widget.innerHTML = `
+        <div style="position: fixed; bottom: 24px; left: 24px; max-width: 320px; background: #0b1020; border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); z-index: 9999; color: #fff; font-family: Arial, sans-serif; animation: rpm-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+          <button id="rpm-close-widget" style="position: absolute; top: 12px; right: 12px; background: none; border: none; color: #999; font-size: 24px; cursor: pointer; line-height: 1; padding:0;">&times;</button>
+          
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <span style="font-size:24px;">🎁</span>
+            <h4 style="color: #d4af37; margin: 0; font-size: 16px; text-transform:uppercase; letter-spacing:0.5px;">Participa y Gana</h4>
+          </div>
+          
+          <p style="font-size: 14px; margin: 0 0 18px 0; line-height: 1.5; color:#cbd5e1;">
+            Te invitamos a participar en una breve encuesta y recibe un regalo especial.
+          </p>
+          
+          <a href="https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20participar%20en%20la%20encuesta" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37 0%, #e6c358 100%); color: #060922; padding: 12px 0; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(212,175,55,0.2); transition: all 0.3s ease;">
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+        <style>
+          @keyframes rpm-slide-up { 
+            0% { transform: translateY(80px); opacity: 0; } 
+            100% { transform: translateY(0); opacity: 1; } 
+          }
+          #rpm-survey-widget a:hover { 
+            filter: brightness(1.05); 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+          }
+          #rpm-close-widget:hover { color: #fff !important; }
+          
+          /* En móviles se ajusta al ancho completo con márgenes */
+          @media (max-width: 480px) {
+            #rpm-survey-widget > div {
+              left: 15px !important;
+              right: 15px !important;
+              bottom: 15px !important;
+              max-width: none !important;
+              width: auto !important;
+            }
+          }
+        </style>
+      `;
+      document.body.appendChild(widget);
+
+      document.getElementById('rpm-close-widget').addEventListener('click', () => {
+        widget.style.display = 'none';
+      });
+    }
+  }, 5000); // Aparece exactamente 5 segundos después de entrar al sitio
+
 })();
