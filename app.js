@@ -16,7 +16,7 @@
     '/contacto': 'spa/contacto.html',
     '/aviso-legal': 'spa/aviso-legal.html',
 
-    /* LÍNEAS */
+    /* ===== LÍNEAS ===== */
     '/linea-novel': 'spa/linea-novel.html',
     '/linea-innove': 'spa/linea-innove.html',
     '/linea-5capas': 'spa/linea-5capas.html',
@@ -27,7 +27,7 @@
     '/sistemas-filtracion': 'spa/sistemas-filtracion.html',
     '/accesorios': 'spa/accesorios.html',
 
-    /* PRODUCTOS ESPECÍFICOS */
+    /* ===== PRODUCTOS ESPECÍFICOS ===== */
     '/producto-novel-5': 'spa/producto-novel-5.html',
     '/producto-novel-7': 'spa/producto-novel-7.html',
     '/producto-novel-8': 'spa/producto-novel-8.html',
@@ -82,90 +82,47 @@
     '/cafe_te_chocolate': 'spa/cafe_te_chocolate.html',
     '/miscelaneo': 'spa/miscelaneo.html',
     '/almacenamiento': 'spa/almacenamiento.html'
-  };async function loadRoute(path, pushState = true) {
+  };
 
- const realPages = {};
+  const realPages = {};
 
   let isNavigating = false;
 
-  function getCurrentPath() {
-    const hash = window.location.hash;
-
-    if (hash && hash.startsWith('#')) {
-      const p = hash.slice(1).trim();
-      return p.startsWith('/') ? p : '/' + p;
+  function normalizePath(p) {
+    let path = p.replace('.html', '');
+    if (!path.startsWith('/')) {
+      path = '/' + path;
     }
-
-    return window.location.pathname;
+    return path;
   }
 
-  function normalizePath(path) {
-    if (!path) return '/';
-
-    let p = path.trim();
-
-    if (p.includes('#')) {
-      const hashPart = p.split('#')[1].trim();
-      if (!hashPart) return '/';
-      p = hashPart;
+  function getCurrentPath() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#')) {
+      return '/' + hash.substring(1);
     }
-
-    if (p.startsWith('#')) {
-      p = p.slice(1);
-    }
-
-    if (!p.startsWith('/')) {
-      p = '/' + p;
-    }
-
-    if (p.endsWith('.html')) {
-      p = p.replace('.html', '');
-    }
-
-    if (p !== '/' && p.endsWith('/')) {
-      p = p.slice(0, -1);
-    }
-
-    if (p === '' || p === '/index') {
-      return '/';
-    }
-
-    return p;
+    const pathname = window.location.pathname;
+    if (pathname === '/' || pathname === '/index.html') return '/';
+    return normalizePath(pathname);
   }
 
   async function loadRoute(path, pushState = true) {
     const cleanPath = normalizePath(path);
-    let file = routes[cleanPath];
+    const file = routes[cleanPath];
 
-    if (!file) return;
+    if (!file) {
+      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><a href="/" style="color:#d4af37;">Volver al inicio</a></div>';
+      return;
+    }
+
     if (isNavigating) return;
-
     isNavigating = true;
 
     try {
-      let response = await fetch(file, { cache: 'no-store' });
+      const response = await fetch(file, { cache: 'no-store' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
 
-      let html = await response.text();
-
-      // ─── DETECTOR DE SEGURIDAD Y BUSCADOR ALTERNATIVO ───
-      if (html.includes('spa-content')) {
-        const fallbackFile = file.replace('spa/', '');
-        console.warn(`[SPA] ${file} no se halló en /spa/. Buscando en raíz: ${fallbackFile}`);
-        
-        response = await fetch(fallbackFile, { cache: 'no-store' });
-        if (response.ok) {
-          const fallbackHtml = await response.text();
-          if (!fallbackHtml.includes('spa-content')) {
-            html = fallbackHtml;
-          } else {
-            throw new Error('El archivo no existe en /spa/ ni en la raíz del sitio.');
-          }
-        } else {
-          throw new Error(`Error al intentar conectar con la raíz (HTTP ${response.status}).`);
-        }
-      }
-
+      const html = await response.text();
       container.innerHTML = html;
 
       if (pushState) {
@@ -175,6 +132,7 @@
       window.scrollTo(0, 0);
     } catch (error) {
       console.error('Error cargando ruta SPA:', cleanPath, error);
+      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><p>Intenta recargar el sitio web.</p></div>';
     }
 
     setTimeout(() => {
@@ -205,17 +163,13 @@
       return;
     }
 
-    if (!routes[route]) return;
-
-    e.preventDefault();
-    loadRoute(route, true);
+    if (routes[route]) {
+      e.preventDefault();
+      loadRoute(route);
+    }
   });
 
-  window.addEventListener('popstate', function () {
-    loadRoute(getCurrentPath(), false);
-  });
-
-  window.addEventListener('hashchange', function () {
+  window.addEventListener('popstate', () => {
     loadRoute(getCurrentPath(), false);
   });
 
