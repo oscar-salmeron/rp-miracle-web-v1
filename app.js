@@ -6,7 +6,7 @@
     return;
   }
 
-  // MAPA CORREGIDO: Apuntando directamente a la raíz, no a una carpeta "spa/"
+  // MAPA MAESTRO: Todas tus páginas apuntando directamente a la raíz (sin la carpeta "spa/")
   const routes = {
     '/': 'inicio.html',
     '/index': 'inicio.html',
@@ -18,7 +18,6 @@
     '/contacto': 'contacto.html',
     '/aviso-legal': 'aviso-legal.html',
 
-    /* ===== LÍNEAS ===== */
     '/linea-novel': 'linea-novel.html',
     '/linea-innove': 'linea-innove.html',
     '/linea-5capas': 'linea-5capas.html',
@@ -29,7 +28,6 @@
     '/sistemas-filtracion': 'sistemas-filtracion.html',
     '/accesorios': 'accesorios.html',
 
-    /* ===== PRODUCTOS ESPECÍFICOS ===== */
     '/producto-novel-5': 'producto-novel-5.html',
     '/producto-novel-7': 'producto-novel-7.html',
     '/producto-novel-8': 'producto-novel-8.html',
@@ -87,7 +85,6 @@
   };
 
   const realPages = {};
-
   let isNavigating = false;
 
   function normalizePath(p) {
@@ -113,7 +110,7 @@
     const file = routes[cleanPath];
 
     if (!file) {
-      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><a href="/" style="color:#d4af37;">Volver al inicio</a></div>';
+      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><p>La ruta no está registrada.</p><a href="/" style="color:#d4af37;">Volver al inicio</a></div>';
       return;
     }
 
@@ -125,27 +122,31 @@
       if (!response.ok) throw new Error('HTTP ' + response.status);
 
       const html = await response.text();
-      container.innerHTML = html;
 
-      // Operación quirúrgica: Elimina los bloques contenedores sobrantes de RocketCake
-      const duplicateHeader = container.querySelector('#siteHeader');
-      if (duplicateHeader) {
-        const parent = duplicateHeader.parentElement;
-        if (parent && parent !== container) {
-          parent.remove(); 
-        } else {
-          duplicateHeader.remove();
-        }
+      // Prevenir el bucle de Vercel si devuelve el cascarón principal
+      if (html.includes('id="spa-content"')) {
+         throw new Error('Bucle detectado: el servidor devolvió el index.');
       }
-      const duplicateFooter = container.querySelector('#siteFooter');
-      if (duplicateFooter) {
-        const parent = duplicateFooter.parentElement;
-        if (parent && parent !== container) {
-          parent.remove(); 
-        } else {
-          duplicateFooter.remove();
-        }
+
+      // CIRUGÍA EXACTA: Extraer y destruir las cajas invisibles de RocketCake
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+
+      const headerDiv = temp.querySelector('#siteHeader');
+      if (headerDiv) {
+        const wrapper = headerDiv.closest('div[id^="html_"]');
+        if (wrapper) wrapper.remove();
+        else headerDiv.remove();
       }
+
+      const footerDiv = temp.querySelector('#siteFooter');
+      if (footerDiv) {
+        const wrapper = footerDiv.closest('div[id^="html_"]');
+        if (wrapper) wrapper.remove();
+        else footerDiv.remove();
+      }
+
+      container.innerHTML = temp.innerHTML;
 
       if (pushState) {
         history.pushState({}, '', '/#' + cleanPath.replace(/^\//, ''));
@@ -154,7 +155,7 @@
       window.scrollTo(0, 0);
     } catch (error) {
       console.error('Error cargando ruta SPA:', cleanPath, error);
-      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><p>Intenta recargar el sitio web.</p></div>';
+      container.innerHTML = '<div style="padding:100px 20px; text-align:center; color:#fff;"><h2>Página no encontrada</h2><p>Intenta recargar el sitio web.</p><a href="/" style="color:#d4af37;">Volver al inicio</a></div>';
     }
 
     setTimeout(() => {
@@ -169,10 +170,12 @@
     const href = link.getAttribute('href');
     if (!href) return;
 
+    // Ignorar links externos, correos, teléfonos o anclas internas
     if (
       href.startsWith('http') ||
       href.startsWith('mailto:') ||
-      href.startsWith('tel:')
+      href.startsWith('tel:') ||
+      href.startsWith('#')
     ) {
       return;
     }
@@ -185,6 +188,7 @@
       return;
     }
 
+    // Interceptar la navegación solo si la ruta existe
     if (routes[route]) {
       e.preventDefault();
       loadRoute(route);
@@ -195,5 +199,6 @@
     loadRoute(getCurrentPath(), false);
   });
 
+  // Arrancar la página inicial
   loadRoute(getCurrentPath(), false);
 })();
