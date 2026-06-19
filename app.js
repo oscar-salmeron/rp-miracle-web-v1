@@ -6,82 +6,82 @@
     return;
   }
 
-  // MAPA MAESTRO: Todas tus páginas apuntando directamente a la raíz (sin la carpeta "spa/")
+  // MAPA MAESTRO RESTAURADO: Apuntando correctamente a la carpeta "spa/"
   const routes = {
-    '/': 'inicio.html',
-    '/index': 'inicio.html',
-    '/inicio': 'inicio.html',
-    '/productos': 'productos.html',
-    '/servicios': 'servicios.html',
-    '/distribuidor': 'distribuidor.html',
-    '/unete': 'unete.html',
-    '/contacto': 'contacto.html',
-    '/aviso-legal': 'aviso-legal.html',
+    '/': 'spa/inicio.html',
+    '/index': 'spa/inicio.html',
+    '/inicio': 'spa/inicio.html',
+    '/productos': 'spa/productos.html',
+    '/servicios': 'spa/servicios.html',
+    '/distribuidor': 'spa/distribuidor.html',
+    '/unete': 'spa/unete.html',
+    '/contacto': 'spa/contacto.html',
+    '/aviso-legal': 'spa/aviso-legal.html',
 
-    '/linea-novel': 'linea-novel.html',
-    '/linea-innove': 'linea-innove.html',
-    '/linea-5capas': 'linea-5capas.html',
-    '/linea_easy_release': 'linea_easy_release.html',
-    '/elite-cooking-system': 'elite-cooking-system.html',
-    '/electrodomesticos': 'electrodomesticos.html',
-    '/cuchillos-serie-precision-3': 'cuchillos-serie-precision-3.html',
-    '/sistemas-filtracion': 'sistemas-filtracion.html',
-    '/accesorios': 'accesorios.html',
+    '/linea-novel': 'spa/linea-novel.html',
+    '/linea-innove': 'spa/linea-innove.html',
+    '/linea-5capas': 'spa/linea-5capas.html',
+    '/linea_easy_release': 'spa/linea_easy_release.html',
+    '/elite-cooking-system': 'spa/elite-cooking-system.html',
+    '/electrodomesticos': 'spa/electrodomesticos.html',
+    '/cuchillos-serie-precision-3': 'spa/cuchillos-serie-precision-3.html',
+    '/sistemas-filtracion': 'spa/sistemas-filtracion.html',
+    '/accesorios': 'spa/accesorios.html',
 
-    '/producto-novel-5': 'producto-novel-5.html',
-    '/producto-novel-7': 'producto-novel-7.html',
-    '/producto-novel-8': 'producto-novel-8.html',
-    '/producto-novel-10': 'producto-novel-10.html',
-    '/producto-novel-15': 'producto-novel-15.html',
-    '/producto-novel-ollas-grandes': 'producto-novel-ollas-grandes.html',
-    '/producto-novel-gourmet': 'producto-novel-gourmet.html',
-    '/piezas-individuales-novel': 'piezas-individuales-novel.html',
+    '/producto-novel-5': 'spa/producto-novel-5.html',
+    '/producto-novel-7': 'spa/producto-novel-7.html',
+    '/producto-novel-8': 'spa/producto-novel-8.html',
+    '/producto-novel-10': 'spa/producto-novel-10.html',
+    '/producto-novel-15': 'spa/producto-novel-15.html',
+    '/producto-novel-ollas-grandes': 'spa/producto-novel-ollas-grandes.html',
+    '/producto-novel-gourmet': 'spa/producto-novel-gourmet.html',
+    '/piezas-individuales-novel': 'spa/piezas-individuales-novel.html',
 
-    '/innove-juego-5': 'innove-juego-5.html',
-    '/innove-juego-7': 'innove-juego-7.html',
-    '/innove-juego-8': 'innove-juego-8.html',
-    '/innove-juego-10': 'innove-juego-10.html',
-    '/innove-ollas-grandes': 'innove-ollas-grandes.html',
-    '/innove-gourmet': 'innove-gourmet.html',
-    '/innove-piezas': 'innove-piezas.html',
+    '/innove-juego-5': 'spa/innove-juego-5.html',
+    '/innove-juego-7': 'spa/innove-juego-7.html',
+    '/innove-juego-8': 'spa/innove-juego-8.html',
+    '/innove-juego-10': 'spa/innove-juego-10.html',
+    '/innove-ollas-grandes': 'spa/innove-ollas-grandes.html',
+    '/innove-gourmet': 'spa/innove-gourmet.html',
+    '/innove-piezas': 'spa/innove-piezas.html',
 
-    '/5capas-5-esencial': '5capas-5-esencial.html',
-    '/5capas-5-complementario': '5capas-5-complementario.html',
-    '/5capas-7': '5capas-7.html',
-    '/5capas-8': '5capas-8.html',
-    '/5capas-10': '5capas-10.html',
-    '/5capas-ollas-grandes': '5capas-ollas-grandes.html',
-    '/5capas-gourmet': '5capas-gourmet.html',
-    '/5capas-piezas-individuales': '5capas-piezas-individuales.html',
+    '/5capas-5-esencial': 'spa/5capas-5-esencial.html',
+    '/5capas-5-complementario': 'spa/5capas-5-complementario.html',
+    '/5capas-7': 'spa/5capas-7.html',
+    '/5capas-8': 'spa/5capas-8.html',
+    '/5capas-10': 'spa/5capas-10.html',
+    '/5capas-ollas-grandes': 'spa/5capas-ollas-grandes.html',
+    '/5capas-gourmet': 'spa/5capas-gourmet.html',
+    '/5capas-piezas-individuales': 'spa/5capas-piezas-individuales.html',
 
-    '/easy_release_sartenes_6p': 'easy_release_sartenes_6p.html',
-    '/easy_release_ollas_6p': 'easy_release_ollas_6p.html',
+    '/easy_release_sartenes_6p': 'spa/easy_release_sartenes_6p.html',
+    '/easy_release_ollas_6p': 'spa/easy_release_ollas_6p.html',
 
-    '/elite-5piezas': 'elite-5piezas.html',
-    '/elite-sarten-8': 'elite-sarten-8.html',
-    '/elite-base-magnetica': 'elite-base-magnetica.html',
-    '/elite-protectores': 'elite-protectores.html',
-    '/elite-aros-silicromaticos': 'elite-aros-silicromaticos.html',
-    '/elite-valvula-reditemp': 'elite-valvula-reditemp.html',
+    '/elite-5piezas': 'spa/elite-5piezas.html',
+    '/elite-sarten-8': 'spa/elite-sarten-8.html',
+    '/elite-base-magnetica': 'spa/elite-base-magnetica.html',
+    '/elite-protectores': 'spa/elite-protectores.html',
+    '/elite-aros-silicromaticos': 'spa/elite-aros-silicromaticos.html',
+    '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html',
 
-    '/power-blender-max': 'power-blender-max.html',
-    '/power-blender-go': 'power-blender-go.html',
-    '/extractor-de-jugo': 'extractor-de-jugo.html',
-    '/cocina-de-induccion': 'cocina-de-induccion.html',
+    '/power-blender-max': 'spa/power-blender-max.html',
+    '/power-blender-go': 'spa/power-blender-go.html',
+    '/extractor-de-jugo': 'spa/extractor-de-jugo.html',
+    '/cocina-de-induccion': 'spa/cocina-de-induccion.html',
 
-    '/cuchillos-serie-precision-3-juegos': 'cuchillos-serie-precision-3-juegos.html',
-    '/cuchillos-serie-precision-3-piezas-accesorios': 'cuchillos-serie-precision-3-piezas-accesorios.html',
+    '/cuchillos-serie-precision-3-juegos': 'spa/cuchillos-serie-precision-3-juegos.html',
+    '/cuchillos-serie-precision-3-piezas-accesorios': 'spa/cuchillos-serie-precision-3-piezas-accesorios.html',
 
-    '/frescapure-5500': 'frescapure-5500.html',
-    '/frescapure-3500': 'frescapure-3500.html',
-    '/frescaflow': 'frescaflow.html',
-    '/frescapure-shower': 'frescapure-shower.html',
-    '/filtracion-aire': 'filtracion-aire.html',
+    '/frescapure-5500': 'spa/frescapure-5500.html',
+    '/frescapure-3500': 'spa/frescapure-3500.html',
+    '/frescaflow': 'spa/frescaflow.html',
+    '/frescapure-shower': 'spa/frescapure-shower.html',
+    '/filtracion-aire': 'spa/filtracion-aire.html',
 
-    '/juegos_servir': 'juegos_servir.html',
-    '/cafe_te_chocolate': 'cafe_te_chocolate.html',
-    '/miscelaneo': 'miscelaneo.html',
-    '/almacenamiento': 'almacenamiento.html'
+    '/juegos_servir': 'spa/juegos_servir.html',
+    '/cafe_te_chocolate': 'spa/cafe_te_chocolate.html',
+    '/miscelaneo': 'spa/miscelaneo.html',
+    '/almacenamiento': 'spa/almacenamiento.html'
   };
 
   const realPages = {};
@@ -123,12 +123,12 @@
 
       const html = await response.text();
 
-      // Prevenir el bucle de Vercel si devuelve el cascarón principal
+      // Previene errores en bucle
       if (html.includes('id="spa-content"')) {
          throw new Error('Bucle detectado: el servidor devolvió el index.');
       }
 
-      // CIRUGÍA EXACTA: Extraer y destruir las cajas invisibles de RocketCake
+      // Cirugía exacta: Borra los contenedores estorbo de RocketCake
       const temp = document.createElement('div');
       temp.innerHTML = html;
 
@@ -188,7 +188,6 @@
       return;
     }
 
-    // Interceptar la navegación solo si la ruta existe
     if (routes[route]) {
       e.preventDefault();
       loadRoute(route);
@@ -199,6 +198,5 @@
     loadRoute(getCurrentPath(), false);
   });
 
-  // Arrancar la página inicial
   loadRoute(getCurrentPath(), false);
 })();
