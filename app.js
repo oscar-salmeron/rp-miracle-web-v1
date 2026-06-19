@@ -82,7 +82,7 @@
     '/cafe_te_chocolate': 'spa/cafe_te_chocolate.html',
     '/miscelaneo': 'spa/miscelaneo.html',
     '/almacenamiento': 'spa/almacenamiento.html'
-  };
+  };async function loadRoute(path, pushState = true) {
 
  const realPages = {};
 
@@ -135,7 +135,7 @@
 
   async function loadRoute(path, pushState = true) {
     const cleanPath = normalizePath(path);
-    const file = routes[cleanPath];
+    let file = routes[cleanPath];
 
     if (!file) return;
     if (isNavigating) return;
@@ -143,10 +143,29 @@
     isNavigating = true;
 
     try {
-      const response = await fetch(file, { cache: 'no-store' });
+      let response = await fetch(file, { cache: 'no-store' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
 
-      const html = await response.text();
+      let html = await response.text();
+
+      // ─── DETECTOR DE SEGURIDAD Y BUSCADOR ALTERNATIVO ───
+      if (html.includes('spa-content')) {
+        const fallbackFile = file.replace('spa/', '');
+        console.warn(`[SPA] ${file} no se halló en /spa/. Buscando en raíz: ${fallbackFile}`);
+        
+        response = await fetch(fallbackFile, { cache: 'no-store' });
+        if (response.ok) {
+          const fallbackHtml = await response.text();
+          if (!fallbackHtml.includes('spa-content')) {
+            html = fallbackHtml;
+          } else {
+            throw new Error('El archivo no existe en /spa/ ni en la raíz del sitio.');
+          }
+        } else {
+          throw new Error(`Error al intentar conectar con la raíz (HTTP ${response.status}).`);
+        }
+      }
+
       container.innerHTML = html;
 
       if (pushState) {
