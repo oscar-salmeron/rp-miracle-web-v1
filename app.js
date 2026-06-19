@@ -6,9 +6,9 @@
     return;
   }
 
-  // MAPA MAESTRO: Apuntando cada archivo a su carpeta real
+  // MAPA MAESTRO
   const routes = {
-    // === ESTOS ARCHIVOS ESTÁN DENTRO DE LA CARPETA "spa" ===
+    // === CARPETA SPA ===
     '/': 'spa/inicio.html',
     '/index': 'spa/inicio.html',
     '/inicio': 'spa/inicio.html',
@@ -17,7 +17,6 @@
     '/distribuidor': 'spa/distribuidor.html',
     '/unete': 'spa/unete.html',
     '/contacto': 'spa/contacto.html',
-    '/aviso-legal': 'spa/aviso-legal.html',
     '/elite-cooking-system': 'spa/elite-cooking-system.html',
     '/elite-5piezas': 'spa/elite-5piezas.html',
     '/elite-sarten-8': 'spa/elite-sarten-8.html',
@@ -26,8 +25,9 @@
     '/elite-aros-silicromaticos': 'spa/elite-aros-silicromaticos.html',
     '/elite-valvula-reditemp': 'spa/elite-valvula-reditemp.html',
 
-    // === ESTOS ARCHIVOS ESTÁN EN LA RAÍZ (FUERA DE SPA) ===
-    '/accesorios': 'accesorios.html', // Corregido: movido a la raíz
+    // === CARPETA RAÍZ ===
+    '/aviso-legal': 'aviso-legal.html', // Movido a la raíz (el auto-reparador lo encontrará de todas formas)
+    '/accesorios': 'accesorios.html', 
     '/linea-novel': 'linea-novel.html',
     '/linea-innove': 'linea-innove.html',
     '/linea-5capas': 'linea-5capas.html',
@@ -119,19 +119,34 @@
     isNavigating = true;
 
     try {
-      // Destructor de caché: Fuerza al navegador a bajar la versión más nueva de la página
-      const cacheBuster = '?t=' + new Date().getTime();
-      const response = await fetch(file + cacheBuster, { cache: 'no-store' });
+      const timestamp = new Date().getTime();
+      const cacheBuster = '?t=' + timestamp;
+      
+      let currentFile = file;
+      let response = await fetch(currentFile + cacheBuster, { cache: 'no-store' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
 
-      const html = await response.text();
+      let html = await response.text();
 
-      // Previene errores en bucle
+      // === SISTEMA AUTO-REPARADOR DE RUTAS ===
+      // Si Vercel devuelve el index porque el archivo no estaba en esa carpeta...
       if (html.includes('id="spa-content"')) {
-         throw new Error('Bucle detectado: el servidor devolvió el index.');
+         // ...buscamos automáticamente en la carpeta contraria (si estaba en spa/ busca en raíz, y viceversa)
+         currentFile = currentFile.includes('spa/') ? currentFile.replace('spa/', '') : 'spa/' + currentFile;
+         response = await fetch(currentFile + cacheBuster, { cache: 'no-store' });
+         if (!response.ok) throw new Error('HTTP ' + response.status);
+         html = await response.text();
+         
+         if (html.includes('id="spa-content"')) {
+            throw new Error('Archivo no encontrado ni en spa/ ni en raíz.');
+         }
       }
 
-      // === CIRUGÍA CORREGIDA: Conservar el espacio del Header ===
+      // === REVIVIDOR DE IMÁGENES ===
+      // Fuerza a que todas las imágenes muestren su versión más reciente, saltando el caché
+      html = html.replace(/(src="[^"]+\.(?:png|jpe?g|webp|gif|svg))"/gi, `$1?t=${timestamp}"`);
+
+      // === CIRUGÍA DEL HEADER ===
       const temp = document.createElement('div');
       temp.innerHTML = html;
 
@@ -139,8 +154,6 @@
       if (headerDiv) {
         const wrapper = headerDiv.closest('div[id^="html_"]');
         if (wrapper) {
-          // Vaciamos el cuadro, pero le forzamos una altura para que funcione
-          // como "espaciador" y el texto NO se esconda debajo del menú
           wrapper.innerHTML = '';
           wrapper.style.height = '130px'; 
           wrapper.style.backgroundColor = 'transparent';
@@ -181,7 +194,6 @@
     const href = link.getAttribute('href');
     if (!href) return;
 
-    // Ignorar links externos, correos, teléfonos o anclas internas
     if (
       href.startsWith('http') ||
       href.startsWith('mailto:') ||
