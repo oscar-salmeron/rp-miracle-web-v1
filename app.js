@@ -10,6 +10,7 @@
   const routes = {
     '/': 'inicio.html',
     '/index': 'inicio.html',
+    '/inicio': 'inicio.html',
     '/productos': 'productos.html',
     '/servicios': 'servicios.html',
     '/distribuidor': 'distribuidor.html',
@@ -125,6 +126,26 @@
 
       const html = await response.text();
       container.innerHTML = html;
+
+      // Operación quirúrgica: Elimina los bloques contenedores sobrantes de RocketCake
+      const duplicateHeader = container.querySelector('#siteHeader');
+      if (duplicateHeader) {
+        const parent = duplicateHeader.parentElement;
+        if (parent && parent !== container) {
+          parent.remove(); 
+        } else {
+          duplicateHeader.remove();
+        }
+      }
+      const duplicateFooter = container.querySelector('#siteFooter');
+      if (duplicateFooter) {
+        const parent = duplicateFooter.parentElement;
+        if (parent && parent !== container) {
+          parent.remove(); 
+        } else {
+          duplicateFooter.remove();
+        }
+      }
 
       if (pushState) {
         history.pushState({}, '', '/#' + cleanPath.replace(/^\//, ''));
