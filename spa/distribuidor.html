@@ -514,13 +514,41 @@
             onkeydown="if(event.key==='Enter'){document.getElementById('rpDistribuidorEnter').click();}">
         </div>
 
+        <!-- ... existing code ... -->
+          <div class="rp-form-actions">
         <button
           id="rpDistribuidorEnter"
           class="rp-btn rp-btn-primary"
           type="button"
-          onclick="(function(){var typed=document.getElementById('rpDistribuidorPassword').value.trim();var loginWrap=document.getElementById('rpDistribuidorLogin');var panelWrap=document.getElementById('rpDistribuidorPanel');var errorBox=document.getElementById('rpDistribuidorError');if(typed==='Miracle2026'){loginWrap.style.display='none';panelWrap.style.display='block';errorBox.style.display='none';window.scrollTo(0,0);}else{errorBox.style.display='block';document.getElementById('rpDistribuidorPassword').focus();document.getElementById('rpDistribuidorPassword').select();}})();">
+          onclick="(function(btn){
+            var input = document.getElementById('rpDistribuidorPassword');
+            if(!input) {
+              var wrap = btn.closest('.rp-login-shell');
+              if(wrap) input = wrap.querySelector('input[type=password]');
+            }
+            if(!input) return;
+            var typed = input.value.trim();
+            var loginWrap = document.getElementById('rpDistribuidorLogin');
+            var panelWrap = document.getElementById('rpDistribuidorPanel');
+            var errorBox = document.getElementById('rpDistribuidorError');
+            if(typed === 'Monc0028'){
+              if(loginWrap) loginWrap.style.display='none';
+              if(panelWrap) panelWrap.style.display='block';
+              if(errorBox) errorBox.style.display='none';
+              window.scrollTo(0,0);
+            }else{
+              if(errorBox) errorBox.style.display='block';
+              input.focus();
+              input.select();
+            }
+          })(this);">
           Entrar
         </button>
+        </div>
+      </form>
+      </div>
+    </div>
+<!-- ... existing code ... -->
 
         <div id="rpDistribuidorError" class="rp-login-error">
           Contraseña incorrecta. Inténtalo nuevamente.
